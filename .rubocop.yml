@@ -1,0 +1,50 @@
+ClassLength:
+  Enabled: false
+
+MethodLength:
+  Enabled: false
+
+LineLength:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+AbcSize:
+  Enabled: false
+
+Lambda:
+  Enabled: false
+
+AccessorMethodName:
+  Enabled: false
+
+CyclomaticComplexity:
+  Enabled: false
+
+PerceivedComplexity:
+  Enabled: false
+
+Style/PredicateName:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+TrivialAccessors:
+  AllowDSLWriters: true
+
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'app/admin/**/*'
+    - 'bin/**/*'
+    - 'chef-repo/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'lib/**/*'
+    - 'log/**/*'
+    - 'public/**/*'
+    - 'test/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
