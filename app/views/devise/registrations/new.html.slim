@@ -19,6 +19,14 @@ h2
     = f.label :password_confirmation
     br
     = f.password_field :password_confirmation, autocomplete: "off"
+  .field
+    = f.label :name
+    br
+    = f.text_field :name, autofocus: true
+  .field
+    = f.label :birthday
+    br
+    = f.date_select :birthday
   .actions
     = f.submit "Sign up"
 = render "devise/shared/links"

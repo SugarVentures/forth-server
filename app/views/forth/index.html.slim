@@ -1,8 +1,16 @@
 p FORTH Index
 
-ul
-  li
-    = link_to "Sign up", new_user_registration_path
-  li
-    = link_to "Log in", new_user_session_path
-
+- if user_signed_in?
+  | Login as 
+  strong
+    = current_user.name
+  br
+  = link_to 'Profile', edit_user_registration_path
+  br
+  = link_to "Log out", destroy_user_session_path, method: :delete
+- else
+  ul
+    li
+      = link_to "Sign up", new_user_registration_path
+    li
+      = link_to "Log in", new_user_session_path
