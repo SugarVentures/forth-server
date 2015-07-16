@@ -8,6 +8,7 @@
 /.bundle
 /public/*
 /config/secrets.yml
+/config/database.yml
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -24,6 +25,6 @@
 *.swp
 .env
 
-config/database.yml
+
 
 
