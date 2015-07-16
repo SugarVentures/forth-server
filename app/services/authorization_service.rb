@@ -1,8 +1,7 @@
 class AuthorizationService
   def self.check_facebook(token)
     graph = Koala::Facebook::API.new(token, facebook_config['app_secret'])
-    profile = graph.get_object('me')
-
+    profile = graph.get_object('me', :fields=> "name, email, id, age_range")
     { name: profile['name'],
       avatar: graph.get_picture('me', type: 'large'),
       email: profile['email'],
@@ -19,7 +18,7 @@ class AuthorizationService
     attributes.merge!(name: data[:name]) if user.name.blank?
     # attributes.merge!(remote_avatar_url: data[:avatar]) if user.avatar.blank?
     user.update_attributes attributes
-    # user.confirm! unless user.confirmed?
+    user.confirm! unless user.confirmed?
     user
   end
 
@@ -47,7 +46,7 @@ class AuthorizationService
     attributes.merge!(name: data[:name]) if user.name.blank?
     # attributes.merge!(remote_avatar_url: data[:avatar]) if user.avatar.blank?
     user.update_attributes attributes
-    # user.confirm! unless user.confirmed?
+    user.confirm! unless user.confirmed?
     user
   end
 
