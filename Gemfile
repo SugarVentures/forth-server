@@ -24,6 +24,9 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
+# Bower
+gem "bower-rails", "~> 0.9.2"
+
 # front-end
 gem 'therubyracer'
 gem 'less-rails'
