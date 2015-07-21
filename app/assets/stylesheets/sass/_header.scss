@@ -1,0 +1,155 @@
+.header {
+  background: #2cb393;
+  font-family: "LucidaGrandeBold", helvetica, sans-serif;
+  font-size: 9pt;
+  padding: 0;
+  margin: 0;
+  &.sticky-out {
+    position: fixed;
+    top: 0;
+    transition: all 0.5s linear 0s;
+    -o-transition: all 0.5s linear 0s;
+    -webkit-transition: all 0.5s linear 0s;
+    width: 100%;
+    z-index: 999;
+    @media (max-width: ($screen-tablet - 1) ) {
+      position: static;
+    }
+  }
+  h1.logo {
+    line-height: 1;
+    padding: 15px 0 0 0;
+    margin: 0;
+    img {
+      @extend .img-responsive;
+      display: inline-block;
+      max-height: 40px;
+    }
+    @media (max-width: ($screen-tablet - 1)) {
+      text-align: center;
+      margin: 0 0 10px;
+    }
+  }
+  ul.access-links {
+    float: right;
+    height: 72px;
+    line-height: 68px;
+    text-transform: capitalize;
+    li {
+      float: left;
+      height: 100%;
+      position: relative;
+      a {
+        color: #adfae8;
+        display: block;
+        height: 100%;
+        padding: 0px 25px 0 15px;
+        &:active,
+        &:focus,
+        &:hover {
+          background: image_url('bkg-nav-hover.png') repeat 0 0;
+          color: #adfae8;
+          text-decoration: none;
+        }
+        span {
+          background-image: image_url('bkg-navigation.png');
+          background-repeat: no-repeat;
+          padding: 0 0 0 25px;
+        }
+      }
+      &.active a {
+        background: image_url('bkg-nav-hover.png') repeat 0 0;
+        color: #adfae8;
+        text-decoration: none;
+      }
+      &.link-acc {
+        a span {
+          background: none;
+          float: right;
+          overflow: hidden;
+          padding: 0 0 0 3px;
+          text-overflow: ellipsis;
+          width: 100px;
+          white-space: nowrap;
+        }
+        img {
+          border-radius: 50%;
+          display: inline-block;
+          height: 32px;
+          margin: 0 0 0 5px;
+          vertical-align: middle;
+          width: 32px;
+        }
+        .dropdown-menu {
+          background: #2cb393;
+          border: 0 none;
+          border-radius: 0;
+          margin: 0;
+          width: 180px;
+          padding: 0;
+          li {
+            border-top: 1px solid #55caae;
+            float: none;
+            display: block;
+            max-width: 100%;
+            padding: 0;
+            a {
+              background: #2cb393;
+              font-size: 8pt;
+              font-weight: 100;
+              padding: 10px 15px;
+              &:focus,
+              &:hover {
+                background: image_url('bkg-nav-hover.png') repeat 0 0;
+              }
+            }
+            &:first-child {
+              border-top: none;
+            }
+          }
+        }
+      }
+      &:focus,
+      &:hover {
+        a {
+          background: image_url('bkg-nav-hover.png') repeat 0 0;
+        }
+      }
+    }
+    @media (max-width: ($screen-tablet - 1)) {
+      float: none;
+      height: auto;
+      line-height: 40px;
+      text-align: center;
+      li {
+        float: none;
+        display: inline-block;
+        &.link-acc a span {
+          height: 30px;
+        }
+      }
+      a {
+        padding: 0 15px;
+      }
+    }
+    @media (max-width: $screen-phone) {
+      margin: 0 -15px;
+      position: relative;
+      li {
+        float: none;
+        a {
+          display: block;
+          padding: 0 10px;
+          span {
+            background: none;
+            padding: 0;
+          }
+        }
+        li {
+          float: none;
+          width: auto;
+        }
+      }
+    }
+  }
+}

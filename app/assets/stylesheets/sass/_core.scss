@@ -1,0 +1,36 @@
+body {
+  color: #333;
+  background: #f3f3f3;
+  font-family: "MyriadProRegular", Helvetica, Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.5;
+  position: relative;
+}
+
+img {
+  border: 0 none;
+  vertical-align: middle;
+}
+
+h1, h2, h3, h4, h5 {
+  line-height: 100%;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  outline: 0;
+}
+
+a:active,
+a:focus,
+a:hover {
+  text-decoration: underline;
+  outline: 0;
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
