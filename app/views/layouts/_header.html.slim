@@ -1,0 +1,28 @@
+.top-menu
+  .container
+    ul
+      - if user_signed_in?
+        li
+          | Login as
+          strong
+            = current_user.name
+        li
+          = link_to 'Profile', edit_user_registration_path
+        li
+          = link_to "Log out", destroy_user_session_path(authenticity_token: form_authenticity_token()), method: :delete
+      - else
+        li
+          = link_to "Sign up", new_user_registration_path
+        li
+          = link_to "Log in", new_user_session_path
+      li
+        | languger
+.navbar.navbar-default
+  .container
+    .navbar-header
+      h1.logo
+        = link_to image_tag("logo.png", :alt => "Forth"), root_path
+        strong.hidden Forth.tv
+    .quick-access
+      = render 'layouts/menu'
+      = render 'layouts/search'

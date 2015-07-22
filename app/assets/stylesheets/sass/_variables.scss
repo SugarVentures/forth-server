@@ -1,6 +1,37 @@
-$brand-primary: #47b935;
-$link-color: #47b935;
-$jumbotron-bg: #fff;
-$jumbotron-padding: 15px;
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+$white:                  #fff;
+$black:                  #000;
+
+//== Scaffolding
+//
+//** Background color for `<body>`.
+$body-bg:               #000 !default;
+//** Global text color on `<body>`.
+$text-color:            #333 !default;
+
+//== Typography
+//
+//## Font family, font size
+$font-family-base:        Arial, Helvetica, sans-serif !default;
+$font-size-base:          13px !default;
+
+//== Navbar
+//
+//##
+// Basics of a navbar
+$navbar-height:                    90px !default;
+$navbar-margin-bottom:             0 !default;
+$navbar-border-radius:             0 !default;
+
+
+$navbar-default-color:             #777 !default;
+$navbar-default-bg:                $white !default;
+$navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
+
+
+
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
