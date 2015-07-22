@@ -29,8 +29,6 @@ gem "bower-rails", "~> 0.9.2"
 
 # front-end
 gem 'bootstrap-sass',       '3.2.0.0'
-gem 'sass-rails', '~> 5.0'
-gem 'jquery-rails'
 gem 'therubyracer'
 
 group :development do
