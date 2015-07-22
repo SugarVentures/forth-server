@@ -1,7 +1,7 @@
 class AuthorizationService
   def self.check_facebook(token)
     graph = Koala::Facebook::API.new(token, facebook_config['app_secret'])
-    profile = graph.get_object('me', :fields=> "name, email, id, age_range")
+    profile = graph.get_object('me', fields: 'name, email, id, age_range')
     { name: profile['name'],
       avatar: graph.get_picture('me', type: 'large'),
       email: profile['email'],
