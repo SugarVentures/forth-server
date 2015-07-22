@@ -6,6 +6,7 @@ class AuthorizationService
       avatar: graph.get_picture('me', type: 'large'),
       email: profile['email'],
       fb_id: profile['id'],
+      min_age: profile['age_range']['min'],
       metadata: { fb_token: token } }
   rescue Koala::Facebook::AuthenticationError, Koala::Facebook::ClientError
     raise AppException::InvalidFacebookToken
@@ -14,7 +15,7 @@ class AuthorizationService
   def self.update_facebook(data)
     user = User.where('email = ? OR fb_id = ? ', data[:email], data[:fb_id]).first
     user = User.new(email: data[:email]) if user.nil?
-    attributes = { fb_id: data[:fb_id], password: Devise.friendly_token[0, 20] } # , metadata: data[:metadata] }
+    attributes = { fb_id: data[:fb_id], min_age: data[:min_age], password: Devise.friendly_token[0, 20] }
     attributes.merge!(name: data[:name]) if user.name.blank?
     # attributes.merge!(remote_avatar_url: data[:avatar]) if user.avatar.blank?
     user.update_attributes attributes
