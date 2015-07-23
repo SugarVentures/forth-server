@@ -34,6 +34,9 @@ gem 'therubyracer'
 # font awesome
 gem 'font-awesome-rails'
 
+# Auto find template for angular
+gem 'angular-rails-templates'
+
 group :development do
   gem 'bullet'
 end
