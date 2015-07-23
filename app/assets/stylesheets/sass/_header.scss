@@ -1,14 +1,47 @@
-.top-menu {
-  background-color: $black;
-  color: $white;
-  padding: $padding-small-vertical;
-  @extend .text-right;
-  ul {
-    @extend .list-inline;
+header {
+  .top-menu {
+    background-color: $black;
+    color: $white;
+    padding: $padding-small-vertical;
+    @extend .text-right;
+    ul {
+      @extend .list-inline;
+    }
+  }
+
+  .logo img {
+    @extend .img-responsive;
+    max-height: 43px;
+  }
+
+  .navbar .container {
+    position: relative;
+  }
+
+  .quick-access {
+    float: right;
+    width: 60%;
+    .dropdown {
+      float: right;
+      padding-top: 4px;
+      button {
+        color: $iconbar-color;
+        border: 0 none;
+        font-size: $iconbar-font-size;
+        &:active,
+        &:focus,
+        &:hover {
+          color: $iconbar-color-hover;
+          outline: none;
+        }
+      }
+      .dropdown-menu {
+        left: auto;
+        right: 0;
+      }
+    }
   }
 }
 
-.quick-access {
-  @extend .pull-right;
-  width: 60%;
-}
+
+
