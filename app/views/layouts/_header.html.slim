@@ -16,7 +16,12 @@
         li
           = link_to "Log in", new_user_session_path
       li
-        | languger
+        #google_translate_element
+        javascript:
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+          }
+        script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
 .navbar.navbar-default
   .container
     .navbar-header
