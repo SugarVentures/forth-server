@@ -1,10 +1,8 @@
 body {
-  color: #333;
-  background: #f3f3f3;
-  font-family: "MyriadProRegular", Helvetica, Arial, sans-serif;
-  font-size: 10pt;
-  line-height: 1.5;
-  position: relative;
+  background-image: image_url('bkg-body.gif');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 }
 
 img {

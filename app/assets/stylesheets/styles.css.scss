@@ -1,29 +1,32 @@
-/* Import variables and Bootstrap =============================== */
+/* Import variables and Bootstrap */
 @import "sass/variables";
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* Def Font ====================================================== */
+/* Import font awesome */
+@import "font-awesome";
+
+/* Def Font  */
 @import "sass/fonts";
 
-/* General Style =========================================== */
+/* General Style */
 @import "sass/core";
 
 /* Form */
 @import "sass/form";
 
-/* Layout ================================================= */
+/* Layout */
 @import "sass/grid";
 
-/* Header ================================================= */
+/* Header */
 @import "sass/header";
 
-/* Typo ================================================= */
+/* Typo  */
 @import "sass/typo";
 
-/* Sidebar ============================================== */
+/* Block */
 @import "sass/block";
 
-/* Footer ========================================= */
+/* Footer */
 @import "sass/footer";

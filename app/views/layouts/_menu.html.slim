@@ -1,0 +1,30 @@
+.dropdown
+  button.btn.btn-link id="dMenu" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+    i.fa.fa-bars
+  ul.dropdown-menu aria-labelledby="dMenu"
+    - if user_signed_in?
+      li.block-profile
+        .block-content
+          .user-name
+            current_user.name
+      li
+        = link_to 'What to watch', root_path
+      li
+        = link_to 'My Channel', '#'
+      li
+        = link_to 'My Subscriptions', '#'
+      li
+        = link_to 'Popular', root_path
+      li
+        = link_to 'Features', root_path
+    - else
+      li
+        = link_to 'What to watch', root_path
+      li
+        = link_to 'Popular', root_path
+      li
+        = link_to 'Features', root_path
+
+
+
+

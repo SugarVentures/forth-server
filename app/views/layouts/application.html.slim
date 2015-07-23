@@ -17,35 +17,8 @@ html lang="en"
     = javascript_include_tag "application"
   body
     header
-      .top-menu
-        .container
-          ul.nav
-            - if user_signed_in?
-              li
-                | Login as
-                strong
-                  = current_user.name
-              li
-                = link_to 'Profile', edit_user_registration_path
-              li
-                = link_to "Log out", destroy_user_session_path(authenticity_token: form_authenticity_token()), method: :delete
-            - else
-              li
-                = link_to "Sign up", new_user_registration_path
-              li
-                = link_to "Log in", new_user_session_path
-            li
-              | languger
-
-      .container
-        .row
-          .col-xs-12.col-sm-3.col-md-3
-            .logo
-              = link_to image_tag("logo.png", :alt => "Forth"), root_path, data: { no_turbolink: true }
-          .col-xs-12.col-sm-9.col-md-9
-            .block.block-search
-            .menu this is a test
-    main
+      = render 'layouts/header'
+    main.main-container
       .container
         .row
           = yield
