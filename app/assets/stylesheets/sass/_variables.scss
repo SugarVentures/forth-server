@@ -3,6 +3,7 @@
 $white:                           #fff;
 $black:                           #000;
 $red:                             #ed2328;
+$brand-primary:                   #232d65;
 
 //== Scaffolding
 //
@@ -36,6 +37,16 @@ $iconbar-color-hover:              $red;
 // Block: search
 $block-search-bg:                  #ecf0f1;
 
+
+//== Footer
+//
+$footer-bg:                        transparent;
+$footer-padding:                   20px;
+$footer-color:                     #737373;
+
+// Footer links
+$footer-link-color:                 $white;
+$footer-link-color-hover:           $brand-primary;
 
 
 @import "bootstrap/variables";
