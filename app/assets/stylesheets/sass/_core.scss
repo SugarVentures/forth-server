@@ -32,3 +32,13 @@ ul, ol {
   margin: 0;
   list-style: none;
 }
+
+/* Userful class */
+.bkg-icon {
+  background-image: image_url('icons/icons.png');
+  background-repeat: no-repeat;
+}
+
+.inline-block {
+  display: inline-block;
+}
