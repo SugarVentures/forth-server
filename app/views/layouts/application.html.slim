@@ -14,11 +14,11 @@ html lang="en"
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
   body
-    header.header
-      = render 'layouts/header'
-    main.main-container
-      .container
-        .row
-          == yield
-    footer.footer
-      = render 'layouts/footer'
+    .wrapper
+      header.header
+        = render 'layouts/header'
+      main.main-container
+        .container
+            == yield
+      footer.footer
+        = render 'layouts/footer'
