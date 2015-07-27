@@ -10,6 +10,38 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require styles.css.scss
  *= require_self
  */
+
+/* Import variables and Bootstrap */
+@import "sass/variables";
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* Import font awesome */
+@import "font-awesome";
+
+/* Def Font  */
+@import "sass/fonts";
+
+/* General Style */
+@import "sass/core";
+
+/* Form */
+@import "sass/form";
+
+/* Layout */
+@import "sass/grid";
+
+/* Header */
+@import "sass/header";
+
+/* Typo  */
+@import "sass/typo";
+
+/* Block  */
+@import "sass/block";
+
+/* Footer */
+@import "sass/footer";
