@@ -6,12 +6,54 @@ header {
     @extend .text-right;
     ul {
       @extend .list-inline;
+      a {
+        color: #fff;
+        &:active,
+        &:focus,
+        &:hover {
+        }
+      }
+    }
+    #google_translate_element {
+      .goog-te-gadget-simple {
+        background: none;
+        border: 0 none;
+        color: #fff;
+      }
+      img.goog-te-gadget-icon,
+      .goog-te-menu-value img {
+        @extend .hide;
+      }
+      .goog-te-menu-value span {
+        display: none;
+        vertical-align: middle;
+        white-space: nowrap;
+        &:first-child {
+          color: $white;
+          display: inline-block;
+        }
+        &:last-child {
+          @extend .bkg-icon;
+          @extend .text-hide;
+          background-position: -305px 0;
+          background-size: 500px auto;
+          display: inline-block;
+          height: 16px;
+          margin: 0 0 0 5px;
+          width: 17px;
+        }
+      }
     }
   }
 
-  .logo img {
-    @extend .img-responsive;
-    max-height: 43px;
+  .logo a {
+    @extend .bkg-icon;
+    @extend .text-hide;
+    background-position: 100% 0;
+    background-size: 550px auto;
+    display: block;
+    height: 42px;
+    width: 105px;
   }
 
   .navbar .container {
