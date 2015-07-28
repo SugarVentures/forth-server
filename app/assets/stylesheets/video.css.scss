@@ -1,0 +1,27 @@
+.video-poster {
+  @extend .img-responsive;
+  display: inline-block;
+}
+
+.video-channels {
+  color: $white;
+  .item {
+    margin: 0 0 15px;
+    position: relative;
+    .video-actions {
+      background: rgba(0,0,0,0.4);
+      position: absolute;
+      left: 0;
+      height: 100%;
+      top: 0;
+      width: 100%;
+      z-index: $zindex-tooltip;
+    }
+    &:focus,
+    &:hover {
+      .video-actions {
+        background: none;
+      }
+    }
+  }
+}

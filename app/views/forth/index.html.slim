@@ -1,11 +1,11 @@
 .row
   .col-xs-12.col-sm-8.col-md-9
     .video-player
-      video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}"
+      video id="example_video_1" class="video-js vjs-default-skin" controls="controls" preload="none" width="100%" height="264" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}"
         source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm'
         source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg'
-        track kind="captions" src="demo.captions.vtt" srclang="en" label="English"
-        track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"
+        track kind="captions" src="video-caption/demo.captions.vtt" srclang="en" label="English"
+        track kind="subtitles" src="video-caption/demo.captions.vtt" srclang="en" label="English"
     .video-description
       .video-att-info
         .video-date 15th July 12:20pm
@@ -17,38 +17,38 @@
       .video-des Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
   .col-xs-12.col-sm-4.col-md-3
     .video-channels
-      .item.video-upcoming
+      .item
         .inner
-          a href="#"
-            img.video-poster
-          h2.channel-name Upcoming
-          .channel-view 58838
-          a.btn-video-play href="#" Play
-          p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-      .item.video-upcoming
+          = image_tag 'video-covers/upcoming.jpg', alt: 'Upcoming', class: 'video-poster'
+          .video-actions
+            h2.channel-name Upcoming
+            .channel-view 58838
+            a.btn-video-play href="#" Play
+            p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+      .item
         .inner
-          a href="#"
-            img.video-poster
-          h2.channel-name Upcoming
-          .channel-view 58838
-          a.btn-video-play href="#" Play
-          p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-      .item.video-upcoming
+          = image_tag 'video-covers/recommended.jpg', alt: 'Recommended', class: 'video-poster'
+          .video-actions
+            h2.channel-name Recommended
+            .channel-view 58838
+            a.btn-video-play href="#" Play
+            p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+      .item
         .inner
-          a href="#"
-            img.video-poster
-          h2.channel-name Upcoming
-          .channel-view 58838
-          a.btn-video-play href="#" Play
-          p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-      .item.video-upcoming
+          = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
+          .video-actions
+            h2.channel-name Featured
+            .channel-view 58838
+            a.btn-video-play href="#" Play
+            p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+      .item
         .inner
-          a href="#"
-            img.video-poster
-          h2.channel-name Upcoming
-          .channel-view 58838
-          a.btn-video-play href="#" Play
-          p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+          = image_tag 'video-covers/popular.jpg', alt: 'popular', class: 'video-poster'
+          .video-actions
+            h2.channel-name Popular
+            .channel-view 58838
+            a.btn-video-play href="#" Play
+            p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
 
 
 
