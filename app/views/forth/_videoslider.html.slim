@@ -1,0 +1,137 @@
+div id="carousel-videos" class="carousel slide video-slider" data-ride="carousel"
+  .row
+    .col-xs-12.col-sm-8.col-md-9
+      div class="carousel-inner" role="listbox"
+        div class="item active"
+          .video-player
+            video id="example_video_1" class="video-js vjs-default-skin" controls="controls" preload="none" width="100%" height="320" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}"
+              source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm'
+              source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg'
+              track kind="captions" src="video-caption/demo.captions.vtt" srclang="en" label="English"
+              track kind="subtitles" src="video-caption/demo.captions.vtt" srclang="en" label="English"
+            .video-description
+              .video-att-info
+                .video-date 15th July 12:20pm
+                ul.video-actions
+                  li.video-like 27848
+                  li.video-view 27848
+                  li.video-comment 27848
+              h2.video-name
+                |Featured Games Games
+                span people are watching now
+              .video-des Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+        div class="item"
+          .video-player
+            video id="example_video_1" class="video-js vjs-default-skin" controls="controls" preload="none" width="100%" height="320" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}"
+              source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm'
+              source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg'
+              track kind="captions" src="video-caption/demo.captions.vtt" srclang="en" label="English"
+              track kind="subtitles" src="video-caption/demo.captions.vtt" srclang="en" label="English"
+            .video-description
+              .video-att-info
+                .video-date 15th July 12:20pm
+                ul.video-actions
+                  li.video-like 27848
+                  li.video-view 27848
+                  li.video-comment 27848
+              h2.video-name
+                |Featured Games Games
+                span people are watching now
+              .video-des Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+        div class="item"
+          .video-player
+            video id="example_video_1" class="video-js vjs-default-skin" controls="controls" preload="none" width="100%" height="320" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}"
+              source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm'
+              source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg'
+              track kind="captions" src="video-caption/demo.captions.vtt" srclang="en" label="English"
+              track kind="subtitles" src="video-caption/demo.captions.vtt" srclang="en" label="English"
+            .video-description
+              .video-att-info
+                .video-date 15th July 12:20pm
+                ul.video-actions
+                  li.video-like 27848
+                  li.video-view 27848
+                  li.video-comment 27848
+              h2.video-name
+                |Featured Games Games
+                span people are watching now
+              .video-des Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+        div class="item"
+          .video-player
+            video id="example_video_1" class="video-js vjs-default-skin" controls="controls" preload="none" width="100%" height="320" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}"
+              source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm'
+              source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg'
+              track kind="captions" src="video-caption/demo.captions.vtt" srclang="en" label="English"
+              track kind="subtitles" src="video-caption/demo.captions.vtt" srclang="en" label="English"
+            .video-description
+              .video-att-info
+                .video-date 15th July 12:20pm
+                ul.video-actions
+                  li.video-like 27848
+                  li.video-view 27848
+                  li.video-comment 27848
+              h2.video-name
+                |Featured Games Games
+                span people are watching now
+              .video-des Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+    == render 'listchannels'
+  .row
+    ul.list-videos
+      li data-target="#carousel-videos" data-slide-to="0" class="col-xs-6 col-sm-3 col-md-3 item active"
+        .inner
+          = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
+          .video-description
+            .video-att-info
+              .video-date 15th July 12:20pm
+              ul.video-actions
+                li.video-like 27848
+                li.video-view 27848
+                li.video-comment 27848
+            h2.video-name
+              |Featured Games Games
+              span people are watching now
+            .video-des Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+      li data-target="#carousel-videos" data-slide-to="1" class="col-xs-6 col-sm-3 col-md-3 item"
+        .inner
+          = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
+          .video-description
+            .video-att-info
+              .video-date 15th July 12:20pm
+              ul.video-actions
+                li.video-like 27848
+                li.video-view 27848
+                li.video-comment 27848
+            h2.video-name
+              |Featured Games Games
+              span people are watching now
+            .video-des Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+      li data-target="#carousel-videos" data-slide-to="2" class="col-xs-6 col-sm-3 col-md-3 item"
+        .inner
+          .inner
+            = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
+            .video-description
+              .video-att-info
+                .video-date 15th July 12:20pm
+                ul.video-actions
+                  li.video-like 27848
+                  li.video-view 27848
+                  li.video-comment 27848
+              h2.video-name
+                |Featured Games Games
+                span people are watching now
+              .video-des Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+      li data-target="#carousel-videos" data-slide-to="3" class="col-xs-6 col-sm-3 col-md-3 item"
+        .inner
+          .inner
+            = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
+            .video-description
+              .video-att-info
+                .video-date 15th July 12:20pm
+                ul.video-actions
+                  li.video-like 27848
+                  li.video-view 27848
+                  li.video-comment 27848
+              h2.video-name
+                |Featured Games Games
+                span people are watching now
+              .video-des Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
