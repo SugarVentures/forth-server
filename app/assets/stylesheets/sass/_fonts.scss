@@ -1,14 +1,13 @@
 @font-face {
-  font-family: 'MyriadProRegular';
-  src: font_url('myriadpro-regular.eot');
-  src: font_url('myriadpro-regular.eot') format('embedded-opentype'),
-  font_url('myriadpro-regular.woff2') format('woff2'),
-  font_url('myriadpro-regular.woff') format('woff'),
-  font_url('myriadpro-regular.ttf') format('truetype'),
-  font_url('myriadpro-regular.svg#MyriadProRegular') format('svg');
-  font-style: normal;
+  font-family: 'BebasKai-Regular';
+  src: font_url('BebasKai-Regular.eot');
+  src: local('☺'), font_url('BebasKai-Regular.woff') format('woff'),
+  font_url('BebasKai-Regular.ttf') format('truetype'),
+  font_url('BebasKai-Regular.svg') format('svg');
   font-weight: normal;
+  font-style: normal;
 }
+
 
 @font-face {
   font-family: 'VideoJS';

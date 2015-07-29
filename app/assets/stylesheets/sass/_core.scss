@@ -34,6 +34,10 @@ ul, ol {
 }
 
 /* Userful class */
+.inner {
+  padding: 10px;
+}
+
 .bkg-icon {
   background-image: image_url('icons/icons.png');
   background-repeat: no-repeat;
@@ -41,4 +45,15 @@ ul, ol {
 
 .inline-block {
   display: inline-block;
+}
+
+.w-300 {
+  font-weight: 300;
+}
+
+.transition-bg {
+  -webkit-transition: background 500ms ease-out 1s;
+  -moz-transition: background 500ms ease-out 1s;
+  -o-transition: background 500ms ease-out 1s;
+  transition: background 500ms ease-out 1s;
 }

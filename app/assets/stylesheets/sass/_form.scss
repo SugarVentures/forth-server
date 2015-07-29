@@ -16,3 +16,22 @@ button.btn-search {
     background-position: 0 -36px;
   }
 }
+
+.btn-video-play {
+  @extend .btn;
+  @extend .bkg-icon;
+  @extend .text-hide;
+  background-position: -466px 0px;
+  border-radius: 0;
+  height: 40px;
+  left: 50%;
+  margin: 0 0 0 -20px;
+  padding: 0;
+  position: absolute;
+  top: 30px;
+  width: 40px;
+  &:focus,
+  &:hover {
+    background-position: -518px 0px;
+  }
+}
