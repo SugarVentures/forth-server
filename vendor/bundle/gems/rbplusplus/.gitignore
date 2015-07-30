@@ -1,0 +1,8 @@
+*.swp
+html
+doc
+pkg
+test/generated
+publish
+.bundle
+Gemfile.lock
