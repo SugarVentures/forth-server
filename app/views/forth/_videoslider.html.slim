@@ -1,4 +1,4 @@
-div id="carousel-videos" class="carousel slide video-slider" data-ride="carousel"
+div id="carousel-videos" class="carousel slide video-slider" data-ride="carousel" data-interval="false"
   .row
     .col-xs-12.col-sm-8.col-md-9
       div class="carousel-inner" role="listbox"
@@ -76,7 +76,7 @@ div id="carousel-videos" class="carousel slide video-slider" data-ride="carousel
               .video-des Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
     == render 'listchannels'
   .row
-    ul.list-videos
+    ul.grid-videos
       li data-target="#carousel-videos" data-slide-to="0" class="col-xs-6 col-sm-3 col-md-3 item active"
         .inner
           = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
