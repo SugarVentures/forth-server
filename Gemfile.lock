@@ -1,3 +1,16 @@
+GIT
+  remote: git://github.com/jasonroelofs/rice.git
+  revision: 0f319185201b62b5e9cc5c140b477a5dcda96cb1
+  specs:
+    rice (1.7.0)
+
+PATH
+  remote: ./vendor/bundle/gems/rbplusplus
+  specs:
+    rbplusplus (1.2.1)
+      rbgccxml (~> 1.0.0)
+      rice (~> 1.7.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -256,6 +269,8 @@ GEM
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
+    rbgccxml (1.0.4)
+      nokogiri (>= 1.5.0, < 1.7.0)
     rdoc (4.2.0)
     ref (2.0.0)
     responders (2.1.0)
@@ -400,6 +415,9 @@ DEPENDENCIES
   pry-stack_explorer
   rack-test
   rails (= 4.2.3)
+  rbgccxml (~> 1.0.4)
+  rbplusplus (~> 1.2.1)!
+  rice (~> 1.7.0)!
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
@@ -415,3 +433,6 @@ DEPENDENCIES
   twitter_oauth
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.5
