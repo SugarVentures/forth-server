@@ -30,8 +30,16 @@ button.btn-search {
   position: absolute;
   top: 30px;
   width: 40px;
+  -webkit-transition: all 0s ease 0s;
+  -moz-transition: all 0s ease 0s;
+  -o-transition: all 0s ease 0s;
+  transition: all 0s ease 0s;
   &:focus,
   &:hover {
     background-position: -518px 0px;
+    -webkit-transition: all 0s ease 0s;
+    -moz-transition: all 0s ease 0s;
+    -o-transition: all 0s ease 0s;
+    transition: all 0s ease 0s;
   }
 }

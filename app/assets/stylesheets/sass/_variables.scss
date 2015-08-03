@@ -5,6 +5,7 @@ $black:                           #000;
 $red:                             #ed2328;
 $gray:                            #bababa;
 $brand-primary:                   #232d65;
+$second-color:                   #55acee;
 
 //== Scaffolding
 //
@@ -25,6 +26,9 @@ $navbar-border-radius:             0 !default;
 $navbar-default-color:             #777 !default;
 $navbar-default-bg:                $white !default;
 $navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
+
+// dropdown
+$dropdown-bg-second:               #e5e9ec;
 
 //== Header
 //

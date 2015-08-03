@@ -3,3 +3,13 @@
   padding: 20px 0;
   min-height: 800px;
 }
+
+.center-content {
+  width: 700px;
+  margin: 0 auto;
+  padding: 40px;
+  @media (max-width: $screen-phone) {
+    width: auto;
+    padding: 15px;
+  }
+}

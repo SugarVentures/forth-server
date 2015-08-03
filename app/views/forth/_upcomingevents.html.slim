@@ -1,72 +1,123 @@
 section.upcomingevents
-  .title
-    h2 Upcoming Events
-  .row.list-videos
-    .col-xs-12.col-sm-6.col-md-6
-      .item
-        .row
-          .col-xs-12.col-sm-6.col-md-6.video-image
-            = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
-            .event-date
-              |Sun
-              span 19th
-              |July
-          .col-xs-12.col-sm-6.col-md-6.video-description
-            .inner
-              h2.video-name SMSA Auto Gymkhana Series Round
-              .video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-              ul.video-actions
-                li.video-view 13029
-                li.link-more
-                  a href="#" More Details
-    .col-xs-12.col-sm-6.col-md-6
-      .item
-        .row
-          .col-xs-12.col-sm-6.col-md-6.video-image
-            = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
-            .event-date
-              |Sun
-              span 19th
-              |July
-          .col-xs-12.col-sm-6.col-md-6.video-description
-            .inner
-              h2.video-name SMSA Auto Gymkhana Series Round
-              .video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-              ul.video-actions
-                li.video-view 13029
-                li.link-more
-                  a href="#" More Details
-    .col-xs-12.col-sm-6.col-md-6
-      .item
-        .row
-          .col-xs-12.col-sm-6.col-md-6.video-image
-            = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
-            .event-date
-              |Sun
-              span 19th
-              |July
-          .col-xs-12.col-sm-6.col-md-6.video-description
-            .inner
-              h2.video-name SMSA Auto Gymkhana Series Round
-              .video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-              ul.video-actions
-                li.video-view 13029
-                li.link-more
-                  a href="#" More Details
-    .col-xs-12.col-sm-6.col-md-6
-      .item
-        .row
-          .col-xs-12.col-sm-6.col-md-6.video-image
-            = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
-            .event-date
-              |Sun
-              span 19th
-              |July
-          .col-xs-12.col-sm-6.col-md-6.video-description
-            .inner
-              h2.video-name SMSA Auto Gymkhana Series Round
-              .video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-              ul.video-actions
-                li.video-view 13029
-                li.link-more
-                  a href="#" More Details
+  div id="carousel-events" class="carousel slide events-slider" data-ride="carousel" data-interval="false"
+    .title
+      h2 Upcoming Events
+      .slider-control
+        a class="left carousel-control" href="#carousel-events" role="button" data-slide="prev"
+          span class="glyphicon glyphicon-chevron-left" aria-hidden="true"
+            span class="sr-only" Previous
+        a class="right carousel-control" href="#carousel-events" role="button" data-slide="next"
+          span class="glyphicon glyphicon-chevron-right" aria-hidden="true"
+            span class="sr-only" Next
+    .row.list-videos
+      div class="carousel-inner" role="listbox"
+        .item.active
+          .col-xs-12.col-sm-6.col-md-6
+            .inner-item
+              .row
+                .col-xs-12.col-sm-6.col-md-6.video-image
+                  = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
+                  .event-date
+                    |Sun
+                    span 19th
+                    |July
+                .col-xs-12.col-sm-6.col-md-6.video-description
+                  .inner
+                    h2.video-name
+                      a href="#" SMSA Auto Gymkhana Series Round
+                    .video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                    ul.video-actions
+                      li.video-view 13029
+                      li.link-more
+                        a href="#" More Details
+          .col-xs-12.col-sm-6.col-md-6
+            .inner-item
+              .row
+                .col-xs-12.col-sm-6.col-md-6.video-image
+                  = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
+                  .event-date
+                    |Sun
+                    span 19th
+                    |July
+                .col-xs-12.col-sm-6.col-md-6.video-description
+                  .inner
+                    h2.video-name
+                      a href="#" SMSA Auto Gymkhana Series Round
+                    .video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                    ul.video-actions
+                      li.video-view 13029
+                      li.link-more
+                        a href="#" More Details
+          .col-xs-12.col-sm-6.col-md-6
+            .inner-item
+              .row
+                .col-xs-12.col-sm-6.col-md-6.video-image
+                  = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
+                  .event-date
+                    |Sun
+                    span 19th
+                    |July
+                .col-xs-12.col-sm-6.col-md-6.video-description
+                  .inner
+                    h2.video-name
+                      a href="#" SMSA Auto Gymkhana Series Round
+                    .video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                    ul.video-actions
+                      li.video-view 13029
+                      li.link-more
+                        a href="#" More Details
+          .col-xs-12.col-sm-6.col-md-6
+            .inner-item
+              .row
+                .col-xs-12.col-sm-6.col-md-6.video-image
+                  = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
+                  .event-date
+                    |Sun
+                    span 19th
+                    |July
+                .col-xs-12.col-sm-6.col-md-6.video-description
+                  .inner
+                    h2.video-name
+                      a href="#" SMSA Auto Gymkhana Series Round
+                    .video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                    ul.video-actions
+                      li.video-view 13029
+                      li.link-more
+                        a href="#" More Details
+        .item
+          .col-xs-12.col-sm-6.col-md-6
+            .inner-item
+              .row
+                .col-xs-12.col-sm-6.col-md-6.video-image
+                  = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
+                  .event-date
+                    |Sun
+                    span 19th
+                    |July
+                .col-xs-12.col-sm-6.col-md-6.video-description
+                  .inner
+                    h2.video-name
+                      a href="#" SMSA Auto Gymkhana Series Round
+                    .video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                    ul.video-actions
+                      li.video-view 13029
+                      li.link-more
+                        a href="#" More Details
+          .col-xs-12.col-sm-6.col-md-6
+            .inner-item
+              .row
+                .col-xs-12.col-sm-6.col-md-6.video-image
+                  = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
+                  .event-date
+                    |Sun
+                    span 19th
+                    |July
+                .col-xs-12.col-sm-6.col-md-6.video-description
+                  .inner
+                    h2.video-name
+                      a href="#" SMSA Auto Gymkhana Series Round
+                    .video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                    ul.video-actions
+                      li.video-view 13029
+                      li.link-more
+                        a href="#" More Details

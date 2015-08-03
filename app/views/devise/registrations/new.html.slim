@@ -1,11 +1,7 @@
-h2
-  | Sign up
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
+  .form-control
+    = f.email_field :email, autofocus: true, class: 'form-group'
   .field
     = f.label :password
     - if @minimum_password_length
@@ -29,4 +25,4 @@ h2
     = f.date_select :birthday, start_year: 1900
   .actions
     = f.submit "Sign up"
-= render "devise/shared/links"
+

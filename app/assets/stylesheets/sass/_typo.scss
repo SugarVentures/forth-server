@@ -1,10 +1,12 @@
 h1.logo {
+  cursor: pointer;
   margin: 10px 0;
   padding: 0;
   line-height: 1;
 }
 
-.title {
+.title,
+.page-header {
   @extend .clearfix;
   color: $white;
   font-family: "BebasKai-Regular", Helvetica, sans-serif;

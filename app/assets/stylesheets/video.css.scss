@@ -56,8 +56,9 @@
 
 .video-description {
   @extend .w-300;
-  background: rgba(0, 0, 0, 0.5);
+  background: $black;
   color: $gray;
+  margin: 0 0 15px;
   padding: 20px 40px;
   .video-date {
     float: left;
@@ -72,6 +73,9 @@
     span {
       display: block;
       padding: $padding-small-vertical 0;
+    }
+    a {
+      text-decoration: none;
     }
   }
 }
@@ -89,6 +93,10 @@
       top: 0;
       width: 100%;
       z-index: $zindex-tooltip;
+      -webkit-transition: all 0.4s ease 0s;
+      -moz-transition: all 0.4s ease 0s;
+      -o-transition: all 0.4s ease 0s;
+      transition: all 0.4s ease 0s;
       .channel-name {
         @extend .inline-block;
       }
@@ -107,6 +115,17 @@
     &:hover {
       .video-actions {
         background: none;
+        -webkit-transition: all 0.4s ease 0s;
+        -moz-transition: all 0.4s ease 0s;
+        -o-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s;
+        .btn-video-play {
+          background-position: -518px 0px;
+          -webkit-transition: all 0s ease 0s;
+          -moz-transition: all 0s ease 0s;
+          -o-transition: all 0s ease 0s;
+          transition: all 0s ease 0s;
+        }
       }
     }
   }
@@ -170,12 +189,46 @@
         font-size: ($font-size-small - 1);
       }
     }
+    .video-image {
+      position: relative;
+      .video-actions {
+        background: rgba(0,0,0,0.4);
+        position: absolute;
+        left: 0;
+        height: 100%;
+        top: 0;
+        width: 100%;
+        z-index: $zindex-tooltip;
+        -webkit-transition: all 0.4s ease 0s;
+        -moz-transition: all 0.4s ease 0s;
+        -o-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s;
+        .btn-video-play {
+          top: 50%;
+          margin: -20px 0 0 -20px;
+        }
+      }
+    }
+    &.active,
+    &:focus,
+    &:hover {
+      .video-image .video-actions {
+        background: none;
+        .btn-video-play {
+          background-position: -518px 0px;
+          -webkit-transition: all 0s ease 0s;
+          -moz-transition: all 0s ease 0s;
+          -o-transition: all 0s ease 0s;
+          transition: all 0s ease 0s;
+        }
+      }
+    }
   }
 }
 
 /* Dispay: List */
 .list-videos {
-  .item {
+  .inner-item {
     background: $white;
     margin: 0 0 15px;
     position: relative;
@@ -219,6 +272,16 @@
       .video-name {
         color: $black;
         font-size: 13pt;
+        margin: 0 0 10px;
+        a {
+          color: $black;
+          &:active,
+          &:focus,
+          &:hover {
+            color: $red;
+            text-decoration: none;
+          }
+        }
       }
       .video-actions {
         background: $black;
@@ -247,10 +310,8 @@
             }
           }
           &.video-view {
-            background-position: -689px -82px;
-            margin: 0 0 0 10px;
-            padding: 0 0 0 18px;
-            width: 45%;
+            background-position: -678px -82px;
+            padding: 0 0 0 30px;
           }
         }
       }

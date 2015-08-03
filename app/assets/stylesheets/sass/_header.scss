@@ -3,34 +3,46 @@ header {
     background-color: $black;
     color: $white;
     padding: $padding-small-vertical;
+    position: relative;
     @extend .text-right;
+    @extend .w-300;
     ul {
       @extend .list-inline;
       a {
-        color: #fff;
+        color: $white;
         &:active,
         &:focus,
         &:hover {
+          color: $second-color;
+          text-decoration: none;
         }
       }
     }
     #google_translate_element {
+      font-family: Helvetica, Arial, sans-serif;
       .goog-te-gadget-simple {
         background: none;
         border: 0 none;
         color: #fff;
+        @extend .w-300;
       }
       img.goog-te-gadget-icon,
       .goog-te-menu-value img {
         @extend .hide;
       }
       .goog-te-menu-value span {
+        font-family: Helvetica, Arial, sans-serif;
         display: none;
         vertical-align: middle;
         white-space: nowrap;
         &:first-child {
           color: $white;
           display: inline-block;
+          @extend .w-300;
+          &:focus,
+          &:hover {
+            color: $second-color;
+          }
         }
         &:last-child {
           @extend .bkg-icon;
@@ -42,6 +54,20 @@ header {
           margin: 0 0 0 5px;
           width: 17px;
         }
+      }
+    }
+    .dropdown {
+      position: static;
+      &.open a {
+        color: $second-color;
+      }
+      .dropdown-menu {
+        background: $dropdown-bg-second;
+        color: $gray;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        width: 100%;
       }
     }
   }

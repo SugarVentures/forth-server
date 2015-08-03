@@ -1,0 +1,43 @@
+/* Silder*/
+.slider-control {
+  float: right;
+  position: relative;
+  right: 30px;
+  with: 45px;
+  .carousel-control.left,
+  .carousel-control.right {
+    @extend .bkg-icon;
+    @extend .text-hide;
+    height: 30px;
+    opacity: 1;
+    width: 30px;
+    span {
+      display: none;
+    }
+  }
+  .carousel-control.left {
+    background-position: -150px -109px;
+    &:active,
+    &:focus,
+    &:hover {
+      background-position: -220px -109px;
+    }
+  }
+  .carousel-control.right {
+    background-position: -120px -109px;
+    &:active,
+    &:focus,
+    &:hover {
+      background-position: -190px -109px;
+    }
+  }
+}
+
+/* Center block */
+.center-content {
+  .page-header {
+    @extend .text-center;
+    border: 0 none;
+    color: $brand-primary;
+  }
+}
