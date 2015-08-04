@@ -6,6 +6,8 @@ fieldset {
   border: 0;
 }
 
+/* Button ====================================================== */
+/* Button: Search */
 button.btn-search {
   background: image_url('icons/ico-search.png') no-repeat 0px 0px;
   width: 25px;
@@ -17,6 +19,7 @@ button.btn-search {
   }
 }
 
+/* Button: Play */
 .btn-video-play {
   @extend .btn;
   @extend .bkg-icon;
@@ -44,11 +47,38 @@ button.btn-search {
   }
 }
 
+/* Button: large */
 .btn-100 {
+  @extend .w-300;
   @extend .text-center;
-  padding-left: 0;
-  padding-right: 0;
+  font-size: $font-size-large;
+  padding: 8px 0;
   width: 100%;
+}
+
+/* Button: facebook */
+.btn-Facebook {
+  @extend .bkg-icon;
+  background-color: $face-color;
+  background-position: -564px -132px;
+  background-size: 600px auto;
+  color: $white;
+  &:focus,
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.btn-Twitter {
+  @extend .bkg-icon;
+  background-color: $twitter-color;
+  background-position: -564px -199px;
+  background-size: 600px auto;
+  color: $white;
+  &:focus,
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 // Alert
@@ -61,5 +91,9 @@ button.btn-search {
   &.alert-alert,
   &.alert-error {
     @extend .alert-danger;
+  }
+
+  &.alert-notice {
+    @extend .alert-success;
   }
 }

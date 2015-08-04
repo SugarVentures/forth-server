@@ -2,4 +2,4 @@
   ul
     - resource_class.omniauth_providers.each do |provider|
       li
-        = link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: 'btn btn-'+provider.to_s.titleize+' btn-100'
+        = link_to "Login with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: 'btn btn-'+provider.to_s.titleize+' btn-100'
