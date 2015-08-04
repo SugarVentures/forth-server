@@ -43,3 +43,23 @@ button.btn-search {
     transition: all 0s ease 0s;
   }
 }
+
+.btn-100 {
+  @extend .text-center;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+
+// Alert
+.alert {
+  @extend .w-300;
+  &.alert-dismissible .close {
+    right: 0;
+  }
+
+  &.alert-alert,
+  &.alert-error {
+    @extend .alert-danger;
+  }
+}

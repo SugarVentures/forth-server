@@ -1,17 +1,17 @@
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-group
-    = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email'
-  .form-group
-    = f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Password'
-  - if devise_mapping.rememberable?
-    .checkbox
-      label
-        = f.check_box :remember_me
-        | Remember me
-  .form-actions
-    = f.submit 'Log in', class: 'btn btn-primary btn-100'
-    - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-      p
-        = link_to "Forgot your password?", new_password_path(resource_name)
-.or.text-center.text-uppercase Or
-= render "devise/shared/omniauthlinks"
+.page-content.content-white
+  .page-header
+    h2 Login
+  .content
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form-group
+        = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email'
+      .form-group
+        = f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Password'
+      - if devise_mapping.rememberable?
+        .checkbox
+          label
+            = f.check_box :remember_me
+            | Remember me
+      .form-actions
+        = f.submit 'Log in', class: 'btn btn-primary'
+    = render "devise/shared/links"

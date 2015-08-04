@@ -1,5 +1,7 @@
 - if !flash.empty?
   #flash
     - flash.keys.each do |k|
-      .alert.alert-= k
+      div class="alert alert-#{k} alert-dismissible" role ="alert"
+        button type="button" class="close" data-dismiss="alert" aria-label="Close"
+          span aria-hidden="true" &times;
         = flash[k]

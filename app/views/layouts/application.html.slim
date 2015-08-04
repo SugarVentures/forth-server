@@ -19,6 +19,8 @@ html lang="en"
         = render 'layouts/header'
       main.main-container
         .container
+          .page-content
+            = render 'layouts/flash'
             == yield
       footer.footer
         = render 'layouts/footer'
