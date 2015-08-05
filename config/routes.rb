@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   }
 
   root to: "forth#index"
+
+  resources :channels
+
 end
