@@ -13,6 +13,7 @@ gem 'slim-rails'
 
 # Data
 gem 'pg'
+gem 'rmagick'
 gem 'carrierwave'
 
 # Authentication
