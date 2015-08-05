@@ -45,6 +45,8 @@ class ChannelsController < ApplicationController
   end
 
   def channel_params
-    params.require(:channel).permit(:title, :description, :icon, :banner)
+    params.require(:channel).permit(:title, :description, :icon, :banner, :components).tap do |p|
+      p[:components] = p[:components].to_i if p[:components]
+    end
   end
 end
