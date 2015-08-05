@@ -13,14 +13,27 @@ html lang="en"
     = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
-  body
-    .wrapper
-      header.header
-        = render 'layouts/header'
-      main.main-container
-        .container
-          .page-content
+  - if current_page?(root_url)
+    body.home
+      .wrapper
+        header.header
+          = render 'layouts/header'
+        main.main-container
+          .container
             = render 'layouts/flash'
-            == yield
-      footer.footer
-        = render 'layouts/footer'
+            .page-content
+              == yield
+        footer.footer
+          = render 'layouts/footer'
+  - else
+    body
+      .wrapper
+        header.header
+          = render 'layouts/header'
+        main.main-container
+          .container
+            = render 'layouts/flash'
+            .page-content
+              == yield
+        footer.footer
+          = render 'layouts/footer'

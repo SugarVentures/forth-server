@@ -1,7 +1,5 @@
 body {
-  background-image: image_url('backgrounds/bkg-body.gif');
-  background-position: top center;
-  background-repeat: no-repeat;
+  background: $black;
 }
 
 img {
@@ -55,4 +53,11 @@ ul, ol {
   -moz-transition: background 500ms ease-out 1s;
   -o-transition: background 500ms ease-out 1s;
   transition: background 500ms ease-out 1s;
+}
+
+.or {
+  color: $brand-primary;
+  font-size: $font-size-large;
+  font-weight: 500;
+  margin: 15px 0;
 }

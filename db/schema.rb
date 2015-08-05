@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20150804045719) do
     t.datetime "updated_at",                            null: false
     t.string   "name",                     default: "", null: false
     t.datetime "birthday"
-    t.integer  "min_age"
     t.string   "fb_id"
     t.string   "fabric_id"
     t.string   "fabric_auth_token"

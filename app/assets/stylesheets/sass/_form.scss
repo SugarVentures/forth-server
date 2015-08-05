@@ -60,7 +60,7 @@ button.btn-search {
 .btn-Facebook {
   @extend .bkg-icon;
   background-color: $face-color;
-  background-position: -564px -132px;
+  background-position: -566px -135px;
   background-size: 600px auto;
   color: $white;
   &:focus,
@@ -72,7 +72,7 @@ button.btn-search {
 .btn-Twitter {
   @extend .bkg-icon;
   background-color: $twitter-color;
-  background-position: -564px -199px;
+  background-position: -564px -202px;
   background-size: 600px auto;
   color: $white;
   &:focus,

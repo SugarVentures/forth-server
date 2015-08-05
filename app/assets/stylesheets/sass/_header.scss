@@ -58,8 +58,27 @@ header {
     }
     .dropdown {
       position: static;
-      &.open a {
-        color: $second-color;
+      &.open {
+        a {
+          color: $second-color;
+        }
+        .dropdown-menu a {
+          color: $link-color;
+          &:active,
+          &:focus,
+          &:hover {
+            color: $link-hover-color;
+          }
+          &.btn-100 {
+            color: $white;
+            font-size: $font-size-base;
+            &:active,
+            &:focus,
+            &:hover {
+              color: $white;
+            }
+          }
+        }
       }
       .dropdown-menu {
         background: $dropdown-bg-second;
@@ -68,6 +87,9 @@ header {
         border-radius: 0;
         padding: 0;
         width: 100%;
+        .btn {
+          margin-bottom: 10px;
+        }
       }
     }
   }

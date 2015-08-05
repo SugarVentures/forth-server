@@ -1,11 +1,13 @@
-.page-content.content-white
+.content-white
   .page-header
     h2 Login
   .content
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .form-group
+        = f.label :email
         = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email'
       .form-group
+        = f.label :password
         = f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Password'
       - if devise_mapping.rememberable?
         .checkbox
@@ -14,4 +16,5 @@
             | Remember me
       .form-actions
         = f.submit 'Log in', class: 'btn btn-primary'
+      br
     = render "devise/shared/links"

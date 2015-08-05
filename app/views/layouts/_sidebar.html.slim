@@ -1,0 +1,18 @@
+aside.sidebar
+  ul
+    li.link-home
+      a href="#{root_path()}"
+        span Home
+    - if user_signed_in?
+      li.link-profile
+        a href="#{user_path(current_user)}"
+          span Profile
+    li.link-home
+      a href="#{root_path()}"
+        span Home
+    li.link-home
+      a href="#{root_path()}"
+        span Home
+    li.link-home
+      a href="#{root_path()}"
+        span Home
