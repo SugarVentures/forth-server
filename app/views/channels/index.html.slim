@@ -10,6 +10,8 @@ div class='white-bg'
           th
             | title
           th
+            | user name
+          th
             | description
           th
             | components
@@ -26,6 +28,8 @@ div class='white-bg'
               = image_tag channel.icon.thumb.url
             td
               = channel.title
+            td
+              = channel.user.name
             td
               = channel.description
             td
