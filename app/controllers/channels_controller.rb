@@ -45,6 +45,6 @@ class ChannelsController < ApplicationController
   end
 
   def channel_params
-    params.require(:channel).permit(:title, :description)
+    params.require(:channel).permit(:title, :description, :icon, :banner)
   end
 end
