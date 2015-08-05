@@ -18,5 +18,8 @@ div class='white-bg'
   - else
     | No image
   hr
+  p components
+  = @channel.components
+  hr
   = link_to 'Edit', edit_channel_path(@channel)
   = link_to 'Back', channels_path

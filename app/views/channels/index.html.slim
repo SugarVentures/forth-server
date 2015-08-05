@@ -13,6 +13,12 @@ div class='white-bg'
             | description
           th
             | components
+          th
+            | link
+          th
+            | link
+          th
+            | link
       tbody
         - @channels.each do |channel|
           tr
@@ -22,6 +28,8 @@ div class='white-bg'
               = channel.title
             td
               = channel.description
+            td
+              = channel.components
             td
               = link_to 'Show', channel
             td
