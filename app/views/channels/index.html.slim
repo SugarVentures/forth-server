@@ -6,6 +6,8 @@ div class='white-bg'
       thead
         tr
           th
+            | icon
+          th
             | title
           th
             | description
@@ -14,6 +16,8 @@ div class='white-bg'
       tbody
         - @channels.each do |channel|
           tr
+            td
+              = image_tag channel.icon.thumb.url
             td
               = channel.title
             td

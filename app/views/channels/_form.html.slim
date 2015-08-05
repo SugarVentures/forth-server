@@ -11,5 +11,17 @@
   = f.label :description
   = f.text_field :description
   br
+  =f.label :icon
+  - if @channel.icon?
+    br
+    = image_tag @channel.icon.thumb.url
+  =f.file_field :icon, accept: "image/png,image/gif,image/jpeg"
+  br
+  =f.label :banner
+  - if @channel.banner?
+    br
+    = image_tag @channel.banner.url
+  =f.file_field :banner, accept: "image/png,image/gif,image/jpeg"
+  br
   = f.submit
   
