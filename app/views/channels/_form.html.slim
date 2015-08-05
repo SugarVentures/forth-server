@@ -1,0 +1,15 @@
+= form_for(@channel) do |f|
+  - if @channel.errors.any?
+    ul
+      - @channel.errors.full_messages.each do |message|
+        li
+          = message
+
+  = f.label :title
+  = f.text_field :title
+  br
+  = f.label :description
+  = f.text_field :description
+  br
+  = f.submit
+  

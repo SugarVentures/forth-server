@@ -1,0 +1,28 @@
+div class='white-bg'
+  h1
+    | Channels
+  - if @channels.count > 0
+    table
+      thead
+        tr
+          th
+            | title
+          th
+            | description
+          th
+            | components
+      tbody
+        - @channels.each do |channel|
+          tr
+            td
+              = channel.title
+            td
+              = channel.description
+            td
+              = link_to 'Show', channel
+            td
+              = link_to 'Edit', edit_channel_path(channel)
+            td
+              = link_to 'Delete', channel, method: :delete, data: { confirm: 'Are you sure?' }
+  br
+  = link_to 'New Channel', new_channel_path

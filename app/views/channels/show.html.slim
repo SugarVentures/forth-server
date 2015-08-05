@@ -1,0 +1,10 @@
+div class='white-bg'
+  = notice
+  p Title:
+  = @channel.title
+  hr
+  p Description:
+  = @channel.description
+  hr
+  = link_to 'Edit', edit_channel_path(@channel)
+  = link_to 'Back', channels_path
