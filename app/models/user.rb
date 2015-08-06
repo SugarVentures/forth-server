@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, allow_blank: false, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :name, presence: true, allow_blank: false, uniqueness: true, length: { maximum: 50, too_long: '%{count} characters is the maximum allowed' }
 
-  has_many :channels, dependent: :destroy
+  has_one :channel, dependent: :destroy
 
   def self.find_for_facebook_oauth(auth, _signed_in_resource = nil)
     data = AuthorizationService.check_facebook(auth.credentials.token)
