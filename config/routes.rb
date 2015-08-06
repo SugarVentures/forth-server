@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :channels
+  resources :channels do
+    resources :streams
+  end
 
 end
