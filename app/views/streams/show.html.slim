@@ -1,0 +1,25 @@
+div class='white-bg'
+  = notice
+  p Title:
+  = @channel.title
+  hr
+  p Description:
+  = @channel.description
+  hr
+  p Icon
+  - if @channel.icon?
+    = image_tag @channel.icon.thumb.url
+  - else
+    | No image
+  hr
+  p Banner
+  - if @channel.banner?
+    = image_tag @channel.banner.url
+  - else
+    | No image
+  hr
+  p components
+  = @channel.components
+  hr
+  = link_to 'Edit', edit_channel_path(@channel)
+  = link_to 'Back', channels_path

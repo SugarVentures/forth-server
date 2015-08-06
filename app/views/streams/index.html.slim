@@ -1,0 +1,72 @@
+div class='white-bg'
+  h1
+    | Streams
+  - if @streams.count > 0
+    table
+      thead
+        tr
+          th
+            | title
+          th
+            | user name
+          th
+            | game
+          th
+            | start time
+          th
+            | end time
+          th
+            | stream_key
+          th
+            | view mode
+          th
+            | age restriction
+          th
+            | group
+          th
+            | discussion
+          th
+            | description
+          th
+            | 1
+          th
+            | 2
+          th
+            | 3
+      tbody
+        - @streams.each do |stream|
+          tr
+            td
+              = stream.title
+            td
+              = stream.user.name
+            td
+              = stream.game
+            td
+              = stream.start
+            td
+              = stream.end
+            td
+              - if current_user == @channel.user
+                = stream.stream_key
+            td
+              = stream.view_mode
+            td
+              = stream.age_restriction
+            td
+              = stream.group
+            td
+              = stream.discussion
+            td
+              = stream.description
+            td
+              = link_to 'Show', [@channel, stream]
+            td
+              - if stream.user == current_user
+                = link_to 'Edit', edit_channel_stream_path(@channel, stream)
+            td
+              - if stream.user == current_user
+                = link_to 'Delete', [@channel, stream], method: :delete, data: { confirm: 'Are you sure?' }
+  br
+  - if current_user == @channel.user
+    = link_to 'New Stream', new_channel_stream_path
