@@ -49,7 +49,7 @@ class ChannelsController < ApplicationController
   def check_channel_presence?
     return false unless current_user.channel.present?
     redirect_to channels_url, notice: 'Channel has already been created.'
-    return true
+    true
   end
 
   def channel_params

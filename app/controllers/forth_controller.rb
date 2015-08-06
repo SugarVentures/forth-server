@@ -7,14 +7,11 @@ class ForthController < ApplicationController
   end
 
   def about
-
   end
 
   def privacy
-
   end
 
   def term_condition
-
   end
 end
