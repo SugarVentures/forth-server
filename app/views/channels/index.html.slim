@@ -37,8 +37,11 @@ div class='white-bg'
             td
               = link_to 'Show', channel
             td
-              = link_to 'Edit', edit_channel_path(channel)
+              - if channel.user == current_user
+                = link_to 'Edit', edit_channel_path(channel)
             td
-              = link_to 'Delete', channel, method: :delete, data: { confirm: 'Are you sure?' }
+              - if channel.user == current_user
+                = link_to 'Delete', channel, method: :delete, data: { confirm: 'Are you sure?' }
   br
-  = link_to 'New Channel', new_channel_path
+  - unless current_user.channel.present?
+    = link_to 'New Channel', new_channel_path

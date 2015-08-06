@@ -7,6 +7,7 @@ class ChannelsController < ApplicationController
   end
 
   def new
+    return if check_channel_presence?
     @channel = Channel.new
   end
 
@@ -14,7 +15,8 @@ class ChannelsController < ApplicationController
   end
 
   def create
-    @channel = current_user.channels.create(channel_params)
+    return if check_channel_presence?
+    @channel = current_user.build_channel(channel_params)
     if @channel.save
       redirect_to @channel, notice: 'Channel was successfully created.'
     else
@@ -42,6 +44,12 @@ class ChannelsController < ApplicationController
 
   def set_channel
     @channel = Channel.find(params[:id])
+  end
+
+  def check_channel_presence?
+    return false unless current_user.channel.present?
+    redirect_to channels_url, notice: 'Channel has already been created.'
+    return true
   end
 
   def channel_params
