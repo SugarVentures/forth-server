@@ -57,7 +57,6 @@ header {
       }
     }
     .dropdown {
-      position: static;
       &.open {
         a {
           color: $second-color;
@@ -80,15 +79,31 @@ header {
           }
         }
       }
-      .dropdown-menu {
-        background: $dropdown-bg-second;
-        color: $gray;
-        border: none;
-        border-radius: 0;
-        padding: 0;
-        width: 100%;
-        .btn {
-          margin-bottom: 10px;
+      .dropdown-menu li {
+        display: block;
+        margin: 0;
+      }
+      &.dropdown-new {
+        position: static;
+        div.dropdown-menu {
+          background: $dropdown-bg-second;
+          color: $gray;
+          border: none;
+          border-radius: 0;
+          padding: 0;
+          width: 100%;
+          .btn {
+            margin-bottom: 10px;
+          }
+        }
+      }
+      #mnuUser {
+        @extend .bkg-icon;
+        background-position: 0 -137px;
+        background-size: 565px auto;
+        padding: 0 0 0 25px;
+        strong {
+          font-weight: 300;
         }
       }
     }

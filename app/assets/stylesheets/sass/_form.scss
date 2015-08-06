@@ -84,6 +84,7 @@ button.btn-search {
 // Alert
 .alert {
   @extend .w-300;
+  &.alert-dismissable .close,
   &.alert-dismissible .close {
     right: 0;
   }
