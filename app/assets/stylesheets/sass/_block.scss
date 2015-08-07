@@ -1,9 +1,19 @@
+/* == Sidebar */
+.sidebar {
+  margin-right: -20px;
+  @media (max-width: ($screen-tablet - 1)) {
+    margin-right: 0;
+  }
+}
+
+/* == Block */
 .block {
+  margin: 0 0 10px;
   .block-title {}
   .block-content {}
 }
 
-/*== BLOCK: search */
+/* Block: search */
 .block-search {
   background: $block-search-bg;
   float: right;
@@ -11,6 +21,7 @@
   padding: 0 10px;
   position: absolute;
   right: 70px;
+  margin: 0;
   width: 320px;
   .input-group {
     top: 15px;
@@ -60,5 +71,84 @@
   @media (max-width: ($screen-tablet - 1)) {
     border-left: 0 none;
     padding-left: 0;
+  }
+}
+
+/* Block: menu left */
+.block-mnu {
+  margin: 0;
+  li {
+    @extend .font-bebaskai;
+    display: block;
+    font-size: $font-size-large;
+    margin: 0 0 1px;
+    a {
+      background: $left-mnu-link-bg;
+      color: $left-mnu-link-color;
+      display: block;
+      padding: $left-mnu-link-padding;
+      span {
+        @extend .bkg-icon;
+        display: block;
+        padding: 0 0 0 40px;
+      }
+      &:active,
+      &:focus,
+      &:hover {
+        background: $left-mnu-hover-link-bg;
+        color: $left-mnu-hover-link-color;
+        text-decoration: none;
+      }
+    }
+    &.link-home a {
+      span {
+        background-position: -679px -309px;
+      }
+      &:active span
+      &:focus span,
+      &:hover span {
+        background-position: -679px -342px;
+      }
+    }
+    &.link-profile a {
+      span {
+        background-position: -679px -465px;
+      }
+      &:active span
+      &:focus span,
+      &:hover span {
+        background-position: -679px -506px;
+      }
+    }
+    &.link-livestream a {
+      span {
+        background-position: -679px -384px;
+      }
+      &:active span
+      &:focus span,
+      &:hover span {
+        background-position: -679px -421px;
+      }
+    }
+    &.link-createstream a {
+      span {
+        background-position: -679px -545px;
+      }
+      &:active span
+      &:focus span,
+      &:hover span {
+        background-position: -679px -577px;
+      }
+    }
+    &.link-channels a {
+      span {
+        background-position: -679px -615px;
+      }
+      &:active span
+      &:focus span,
+      &:hover span {
+        background-position: -679px -654px;
+      }
+    }
   }
 }

@@ -1,25 +1,41 @@
-div class='white-bg'
-  = notice
-  p Title:
-  = @channel.title
-  hr
-  p Description:
-  = @channel.description
-  hr
-  p Icon
-  - if @channel.icon?
-    = image_tag @channel.icon.thumb.url
-  - else
-    | No image
-  hr
-  p Banner
-  - if @channel.banner?
-    = image_tag @channel.banner.url
-  - else
-    | No image
-  hr
-  p components
-  = @channel.components
-  hr
-  = link_to 'Edit', edit_channel_path(@channel)
-  = link_to 'Back', channels_path
+.row
+  .col-xs-12.col-sm-4.col-md-3
+    = render 'layouts/sidebar'
+  .col-xs-12.col-sm-8.col-md-9
+    .channel-banner
+      - if @channel.banner?
+        = image_tag @channel.banner.url, :alt => @channel.title, class: "img-responsive channel-banner"
+      - else
+        = image_tag("no-banner.jpg", :alt => @channel.title, class: "img-responsive channel-banner")
+    .content-white
+      .channel-info
+        .row
+          .col-xs-12.col-sm-3.col-md-2
+            .channel-icon
+              - if @channel.icon?
+                = image_tag @channel.icon.thumb.url
+              - else
+                | No image
+          .col-xs-12.col-sm-3.col-md-3
+            .channel-des
+              h2.channel-name
+                = @channel.title
+              ul.channel-actions
+                li.channel-subcribler
+                  span Subcribler
+                li.channel-view
+                  span 5833388
+          .col-xs-12.col-sm-6.col-md-7
+            .text-right
+              button.btn.btn-subcrible type="button" Subcribe
+      .channel-content
+        = render 'channels/channel_tab'
+        .tab-content
+          .tab-pane.active role="tabpanel" id="user-channel"
+            1
+          .tab-pane role="tabpanel" id="upcomming"
+            2
+          .tab-pane role="tabpanel" id="past-broadcast"
+            3
+          .tab-pane role="tabpanel" id="settings"
+            4

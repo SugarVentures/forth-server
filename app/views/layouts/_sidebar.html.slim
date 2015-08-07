@@ -1,18 +1,20 @@
 aside.sidebar
-  ul
-    li.link-home
-      a href="#{root_path()}"
-        span Home
-    - if user_signed_in?
-      li.link-profile
-        a href="#{user_path(current_user)}"
-          span Profile
-    li.link-livestream
-      a href="#{root_path()}"
-        span Live Stream
-    li.link-createstream
-      a href="#{root_path()}"
-        span Create Live Stream
-    li.link-channels
-      a href="#{root_path()}"
-        span Channel List
+  .block.block-mnu
+    .block-content
+      ul
+        li.link-home
+          a href="#{root_path()}"
+            span Home
+        - if user_signed_in?
+          li.link-profile
+            a href="#{user_path(current_user)}"
+              span Profile
+        li.link-livestream
+          a href="#{root_path()}"
+            span Live Stream
+        li.link-createstream
+          a href="#{root_path()}"
+            span Create Live Stream
+        li.link-channels
+          a href="#{root_path()}"
+            span Channel List
