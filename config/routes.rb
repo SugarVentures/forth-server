@@ -11,10 +11,14 @@ Rails.application.routes.draw do
   get 'privacy' => 'forth#privacy'
   get 'term_condition' => 'forth#term_condition'
 
+  resources :contacts, only: [:new, :create]
+
   resources :users
 
   resources :channels do
     resources :streams
   end
+
+
 
 end

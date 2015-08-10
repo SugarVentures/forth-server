@@ -1,0 +1,15 @@
+content_for :title, "Contact us - Forth"
+.content-white
+  .page-header
+    h2 Contact
+  .content
+  - flash.each do |key, value|
+    div class="alert alert-<%= key %>" role="alert"
+      = value
+  div class="contact" id="contact"
+    = simple_form_for(@contact, defaults: { input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group'} } ) do |f|
+      = f.input :name, :required => true
+      = f.input :email, :required => true
+      = f.input :content, :as => :text, :required => true
+      div class="button-set text-right"
+        = f.button :submit, 'Send Message', :class=> "btn btn-primary"
