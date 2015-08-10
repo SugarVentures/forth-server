@@ -6,6 +6,20 @@ fieldset {
   border: 0;
 }
 
+label {
+  color: $text-color;
+  &.required {
+    padding-right: 10px;
+    position: relative;
+    abbr {
+      border: 0 none;
+      color: $red;
+      position: absolute;
+      right: 0;
+    }
+  }
+}
+
 /* Button ====================================================== */
 /* Button: Search */
 button.btn-search {

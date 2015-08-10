@@ -10,13 +10,12 @@
     .content-white
       .channel-info
         .row
-          .col-xs-12.col-sm-3.col-md-2
+          .col-xs-12.col-sm-6.col-md-6
             .channel-icon
               - if @channel.icon?
                 = image_tag @channel.icon.thumb.url
               - else
                 | No image
-          .col-xs-12.col-sm-3.col-md-3
             .channel-des
               h2.channel-name
                 = @channel.title
@@ -25,14 +24,18 @@
                   span Subcribler
                 li.channel-view
                   span 5833388
-          .col-xs-12.col-sm-6.col-md-7
+          .col-xs-12.col-sm-6.col-md-6
             .text-right
               button.btn.btn-subcrible type="button" Subcribe
       .channel-content
         = render 'channels/channel_tab'
         .tab-content
           .tab-pane.active role="tabpanel" id="user-channel"
-            1
+            .row
+              .col-xs-12.col-sm-8.col-md-8
+                = render 'streams/stream_player'
+              .col-xs-12.col-sm-4.col-md-4
+                = render 'channels/list'
           .tab-pane role="tabpanel" id="upcomming"
             2
           .tab-pane role="tabpanel" id="past-broadcast"

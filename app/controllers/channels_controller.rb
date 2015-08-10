@@ -12,6 +12,7 @@ class ChannelsController < ApplicationController
   end
 
   def show
+    @popular_channels = Channel.all
   end
 
   def create

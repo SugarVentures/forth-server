@@ -1,8 +1,4 @@
-.video-poster {
-  @extend .img-responsive;
-  display: inline-block;
-}
-
+/* Channels ===================== */
 .channel-name,
 .video-name {
   color: $white;
@@ -21,6 +17,41 @@
   height: 17px;
   line-height: 17px;
   padding: 0 5px 0 30px;
+}
+
+.channel-icon,
+.channel-icon img {
+  @extend .img-responsive;
+}
+
+.channel-info {
+  .channel-icon {
+    float: left;
+    margin: 0 30px 0 0;
+  }
+  .channel-des {
+    float: left;
+    .channel-name {
+      color: $brand-primary;
+      font-size: 35px;
+      float: left;
+      margin: 5px 0 0 0;
+    }
+    .channel-actions {
+      float: left;
+      li {
+        float: left;
+        margin: 10px 10px 0 0;
+      }
+    }
+  }
+}
+
+
+/* Video ================== */
+.video-poster {
+  @extend .img-responsive;
+  display: inline-block;
 }
 
 .video-shortdes {
