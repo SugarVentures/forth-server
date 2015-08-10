@@ -31,6 +31,8 @@ gem 'bower-rails', '~> 0.9.2'
 # front-end
 gem 'bootstrap-sass',       '3.2.0.0'
 gem 'therubyracer'
+gem 'mail_form'
+gem 'simple_form'
 
 # font awesome
 gem 'font-awesome-rails'
