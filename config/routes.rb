@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   resources :users
 
   resources :channels do
-    resources :streams
+    resources :streams do
+      post :reset_key
+    end
   end
 
 
