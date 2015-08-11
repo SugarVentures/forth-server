@@ -1,25 +1,36 @@
 div class='white-bg'
   = notice
-  p Title:
-  = @channel.title
+  p Stream Title:
+  = @stream.title
   hr
-  p Description:
-  = @channel.description
+  p Owner
+  = @stream.user.name
   hr
-  p Icon
-  - if @channel.icon?
-    = image_tag @channel.icon.thumb.url
-  - else
-    | No image
+  p Game:
+  = @stream.game
   hr
-  p Banner
-  - if @channel.banner?
-    = image_tag @channel.banner.url
-  - else
-    | No image
+  p Stream Key:
+  = @stream.stream_key
+  br
+  = button_to 'Reset key', channel_stream_reset_key_path(@channel, @stream)
   hr
-  p components
-  = @channel.components
+  p Start:
+  = @stream.start
   hr
-  = link_to 'Edit', edit_channel_path(@channel)
-  = link_to 'Back', channels_path
+  p End:
+  = @stream.end
+  hr
+  p view_mode
+  = @stream.view_mode
+  hr
+  p age_restriction
+  = @stream.age_restriction
+  hr
+  p Group
+  = @stream.group
+  hr
+  p Discussion
+  = @stream.discussion
+  hr
+  = link_to 'Edit', edit_channel_stream_path(@channel, @stream)
+  = link_to 'Back', channel_streams_path
