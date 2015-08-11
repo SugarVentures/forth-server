@@ -4,7 +4,7 @@ class StreamsController < ApplicationController
   before_action :set_channel
 
   def index
-    @streams = @channel.streams
+    @streams = @channel.streams.includes(:user)
   end
 
   def new
@@ -15,7 +15,8 @@ class StreamsController < ApplicationController
   end
 
   def create
-    @stream = @channel.streams.new(stream_params)
+    s_params = stream_params.merge(stream_key: SecureRandom.uuid)
+    @stream = @channel.streams.new(s_params)
     if @stream.save
       redirect_to [@channel, @stream], notice: 'Stream was successfully created.'
     else
@@ -34,6 +35,12 @@ class StreamsController < ApplicationController
     end
   end
 
+  def reset_key
+    @stream = Stream.find(params[:stream_id])
+    @stream.update(stream_key: SecureRandom.uuid)
+    render :show
+  end
+
   def destroy
     @stream.destroy
     redirect_to channel_streams_url, notice: 'Stream was successfully destroyed.'
@@ -50,7 +57,7 @@ class StreamsController < ApplicationController
   end
 
   def stream_params
-    params.require(:stream).permit(:title, :game, :start, :end, :view_mode, :age_restriction, :group, :discussion, :description).merge(stream_key: 'aana' + Time.now.zone.to_s, user: current_user).tap do |p|
+    params.require(:stream).permit(:title, :game, :start, :end, :view_mode, :age_restriction, :group, :discussion, :description).merge(user: current_user).tap do |p|
       p[:view_mode] = p[:view_mode].to_i if p[:view_mode]
     end
   end
