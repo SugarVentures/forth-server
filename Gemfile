@@ -41,9 +41,9 @@ gem 'font-awesome-rails'
 gem 'angular-rails-templates'
 
 # C++ library extension
-gem 'rbgccxml', '~> 1.0.4'
-gem 'rbplusplus', '~> 1.2.1', path: './vendor/bundle/gems/rbplusplus'
-gem 'rice', '~> 1.7.0', github: 'jasonroelofs/rice'
+# gem 'rbgccxml', '~> 1.0.4'
+# gem 'rbplusplus', '~> 1.2.1', path: './vendor/bundle/gems/rbplusplus'
+# gem 'rice', '~> 1.7.0', github: 'jasonroelofs/rice'
 
 group :development do
   gem 'bullet'
