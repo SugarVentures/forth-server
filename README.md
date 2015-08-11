@@ -3,11 +3,16 @@
 ## Installation
 
 Install ruby with enable-shared option
+
+ruby
 ```shell
-$ CONFIGURE_OPTS="--enable-shared" rbenv install 2.2.1
-$ brew install automake
+$ rbenv install 2.2.1
 ```
 
 ```shell
 $ bundle install
+$ rake db:drop db:create db:migrate db:seed
+$ rails s
 ```
+Access to your local host
+http://localhost:3000/
