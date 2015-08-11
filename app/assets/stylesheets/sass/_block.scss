@@ -6,6 +6,16 @@
   }
 }
 
+/* == Panel */
+.panel {
+  margin: 0 0 15px;
+  .panel-heading {
+    @extend .font-bebaskai;
+    color: $brand-primary;
+    font-size: 18px;
+  }
+}
+
 /* == Block */
 .block {
   margin: 0 0 10px;

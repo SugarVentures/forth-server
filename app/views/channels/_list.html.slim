@@ -1,8 +1,8 @@
 - if @popular_channels.count > 0
   .panel.block-chanels
-    .page-header
+    .panel-heading
       | Popular Channels
-    .page-content
+    .panel-body
       ul.channels-list
         - @popular_channels.each do |channel|
           li.item
@@ -11,4 +11,6 @@
             .channel-des
               h3.channel-name
                 = link_to channel.title, channel
-              button.btn.btn-sm.btn-subcrible type="button" Subcribe
+              button.btn.btn-sm.btn-subcrible type="button"
+                i class="fa fa-caret-right"
+                | Subcribe

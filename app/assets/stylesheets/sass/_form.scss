@@ -83,6 +83,7 @@ button.btn-search {
   }
 }
 
+/* Button: twitter */
 .btn-Twitter {
   @extend .bkg-icon;
   background-color: $twitter-color;
@@ -92,6 +93,26 @@ button.btn-search {
   &:focus,
   &:hover {
     opacity: 0.8;
+  }
+}
+
+/* Button: Subcrible */
+.btn-subcrible {
+  @extend .w-300;
+  background: $red;
+  border-radius: 0;
+  color: $white;
+  padding: 4px 15px 2px 10px;
+  i {
+    padding: 0 3px 0 0;
+  }
+  &:focus,
+  &:hover {
+    color: $white;
+    background: darken($red, 15%);
+  }
+  &.btn-sm {
+    padding: 1px 10px;
   }
 }
 

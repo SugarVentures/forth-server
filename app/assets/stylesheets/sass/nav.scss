@@ -1,0 +1,33 @@
+.nav-tabs {
+  @extend .font-bebaskai;
+  font-size: $font-size-h4;
+  > li {
+    margin: 0 15px 0 0;
+    a {
+      background: none;
+      border: 0 none;
+      border-bottom: 2px solid transparent;
+      color: #6c6c6d;
+      padding: 0;
+      &:active,
+      &:focus,
+      &:hover {
+        background: none;
+        border: 0 none;
+        border-bottom: 2px solid $red;
+        color: $nav-tabs-active-link-hover-color;
+      }
+    }
+    &.active {
+      a,
+      a:active,
+      a:focus,
+      a:hover {
+        background: none;
+        border: 0 none;
+        border-bottom: 2px solid $red;
+        color: $nav-tabs-active-link-hover-color;
+      }
+    }
+  }
+}
