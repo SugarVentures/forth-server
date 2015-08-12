@@ -1,47 +1,53 @@
-div class='white-bg'
-  h1
-    | Channels
-  - if @channels.count > 0
-    table
-      thead
-        tr
-          th
-            | icon
-          th
-            | title
-          th
-            | user name
-          th
-            | description
-          th
-            | components
-          th
-            | link
-          th
-            | link
-          th
-            | link
-      tbody
-        - @channels.each do |channel|
-          tr
-            td
-              = image_tag channel.icon.thumb.url
-            td
-              = channel.title
-            td
-              = channel.user.name
-            td
-              = channel.description
-            td
-              = channel.components
-            td
-              = link_to 'Show', channel
-            td
-              - if channel.user == current_user
-                = link_to 'Edit', edit_channel_path(channel)
-            td
-              - if channel.user == current_user
-                = link_to 'Delete', channel, method: :delete, data: { confirm: 'Are you sure?' }
-  br
-  - unless current_user.channel.present?
-    = link_to 'New Channel', new_channel_path
+.row
+  .col-xs-12.col-sm-4.col-md-3
+    = render 'layouts/sidebar'
+  .col-xs-12.col-sm-8.col-md-9
+    .content-white
+      .page-header
+        h2 Channels
+      .content
+        - if @channels.count > 0
+          table
+            thead
+              tr
+                th
+                  | icon
+                th
+                  | title
+                th
+                  | user name
+                th
+                  | description
+                th
+                  | components
+                th
+                  | link
+                th
+                  | link
+                th
+                  | link
+            tbody
+              - @channels.each do |channel|
+                tr
+                  td
+                    = image_tag channel.icon.thumb.url
+                  td
+                    = channel.title
+                  td
+                    = channel.user.name
+                  td
+                    = channel.description
+                  td
+                    = channel.components
+                  td
+                    = link_to 'Show', channel
+                  td
+                    - if channel.user == current_user
+                      = link_to 'Edit', edit_channel_path(channel)
+                  td
+                    - if channel.user == current_user
+                      = link_to 'Delete', channel, method: :delete, data: {confirm: 'Are you sure?'}
+          br
+          - if user_signed_in?
+            = link_to 'New Channel', new_channel_path
+
