@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150806051127) do
+ActiveRecord::Schema.define(version: 20150813084633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,11 +63,11 @@ ActiveRecord::Schema.define(version: 20150806051127) do
     t.datetime "updated_at",                            null: false
     t.string   "name",                     default: "", null: false
     t.datetime "birthday"
-    t.integer  "min_age"
     t.string   "fb_id"
     t.string   "fabric_id"
     t.string   "fabric_auth_token"
     t.string   "fabric_auth_token_secret"
+    t.string   "about"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
