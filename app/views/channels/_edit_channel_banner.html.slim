@@ -1,0 +1,18 @@
+= form_for(@channel) do |f|
+  - if @channel.errors.any?
+    .alert.alert-danger.alert-dismissable
+      button type="button" class="close" data-dismiss="alert" aria-label="Close"
+        span aria-hidden="true" &times
+      ul
+        - @channel.errors.full_messages.each do |message|
+          li
+            = message
+  .form-group
+    = f.label :banner
+    - if @channel.banner?
+      .form-group.channel-banner.text-center
+        img src="#{@channel.banner.url}" class="channel-banner" id="bannerPreview"
+    = f.file_field :banner, accept: 'image/png,image/gif,image/jpeg'
+  .form-actions.modal-footer
+    button type="button" class="btn btn-default pull-left" data-dismiss="modal" Cancel
+    = f.submit "Change banner", class: 'btn btn-primary'

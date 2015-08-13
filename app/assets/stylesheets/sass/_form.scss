@@ -21,6 +21,10 @@ label {
 }
 
 /* Button ====================================================== */
+.btn-no-radius {
+  border-radius: 0;
+}
+
 /* Button: Search */
 button.btn-search {
   background: image_url('icons/ico-search.png') no-repeat 0px 0px;

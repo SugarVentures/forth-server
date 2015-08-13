@@ -3,6 +3,18 @@
     = render 'layouts/sidebar'
   .col-xs-12.col-sm-8.col-md-9
     .channel-banner
+      - if current_user && current_user.id == @channel.user_id
+        button type="button" class="btn btn-primary btn-no-radius btn-edit" data-toggle="modal" data-target="#changeBanner"
+          | Change Channel Banner
+        .modal.fade id="changeBanner" tabindex="-1" role="dialog" aria-labelledby="changeBannerLabel"
+          .modal-dialog role="document"
+            .modal-content
+              .modal-header
+                button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                  span aria-hidden="true" &times;
+                h4 class="modal-title" id="changeBannerLabel" Channel Banner
+              .modal-body
+                = render 'channels/edit_channel_banner'
       - if @channel.banner?
         = image_tag @channel.banner.url, :alt => @channel.title, class: "img-responsive channel-banner"
       - else
@@ -13,7 +25,7 @@
           .col-xs-12.col-sm-6.col-md-6
             .channel-icon
               - if @channel.icon?
-                = image_tag @channel.icon.thumb.url
+                = image_tag @channel.icon.small.url
               - else
                 | No image
             .channel-des
@@ -39,8 +51,12 @@
               .col-xs-12.col-sm-4.col-md-4
                 = render 'channels/list'
           .tab-pane role="tabpanel" id="upcomming"
+            .page-header
+              h2 Upcoming live streams
             = render 'streams/list'
           .tab-pane role="tabpanel" id="past-broadcast"
-            3
+            .page-header
+              h2 Past Brodcast
+            = render 'streams/list'
           .tab-pane role="tabpanel" id="settings"
-            4
+
