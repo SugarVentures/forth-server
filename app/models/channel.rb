@@ -9,4 +9,6 @@ class Channel < ActiveRecord::Base
 
   mount_uploader :icon, ImageUploader
   mount_uploader :banner, ImageUploader
+
+  acts_as_paranoid
 end

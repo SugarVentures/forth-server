@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
 
   has_one :channel, dependent: :destroy
 
+  acts_as_paranoid
+
   def self.find_for_facebook_oauth(auth, _signed_in_resource = nil)
     data = AuthorizationService.check_facebook(auth.credentials.token)
     AuthorizationService.update_facebook(data)

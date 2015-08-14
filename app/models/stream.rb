@@ -10,4 +10,6 @@ class Stream < ActiveRecord::Base
   belongs_to :user
 
   enum view_mode: [:Private, :Group, :Public]
+
+  acts_as_paranoid
 end
