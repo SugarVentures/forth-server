@@ -15,6 +15,7 @@ gem 'slim-rails'
 gem 'pg'
 gem 'rmagick'
 gem 'carrierwave'
+gem 'paranoia', '~> 2.0'
 
 # Authentication
 gem 'devise'
