@@ -1,30 +1,33 @@
 = form_for(@channel) do |f|
   - if @channel.errors.any?
-    ul
-      - @channel.errors.full_messages.each do |message|
-        li
-          = message
-
-  = f.label :title
-  = f.text_field :title
-  br
-  = f.label :description
-  = f.text_area :description
-  br
-  = f.label :icon
-  - if @channel.icon?
-    br
-    = image_tag @channel.icon.thumb.url
-  = f.file_field :icon, accept: 'image/png,image/gif,image/jpeg'
-  br
-  = f.label :banner
-  - if @channel.banner?
-    br
-    = image_tag @channel.banner.url
-  = f.file_field :banner, accept: 'image/png,image/gif,image/jpeg'
-  br
-  = f.label :components
-  = f.select :components, options_for_select(Channel.components)
-  br
-  = f.submit
+    .alert.alert-danger.alert-dismissable
+      button type="button" class="close" data-dismiss="alert" aria-label="Close"
+        span aria-hidden="true" &times
+      ul
+        - @channel.errors.full_messages.each do |message|
+          li
+            = message
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control'
+  .form-group
+    = f.label :icon
+    - if @channel.icon?
+      .form-group.channel-icon
+        = image_tag @channel.icon.thumb.url
+    = f.file_field :icon, accept: 'image/png,image/gif,image/jpeg'
+  .form-group
+    = f.label :banner
+    - if @channel.banner?
+      .form-group.channel-banner
+        = image_tag @channel.banner.url
+    = f.file_field :banner, accept: 'image/png,image/gif,image/jpeg'
+  .form-group
+    = f.label :components
+    = f.select :components, options_for_select(Channel.components), class: 'form-control'
+  .form-actions
+    = f.submit class: 'btn btn-primary'
   
