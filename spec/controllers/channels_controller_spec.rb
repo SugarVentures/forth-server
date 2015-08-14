@@ -1,6 +1,14 @@
 require 'rails_helper'
+include Devise::TestHelpers
 
 RSpec.describe ChannelsController, type: :controller do
+  let!(:user) { create :user }
+  let(:channel) { create :channel, user: user }
+
+  before do
+    sign_in user
+  end
+
   describe 'GET #index' do
     it 'returns http success' do
       get :index
@@ -15,52 +23,40 @@ RSpec.describe ChannelsController, type: :controller do
     end
   end
 
-  describe 'GET #create' do
+  describe 'POST #create' do
     it 'returns http success' do
-      get :create
-      expect(response).to have_http_status(:success)
+      params = { channel: { title: 'abc', description: 'abc abc abc', components: 2 } }
+      post :create, params
+      expect(response).to have_http_status(302)
     end
   end
 
   describe 'GET #edit' do
     it 'returns http success' do
-      get :edit
+      get :edit, id: channel.id
       expect(response).to have_http_status(:success)
     end
   end
 
   describe 'GET #delete' do
     it 'returns http success' do
-      get :delete
-      expect(response).to have_http_status(:success)
+      delete :destroy, id: channel.id
+      expect(response).to have_http_status(302)
     end
   end
 
   describe 'GET #show' do
     it 'returns http success' do
-      get :show
+      get :show, id: channel.id
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'GET #edit' do
+  describe 'PATCH #update' do
     it 'returns http success' do
-      get :edit
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe 'GET #update' do
-    it 'returns http success' do
-      get :update
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe 'GET #destroy' do
-    it 'returns http success' do
-      get :destroy
-      expect(response).to have_http_status(:success)
+      params = { id: channel.id, channel: { title: 'abc', description: 'abc abc abc', components: 2 } }
+      patch :update, params
+      expect(response).to have_http_status(302)
     end
   end
 end
