@@ -1,13 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_uniqueness_of(:email) }
+  it { is_expected.to allow_value('abc@test.com').for(:email) }
+  it { is_expected.not_to allow_value('abctest.com').for(:email) }
 
-  it 'should have valid factory' do
-    FactoryGirl.build(:user).should be_valid
-  end
+  it { is_expected.not_to allow_value(nil).for(:name) }
+  it { is_expected.to validate_presence_of(:name) }
+  it { is_expected.to validate_uniqueness_of(:name) }
+  it { is_expected.to validate_length_of(:name).is_at_most(50) }
 
-  it 'should require an email' do
-    FactoryGirl.build(:user, email: '').should_not be_valid
+  it { is_expected.to have_one(:channel) }
+
+  it { is_expected.to have_db_column(:deleted_at) }
+  it { is_expected.to have_db_index(:deleted_at) }
+
+  let(:user) { create :user }
+
+  it 'acts as paranoid' do
+    user.delete
+    expect(user.deleted_at).not_to be_nil
+    expect(User.only_deleted).to include(user)
   end
 end

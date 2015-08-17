@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validates :email, presence: true, allow_blank: false, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  validates :name, presence: true, allow_blank: false, uniqueness: true, length: { maximum: 50, too_long: '%{count} characters is the maximum allowed' }
+  validates :name, presence: true, allow_blank: false, uniqueness: true, length: { maximum: 50 }
 
   has_one :channel, dependent: :destroy
 
