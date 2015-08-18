@@ -73,4 +73,40 @@ RSpec.describe StreamsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe 'PATCH #update' do
+    it 'returns http 302' do
+      params = { id: stream.id, channel_id: channel.id, stream: { title: 'abc', game: 'game2' } }
+      patch :update, params
+      expect(assigns[:channel].id).to eq(channel.id)
+      stream.reload
+      expect(stream.title).to eq('abc')
+      expect(stream.game).to eq('game2')
+      expect(response).to have_http_status(302)
+    end
+  end
+
+  describe 'POST #reset_key' do
+    it 'returns http 302' do
+      params = { stream_id: stream.id, channel_id: channel.id }
+      key = stream.stream_key
+      post :reset_key, params
+      expect(assigns[:channel].id).to eq(channel.id)
+      stream.reload
+      expect(assigns[:stream]).to eq(stream)
+      expect(stream.stream_key).not_to eq(key)
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    it 'returns 302' do
+      delete :destroy, id: stream.id, channel_id: channel.id
+      expect(assigns[:channel].id).to eq(channel.id)
+      stream.reload
+      expect(assigns[:stream]).to eq(stream)
+      expect(stream.deleted_at).not_to be_nil
+      expect(response).to have_http_status(302)
+    end
+  end
 end
