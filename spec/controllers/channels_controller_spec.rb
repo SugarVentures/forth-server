@@ -92,7 +92,7 @@ RSpec.describe ChannelsController, type: :controller do
     end
   end
 
-  describe 'GET #delete' do
+  describe 'DELETE #destroy' do
     it 'returns 302' do
       delete :destroy, id: channel.id
       expect(assigns[:channel].id).to eq(channel.id)
