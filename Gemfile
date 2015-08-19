@@ -13,7 +13,7 @@ gem 'slim-rails'
 
 # Data
 gem 'pg'
-gem 'rmagick'
+gem 'rmagick', git: 'git://github.com/rmagick/rmagick.git'
 gem 'carrierwave'
 gem 'paranoia', '~> 2.0'
 
