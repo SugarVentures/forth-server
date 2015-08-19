@@ -31,7 +31,7 @@ link "/etc/nginx/sites-enabled/#{config_name}" do
 end
 
 # install packages
-['nodejs','libpq-dev','redis-server', 'imagemagick', 'mailutils'].each do |pkg|
+['nodejs','libpq-dev','redis-server', 'imagemagick', 'mailutils', 'libmagickwand-dev'].each do |pkg|
   package pkg
 end
 
