@@ -1,10 +1,10 @@
 #!/bin/bash
 
-cookbook=base
+cookbook=forth
 
-security_group=sg-change_this
-subnet=subnet-change_this
-image=ami-a4b792f6
+security_group=sg-f938ad9c
+subnet=subnet-96d029f3
+image=ami-96f1c1c4
 
 node_name=$cookbook-staging-web1
 
@@ -18,7 +18,7 @@ if [ ! -f $key_path ]; then
 fi
 
 knife ec2 server create \
-    --flavor m3.medium \
+    --flavor t2.small \
     --security-group-ids $security_group \
     --ssh-user ubuntu \
     --ssh-key $key_name \
