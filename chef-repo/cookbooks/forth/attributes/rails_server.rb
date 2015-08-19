@@ -30,6 +30,7 @@ normal['nginx']['source']['url'] = "http://nginx.org/download/nginx-#{node['ngin
 
 # passenger
 normal['nginx']['passenger']['version'] = '5.0.15'
+normal['nginx']['passenger']['install_method'] = 'source'
 normal['nginx']['passenger']['ruby'] = "#{node['rvm']['root_path']}/wrappers/ruby-#{node['rvm']['default_ruby']}/ruby"
 normal['nginx']['passenger']['gem_binary'] = "#{node['rvm']['root_path']}/wrappers/ruby-#{node['rvm']['default_ruby']}/gem"
 normal['nginx']['passenger']['root'] = "#{node['rvm']['root_path']}/gems/ruby-#{node['rvm']['default_ruby']}/gems/passenger-#{node['nginx']['passenger']['version']}"
@@ -39,4 +40,4 @@ normal['nginx']['passenger']['packages']['debian'] = ["libcurl4-gnutls-dev"]
 # project
 default['forth']['rvm_path'] = "#{node['rvm']['root_path']}/gems/ruby-#{node['rvm']['default_ruby']}/bin:#{node['rvm']['root_path']}/gems/ruby-#{node['rvm']['default_ruby']}@global/bin:#{node['rvm']['root_path']}/rubies/ruby-#{node['rvm']['default_ruby']}/bin"
 default['forth']['project_dir'] = "/var/proj/forth-#{node.chef_environment}"
-default['forth']['server_url'] = "forth.com" # without www!
+default['forth']['server_url'] = "forth.tv" # without www!
