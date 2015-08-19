@@ -1,10 +1,10 @@
 #!/bin/bash
 
-cookbook=base
+cookbook=forth
 
-security_group=sg-change_this
-subnet=subnet-change_this
-image=ami-a4b792f6
+security_group=sg-85791ae0
+subnet=subnet-96d029f3
+image=ami-96f1c1c4
 
 node_name=$cookbook-web1
 
