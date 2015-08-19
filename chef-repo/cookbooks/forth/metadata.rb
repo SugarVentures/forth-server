@@ -2,7 +2,7 @@ name             'forth'
 maintainer       'shinya'
 maintainer_email 'shinya.kitamura@sugar.sg'
 license          'All rights reserved'
-description      'Configures organization servers'
+description      'Configures Forth servers'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.0'
 
