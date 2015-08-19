@@ -1,0 +1,38 @@
+DEPENDENCIES
+  apt
+  logrotate
+  magic_shell
+  nginx
+  ntp
+  rvm
+    git: https://github.com/martinisoft/chef-rvm.git
+    revision: 08ec265f277e112a5a2e4b201bd32ddfe1bb968c
+
+GRAPH
+  apt (2.7.0)
+  bluepill (2.3.1)
+    rsyslog (>= 0.0.0)
+  build-essential (2.2.3)
+  chef_gem (0.1.0)
+  java (1.35.0)
+  logrotate (1.9.2)
+  magic_shell (1.0.0)
+  nginx (2.7.6)
+    apt (~> 2.2)
+    bluepill (~> 2.3)
+    build-essential (~> 2.0)
+    ohai (~> 2.0)
+    runit (~> 1.2)
+    yum-epel (~> 0.3)
+  ntp (1.8.6)
+  ohai (2.0.1)
+  packagecloud (0.0.19)
+  rsyslog (2.1.0)
+  runit (1.7.2)
+    packagecloud (>= 0.0.0)
+  rvm (0.10.1)
+    chef_gem (>= 0.0.0)
+    java (>= 0.0.0)
+  yum (3.6.3)
+  yum-epel (0.6.2)
+    yum (~> 3.2)
