@@ -76,4 +76,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  ActionMailer::Base.default :from => 'Forth <noreply@forth.tv>'
+  config.action_mailer.delivery_method = :amazon_ses
+  config.action_mailer.default_url_options = { protocol: 'https', host: 'forth.tv' }
 end
