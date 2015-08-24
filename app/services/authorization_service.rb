@@ -18,8 +18,8 @@ class AuthorizationService
     attributes = { fb_id: data[:fb_id], min_age: data[:min_age], password: Devise.friendly_token[0, 20] }
     attributes.merge!(name: data[:name]) if user.name.blank?
     # attributes.merge!(remote_avatar_url: data[:avatar]) if user.avatar.blank?
-    user.update_attributes attributes
     user.confirm! unless user.confirmed?
+    user.update_attributes attributes
     user
   end
 
@@ -46,8 +46,8 @@ class AuthorizationService
     # fabric_screen_name:        data[:screen_name] }
     attributes.merge!(name: data[:name]) if user.name.blank?
     # attributes.merge!(remote_avatar_url: data[:avatar]) if user.avatar.blank?
-    user.update_attributes attributes
     user.confirm! unless user.confirmed?
+    user.update_attributes attributes
     user
   end
 
