@@ -19,7 +19,7 @@ gem 'paranoia', '~> 2.0'
 
 # Authentication
 gem 'devise'
-gem 'koala', '~> 1.11.0rc'
+gem 'koala', '~> 2.2'
 gem 'twitter_oauth'
 gem 'cancancan'
 gem 'omniauth'
@@ -40,6 +40,9 @@ gem 'font-awesome-rails'
 
 # Auto find template for angular
 gem 'angular-rails-templates'
+
+# API
+gem 'active_model_serializers'
 
 # C++ library extension
 # gem 'rbgccxml', '~> 1.0.4'
