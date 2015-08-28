@@ -8,6 +8,13 @@ class ApplicationController < ActionController::Base
   rescue_from AppException::InvalidFabricToken, with: :invalid_fabric_token
   rescue_from AppException::EmailUnconfirmed, with: :email_unconfirmed_error
 
+  def authenticate_user_from_token!
+    token = request.headers['HTTP_X_AUTH_TOKEN'].presence
+    user = token && User.find_by(auth_token: token)
+    fail AppException::AuthenticationError unless user
+    sign_in user, store: false
+  end
+
   protected
 
   def configure_permitted_parameters
@@ -37,5 +44,9 @@ class ApplicationController < ActionController::Base
   def email_unconfirmed_error(exception)
     error('A message with a confirmation link has been sent to your email ' \
           'address.  Please follow the link to activate your account.', exception, 409)
+  end
+
+  def format_json?
+    request.format.json?
   end
 end
