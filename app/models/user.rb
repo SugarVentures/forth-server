@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   validates :name, presence: true, allow_blank: false, uniqueness: true, length: { maximum: 50 }
 
   has_one :channel, dependent: :destroy
-
   acts_as_paranoid
+  before_save :ensure_authentication_token!
 
   def self.find_for_facebook_oauth(auth, _signed_in_resource = nil)
     data = AuthorizationService.check_facebook(auth.credentials.token)
@@ -26,5 +26,18 @@ class User < ActiveRecord::Base
       fabric_auth_token_secret: auth.credentials.secret
     }
     AuthorizationService.update_twitter(data, params)
+  end
+
+  private
+
+  def ensure_authentication_token!
+    self.auth_token = generate_authentication_token if auth_token.blank?
+  end
+
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.find_by(auth_token: token)
+    end
   end
 end
