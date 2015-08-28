@@ -1,7 +1,8 @@
 class StreamsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :check]
   before_action :set_stream, only: [:show, :edit, :update, :destroy]
-  before_action :set_channel
+  before_action :set_channel, except: :check
+  before_action :authenticate_user_from_token!, if: :format_json?
 
   def index
     @streams = @channel.streams.includes(:user)
@@ -44,6 +45,14 @@ class StreamsController < ApplicationController
   def destroy
     @stream.destroy
     redirect_to channel_streams_url, notice: 'Stream was successfully destroyed.'
+  end
+
+  def check
+    if Stream.find_by(stream_key: params[:stream_key])
+      render json: {}, status: 200
+    else
+      render json: {}, status: 403
+    end
   end
 
   private
