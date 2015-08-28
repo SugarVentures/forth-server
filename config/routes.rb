@@ -21,6 +21,13 @@ Rails.application.routes.draw do
     end
   end
 
-
-
+  scope 'api', constraints: { format: :json }, defaults: { format: :json }, name_prefix: :api do
+    resources :sessions, as: :api_sessions, only: :create do
+      collection do
+        post :facebook
+        post :twitter
+      end
+    end
+    get 'stream_key' => 'streams#check'
+  end
 end
