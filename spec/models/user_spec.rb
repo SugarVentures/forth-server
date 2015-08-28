@@ -23,4 +23,8 @@ RSpec.describe User, type: :model do
     expect(user.deleted_at).not_to be_nil
     expect(User.only_deleted).to include(user)
   end
+
+  it 'saves auth_token' do
+    expect(user.auth_token).not_to be_nil
+  end
 end
