@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true, allow_blank: false, uniqueness: true, length: { maximum: 50 }
 
   has_one :channel, dependent: :destroy
+  has_many :streams
   acts_as_paranoid
   before_save :ensure_authentication_token!
 

@@ -48,7 +48,7 @@ class StreamsController < ApplicationController
   end
 
   def check
-    if Stream.find_by(stream_key: params[:stream_key])
+    if current_user.streams.find_by(stream_key: params[:stream_key])
       render json: {}, status: 200
     else
       render json: {}, status: 403
