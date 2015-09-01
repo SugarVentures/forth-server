@@ -1,4 +1,4 @@
-AWS.config(Rails.application.secrets['aws']) if Rails.application.secrets['aws']
+AWS.config(Rails.application.secrets.aws) if Rails.application.secrets.aws
 
 module Net
   class SMTP
