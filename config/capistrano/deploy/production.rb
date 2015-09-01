@@ -1,4 +1,4 @@
-server 'ec2-52-76-63-68.ap-southeast-1.compute.amazonaws.com', user: 'ubuntu', roles: %w{web app db}
+server 'ec2-54-255-234-9.ap-southeast-1.compute.amazonaws.com', user: 'ubuntu', roles: %w{web app db}
 
 set :stage, 'production'
 set :application, 'forth-production'
