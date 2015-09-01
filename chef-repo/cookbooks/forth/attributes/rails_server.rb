@@ -29,7 +29,7 @@ normal['nginx']['source']['default_configure_flags'] = ["--prefix=#{node['nginx'
 normal['nginx']['source']['url'] = "http://nginx.org/download/nginx-#{node['nginx']['source']['version']}.tar.gz"
 
 # passenger
-normal['nginx']['passenger']['version'] = '5.0.15'
+normal['nginx']['passenger']['version'] = '5.0.16'
 normal['nginx']['passenger']['install_method'] = 'source'
 normal['nginx']['passenger']['ruby'] = "#{node['rvm']['root_path']}/wrappers/ruby-#{node['rvm']['default_ruby']}/ruby"
 normal['nginx']['passenger']['gem_binary'] = "#{node['rvm']['root_path']}/wrappers/ruby-#{node['rvm']['default_ruby']}/gem"
