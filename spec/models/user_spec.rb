@@ -12,6 +12,7 @@ RSpec.describe User, type: :model do
   it { is_expected.to validate_length_of(:name).is_at_most(50) }
 
   it { is_expected.to have_one(:channel) }
+  it { is_expected.to have_many(:streams) }
 
   it { is_expected.to have_db_column(:deleted_at) }
   it { is_expected.to have_db_index(:deleted_at) }
