@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_one :channel, dependent: :destroy
   has_many :streams
   acts_as_paranoid
+
   before_save :ensure_authentication_token!
 
   def self.find_for_facebook_oauth(auth, _signed_in_resource = nil)
@@ -29,6 +30,10 @@ class User < ActiveRecord::Base
     AuthorizationService.update_twitter(data, params)
   end
 
+  def set_min_age
+    update(min_age: age) if min_age.nil?
+  end
+
   private
 
   def ensure_authentication_token!
@@ -40,5 +45,11 @@ class User < ActiveRecord::Base
       token = Devise.friendly_token
       break token unless User.find_by(auth_token: token)
     end
+  end
+
+  def age
+    d1 = birthday.strftime('%Y%m%d').to_i
+    d2 = Time.zone.today.strftime('%Y%m%d').to_i
+    (d2 - d1) / 10_000
   end
 end
