@@ -24,6 +24,6 @@
 *.swp
 .env
 
-
+/public/uploads/*
 
 
