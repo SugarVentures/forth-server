@@ -60,6 +60,7 @@ RSpec.describe StreamsController, type: :controller do
       post :create, params
       expect(assigns[:channel]).to eq(channel)
       expect(assigns[:stream].title).to eq('abc')
+      expect(assigns[:stream].stream_key.length).to eq(36)
       expect(Stream.find(assigns[:stream].id).game).to eq('game1')
       expect(response).to have_http_status(302)
     end
