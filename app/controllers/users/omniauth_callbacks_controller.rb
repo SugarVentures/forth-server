@@ -31,6 +31,5 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     sign_in @user
     render 'users/twitter'
-    true
   end
 end

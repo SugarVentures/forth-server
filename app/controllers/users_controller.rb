@@ -5,9 +5,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
-    current_user.set_min_age
-    redirect_to root_path
+    if current_user.update(user_params)
+      current_user.set_min_age
+      set_flash_message(:notice, :success, kind: 'Twitter') if is_navigational_format?
+      redirect_to root_path
+    else
+      render 'users/twitter'
+    end
   end
 
   private

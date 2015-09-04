@@ -1,12 +1,15 @@
-= form_for @user do |f|
-
-  = @user.name
-  br
-  .form-group
-    = f.label :birthday
+.content-white
+  = form_for current_user do |f|
+    = current_user.name
     br
-    = f.date_select :birthday, start_year: 1900
-    em Birthday
+    - if current_user.errors.any?
+      - current_user.errors.full_messages.each do |message|
+        = message
 
-  .form-actions
-    = f.submit "Register", class: 'btn btn-primary btn-100'
+    .form-group
+      = f.label :birthday
+      br
+      = f.date_select :birthday, start_year: 1900
+
+    .form-actions
+      = f.submit "Register", class: 'btn btn-primary btn-100'
