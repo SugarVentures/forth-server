@@ -19,6 +19,19 @@ RSpec.describe User, type: :model do
 
   let(:user) { create :user }
 
+  it 'is not valid if birthday is in the future' do
+    user.birthday = Faker::Date.forward(10_000)
+    expect(user.valid?).to eq(false)
+    expect(user.errors.full_messages.first).to include('Birthday can not be in the future')
+  end
+
+  it 'is valid if birthday is nil or past date' do
+    user.birthday = nil
+    expect(user.valid?).to eq(true)
+    user.birthday = Faker::Date.backward(10_000)
+    expect(user.valid?).to eq(true)
+  end
+
   it 'acts as paranoid' do
     user.delete
     expect(user.deleted_at).not_to be_nil
