@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   def update
     if current_user.update(user_params)
       current_user.set_min_age
-      set_flash_message(:notice, :success, kind: 'Twitter') if is_navigational_format?
       redirect_to root_path
     else
       render 'users/twitter'
