@@ -28,4 +28,10 @@ RSpec.describe User, type: :model do
   it 'saves auth_token' do
     expect(user.auth_token).not_to be_nil
   end
+
+  it 'saves min_age when set_min_age' do
+    user.birthday = Faker::Date.backward(10_000)
+    user.set_min_age
+    expect(user.min_age).not_to be_nil
+  end
 end
