@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def update
     if current_user.update(user_params)
       current_user.set_min_age
-      redirect_to root_path
+      redirect_to root_path, notice: 'Successfully authenticated from Twitter account.'
     else
       render 'users/twitter'
     end
