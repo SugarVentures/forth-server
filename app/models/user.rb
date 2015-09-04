@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validates :email, presence: true, allow_blank: false, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :name, presence: true, allow_blank: false, uniqueness: true, length: { maximum: 50 }
+  validate :birthday_in_the_future?
 
   has_one :channel, dependent: :destroy
   has_many :streams
@@ -31,7 +32,7 @@ class User < ActiveRecord::Base
   end
 
   def set_min_age
-    update(min_age: age) if min_age.nil?
+    update(min_age: age)
   end
 
   private
@@ -51,5 +52,9 @@ class User < ActiveRecord::Base
     d1 = birthday.strftime('%Y%m%d').to_i
     d2 = Time.zone.today.strftime('%Y%m%d').to_i
     (d2 - d1) / 10_000
+  end
+
+  def birthday_in_the_future?
+    errors.add(:birthday, 'Birthday can not be in the future') if birthday.present? && birthday > Time.zone.now
   end
 end
