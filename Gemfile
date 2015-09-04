@@ -17,6 +17,7 @@ gem 'pg'
 gem 'rmagick', git: 'git://github.com/rmagick/rmagick.git'
 gem 'carrierwave'
 gem 'paranoia', '~> 2.0'
+gem 'fog'
 
 # Authentication
 gem 'devise'
