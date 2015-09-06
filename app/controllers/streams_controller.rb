@@ -16,8 +16,7 @@ class StreamsController < ApplicationController
   end
 
   def create
-    s_params = stream_params.merge(stream_key: SecureRandom.uuid)
-    @stream = @channel.streams.new(s_params)
+    @stream = new_stream
     if @stream.save
       redirect_to [@channel, @stream], notice: 'Stream was successfully created.'
     else
@@ -63,6 +62,11 @@ class StreamsController < ApplicationController
 
   def set_stream
     @stream = Stream.find(params[:id])
+  end
+
+  def new_stream
+    s_params = stream_params.merge(stream_key: SecureRandom.uuid)
+    @channel.streams.new(s_params)
   end
 
   def stream_params
