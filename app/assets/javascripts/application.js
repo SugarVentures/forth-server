@@ -16,8 +16,5 @@
 //= require turbolinks
 //= require vendors
 
-//= require angular-rails-templates
-
 //= require channels
 
-//# require ng-app/ng-app
