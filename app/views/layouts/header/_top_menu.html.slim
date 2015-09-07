@@ -6,12 +6,14 @@ ul
           = current_user.name
       ul.dropdown-menu aria-labelledby="mnuUser"
         li
-          = link_to 'Edit profile', edit_user_registration_path
-        li
           - if current_user.channel.present?
             = link_to 'My Channel', channel_path(current_user.channel)
+            = link_to 'My Streams', channel_streams_path(current_user.channel)
+            = link_to 'New Stream',  new_channel_stream_path(current_user.channel)
           - else
             = link_to 'Create My Channel', new_channel_path
+        li
+          = link_to 'Edit profile', user_path(current_user)
         li
           = link_to "Log out", destroy_user_session_path(authenticity_token: form_authenticity_token()), method: :delete
   - else
@@ -19,10 +21,14 @@ ul
       a href="#" id="dUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Login / Register
       .dropdown-menu aria-labelledby="dUser"
         = render 'devise/usermenu'
+
   li
     #google_translate_element
     javascript:
       function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
       }
     script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
