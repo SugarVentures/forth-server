@@ -9,12 +9,17 @@ aside.sidebar
           li.link-profile
             a href="#{user_path(current_user)}"
               span Profile
-        li.link-livestream
-          a href="#{root_path()}"
-            span Live Stream
-        li.link-createstream
-          a href="#{root_path()}"
-            span Create Live Stream
+          - if current_user.channel.present?
+            li.link-livestream
+              a href="#{channel_streams_path(current_user.channel)}"
+                span Live Stream
+            li.link-createstream
+              a href="#{new_channel_stream_path(current_user.channel)}"
+                span Create Live Stream
+          - else
+            li.link-livestream
+              a href="#{new_channel_path}"
+                span Create My Channel
         li.link-channels
-          a href="#{channels_path()}"
+          a href="#{channels_path}"
             span Channel List
