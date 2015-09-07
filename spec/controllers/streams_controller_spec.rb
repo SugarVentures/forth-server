@@ -89,7 +89,7 @@ RSpec.describe StreamsController, type: :controller do
 
   describe 'POST #reset_key' do
     it 'returns http 302' do
-      params = { stream_id: stream.id, channel_id: channel.id }
+      params = { id: stream.id, channel_id: channel.id }
       key = stream.stream_key
       post :reset_key, params
       expect(assigns[:channel].id).to eq(channel.id)

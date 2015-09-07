@@ -1,6 +1,6 @@
 class StreamsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :check]
-  before_action :set_stream, only: [:show, :edit, :update, :destroy]
+  before_action :set_stream, except: [:index, :new, :create, :check]
   before_action :set_channel, except: :check
   before_action :authenticate_user_from_token!, if: :format_json?
 
@@ -36,7 +36,6 @@ class StreamsController < ApplicationController
   end
 
   def reset_key
-    @stream = Stream.find(params[:stream_id])
     @stream.update(stream_key: SecureRandom.uuid)
     render :show
   end
@@ -52,6 +51,9 @@ class StreamsController < ApplicationController
     else
       render json: {}, status: 403
     end
+  end
+
+  def video_upload
   end
 
   private
