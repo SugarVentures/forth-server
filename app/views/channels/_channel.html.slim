@@ -1,0 +1,16 @@
+li.item
+  .channel-image
+    = link_to image_tag(channel.icon.small.url, alt: channel.title), channel
+  .channel-des
+    h2.channel-name
+      = link_to channel.user.name, channel
+    p= truncate(channel.description, :length => 200)
+    p.link-more.text-right
+      = link_to 'See more', channel
+    .channel-actions
+      - if (current_user && channel.user == current_user)
+        = link_to 'Edit', edit_channel_path(channel), class: 'btn btn-link'
+        = link_to 'Delete', channel, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-link'
+      button.btn.btn-subcrible type="button"
+        i class="fa fa-caret-right"
+        | Subcribe
