@@ -22,7 +22,7 @@
     .content-white
       .channel-info
         .row
-          .col-xs-12.col-sm-6.col-md-6
+          .col-xs-12.col-sm-9.col-md-10
             .channel-icon
               - if @channel.icon?
                 = image_tag @channel.icon.small.url
@@ -36,7 +36,7 @@
                   span Subcribler
                 li.channel-view
                   span 5833388
-          .col-xs-12.col-sm-6.col-md-6
+          .col-xs-12.col-sm-3.col-md-2
             .text-right
               button.btn.btn-subcrible type="button"
                 i class="fa fa-caret-right"
@@ -49,7 +49,8 @@
               .col-xs-12.col-sm-8.col-md-8
                 = render 'streams/stream_player'
               .col-xs-12.col-sm-4.col-md-4
-                = render 'channels/list'
+                = render 'channels/popular'
+                = render 'channels/related'
           .tab-pane role="tabpanel" id="upcomming"
             .page-header
               h2 Upcoming live streams
