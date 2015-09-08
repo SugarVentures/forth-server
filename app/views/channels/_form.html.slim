@@ -27,7 +27,7 @@
     = f.file_field :banner, accept: 'image/png,image/gif,image/jpeg'
   .form-group
     = f.label :components
-    = f.select :components, options_for_select(Channel.components), class: 'form-control'
+    = f.select :components, options_for_select(Channel.components), {}, class: 'form-control'
   .form-actions
     = f.submit class: 'btn btn-primary'
   
