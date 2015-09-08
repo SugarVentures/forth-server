@@ -60,4 +60,10 @@
               h2 Past Brodcast
             = render 'streams/list'
           .tab-pane role="tabpanel" id="settings"
+            p.channel-date
+              = "Joined #{@channel.created_at.strftime("%b %m, %Y")}"
+            p.channel-des
+             p
+               strong Description:
+             = @channel.description
 
