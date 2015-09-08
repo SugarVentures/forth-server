@@ -1,0 +1,6 @@
+- if @popular_channels.count > 0
+  .panel.block-chanels
+    .panel-heading
+      | Related Channels
+    .panel-body
+      = render 'channels/channel_thumb', channels: @popular_channels

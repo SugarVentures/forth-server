@@ -1,0 +1,11 @@
+ul.channels-list
+  - channels.each do |channel|
+    li.item
+      .channel-image
+        = link_to image_tag(channel.icon.thumb.url), channel
+      .channel-des
+        h3.channel-name
+          = link_to channel.title, channel
+        button.btn.btn-sm.btn-subcrible type="button"
+          i class="fa fa-caret-right"
+          | Subcribe
