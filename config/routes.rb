@@ -16,9 +16,11 @@ Rails.application.routes.draw do
   resources :users
 
   resources :channels do
-    get '/streams/:id/video_upload', to: 'streams#video_upload', as: 'stream_video_upload'
     post '/streams/:id/reset_key', to: 'streams#reset_key', as: 'stream_reset_key'
-    resources :streams
+    resources :streams do
+      get '/videos/upload', to: 'videos#upload', as: 'videos_upload'
+      resources :videos, only: [:create, :update, :destroy]
+    end
   end
 
   scope 'api', constraints: { format: :json }, defaults: { format: :json }, name_prefix: :api do
