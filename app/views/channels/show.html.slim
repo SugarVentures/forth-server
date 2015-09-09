@@ -43,27 +43,3 @@
                 | Subcribe
       .channel-content
         = render 'channels/channel_tab'
-        .tab-content
-          .tab-pane.active role="tabpanel" id="user-channel"
-            .row
-              .col-xs-12.col-sm-8.col-md-8
-                = render 'streams/stream_player'
-              .col-xs-12.col-sm-4.col-md-4
-                = render 'channels/popular'
-                = render 'channels/related'
-          .tab-pane role="tabpanel" id="upcomming"
-            .page-header
-              h2 Upcoming live streams
-            = render 'streams/list'
-          .tab-pane role="tabpanel" id="past-broadcast"
-            .page-header
-              h2 Past Brodcast
-            = render 'streams/list'
-          .tab-pane role="tabpanel" id="settings"
-            p.channel-date
-              = "Joined #{@channel.created_at.strftime("%b %m, %Y")}"
-            p.channel-des
-             p
-               strong Description:
-             = @channel.description
-
