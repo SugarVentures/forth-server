@@ -1,4 +1,5 @@
 class Video < ActiveRecord::Base
+  validates :file, presence: true
   belongs_to :stream
 
   mount_uploader :file, VideoUploader
