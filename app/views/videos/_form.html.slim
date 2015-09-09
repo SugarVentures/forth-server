@@ -1,0 +1,29 @@
+- if @videos.present?
+  h2
+    | Change Video
+  - @videos.each do |video|
+    = form_for [@channel, @stream, video], method: :patch do |f|
+      - if video.errors.any?
+        ul
+          - video.errors.full_messages.each do |message|
+            li
+              = message
+      - else
+        .video-player
+          video id="uploaded" class="video-js vjs-default-skin" controls="controls" preload="none" width="30%" height="250" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}"
+            source src=video.file.url.to_s type='video/mp4'
+      = f.label :file
+      = f.file_field :file
+      br
+      = f.submit 'Change'
+    = button_to 'Delete', channel_stream_video_path(@channel, @stream, video), :method => :delete
+    hr
+
+h2
+  | Add Videos
+- if @stream.videos.count < Video::MAX_UPLOAD
+  = form_for([@channel, @stream, Video.new]) do |f|
+    = f.label :file
+    = f.file_field :file, multiple: true
+    br
+    = f.submit 'Upload'
