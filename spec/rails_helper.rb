@@ -57,4 +57,8 @@ RSpec.configure do |config|
 
   config.include ApiHelper
   config.include FactoryGirl::Syntax::Methods
+  config.include ActionDispatch::TestProcess
+  FactoryGirl::SyntaxRunner.class_eval do
+    include ActionDispatch::TestProcess
+  end
 end
