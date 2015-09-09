@@ -16,6 +16,8 @@ gem 'aws-sdk-v1'
 gem 'pg'
 gem 'rmagick', git: 'git://github.com/rmagick/rmagick.git'
 gem 'carrierwave'
+gem 'carrierwave-video', git: 'git://github.com/rheaton/carrierwave-video.git'
+gem 'carrierwave-video-thumbnailer'
 gem 'paranoia', '~> 2.0'
 gem 'fog'
 
@@ -46,6 +48,9 @@ gem 'angular-rails-templates'
 # API
 gem 'active_model_serializers'
 
+# Monitoring
+gem 'newrelic_rpm'
+
 # C++ library extension
 # gem 'rbgccxml', '~> 1.0.4'
 # gem 'rbplusplus', '~> 1.2.1', path: './vendor/bundle/gems/rbplusplus'
@@ -73,7 +78,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-byebug'
-  gem 'pry-stack_explorer'
   gem 'rack-test', require: 'rack/test'
   gem 'simplecov', require: false
   gem 'capistrano', '~> 3.2.1'
