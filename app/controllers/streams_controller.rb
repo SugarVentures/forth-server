@@ -53,9 +53,6 @@ class StreamsController < ApplicationController
     end
   end
 
-  def video_upload
-  end
-
   private
 
   def set_channel
