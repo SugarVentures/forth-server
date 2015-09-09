@@ -5,11 +5,19 @@ class Stream < ActiveRecord::Base
   validates :channel_id, presence: true
   validates :user_id, presence: true
   # validates :start_end_validation
+  validate :videos_are_less_than_5?
 
   belongs_to :channel
   belongs_to :user
+  has_many :videos
 
   enum view_mode: [:Private, :Group, :Public]
 
   acts_as_paranoid
+
+  private
+
+  def videos_are_less_than_5?
+    errors.add(:videos, 'Only 5 videos can be uploaded') if videos.count > Video::MAX_UPLOAD
+  end
 end
