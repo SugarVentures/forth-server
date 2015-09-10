@@ -3,22 +3,37 @@
     = render 'layouts/sidebar'
   .col-xs-12.col-sm-8.col-md-9
     .channel-banner
-      - if current_user && current_user.id == @channel.user_id
-        button type="button" class="btn btn-primary btn-no-radius btn-edit" data-toggle="modal" data-target="#changeBanner"
-          | Change Channel Banner
-        .modal.fade id="changeBanner" tabindex="-1" role="dialog" aria-labelledby="changeBannerLabel"
-          .modal-dialog role="document"
-            .modal-content
-              .modal-header
-                button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                  span aria-hidden="true" &times;
-                h4 class="modal-title" id="changeBannerLabel" Channel Banner
-              .modal-body
-                = render 'channels/edit_channel_banner'
       - if @channel.banner?
         = image_tag @channel.banner.url, :alt => @channel.title, class: "img-responsive channel-banner"
+        - if current_user && current_user.id == @channel.user_id
+          .channel-actions
+            button type="button" class="btn btn-primary btn-no-radius btn-edit" data-toggle="modal" data-target="#changeBanner"
+              | Change Channel Banner
+            .modal.fade id="changeBanner" tabindex="-1" role="dialog" aria-labelledby="changeBannerLabel"
+              .modal-dialog role="document"
+                .modal-content
+                  .modal-header
+                    button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                      span aria-hidden="true" &times;
+                    h4 class="modal-title" id="changeBannerLabel" Channel Banner
+                  .modal-body
+                    = render 'channels/edit_channel_banner'
+            = link_to 'Edit', edit_channel_path(@channel), class: 'btn btn-primary btn-no-radius btn-edit'
+            = link_to 'Delete', @channel, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary btn-no-radius btn-edit'
       - else
         = image_tag("no-banner.jpg", :alt => @channel.title, class: "img-responsive channel-banner")
+        - if current_user && current_user.id == @channel.user_id
+          button type="button" class="btn btn-primary btn-no-radius btn-edit" data-toggle="modal" data-target="#changeBanner"
+            | Add Channel Banner
+          .modal.fade id="changeBanner" tabindex="-1" role="dialog" aria-labelledby="changeBannerLabel"
+            .modal-dialog role="document"
+              .modal-content
+                .modal-header
+                  button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    span aria-hidden="true" &times;
+                  h4 class="modal-title" id="changeBannerLabel" Channel Banner
+                .modal-body
+                  = render 'channels/edit_channel_banner'
     .content-white
       .channel-info
         .row
