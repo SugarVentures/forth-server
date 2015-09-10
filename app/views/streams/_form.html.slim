@@ -1,35 +1,43 @@
 = form_for [@channel, @stream] do |f|
   - if @stream.errors.any?
-    ul
-      - @stream.errors.full_messages.each do |message|
-        li
-          = message
-
-  = f.label :title
-  = f.text_field :title
-  br
-  = f.label :game
-  = f.text_area :game
-  br
-  = f.label :start
-  = f.time_select :start
-  = f.date_select :start
-  br
-  = f.label :end
-  = f.time_select :end
-  = f.date_select :end
-  br
-  = f.label :view_mode
-  = f.select :view_mode, options_for_select([['Private', 0], ['Group',1], ['Public',2]])
-  br
-  = f.label :age_restriction
-  = f.select :age_restriction, options_for_select([['no restriction', 0], ['u-17',17], ['u-21',21]])
-  br
-  = f.label :group
-  = f.check_box :group
-  br
-  = f.label :discussion
-  = f.check_box :discussion
-  br
-  = f.submit
+    .alert.alert-danger.alert-dismissable
+      button type="button" class="close" data-dismiss="alert" aria-label="Close"
+        span aria-hidden="true" &times
+      ul
+        - @stream.errors.full_messages.each do |message|
+          li
+            = message
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :game
+    = f.text_area :game, class: 'form-control'
+  .form-group
+    = f.label :start
+    br
+    = f.time_select :start
+    = f.date_select :start
+  .form-group
+    = f.label :end
+    br
+    = f.time_select :end
+    = f.date_select :end
+  .form-group
+    = f.label :view_mode
+    br
+    = f.select :view_mode, options_for_select([['Private', 0], ['Group',1], ['Public',2]]), {}, class: 'form-control'
+  .form-group
+    = f.label :age_restriction
+    = f.select :age_restriction, options_for_select([['no restriction', 0], ['u-17',17], ['u-21',21]]), {}, class: 'form-control'
+  .checkbox
+    = f.label :group
+      = f.check_box :group
+      = ("Group")
+  .checkbox
+    = f.label :discussion
+      = f.check_box :discussion
+      = ("Discussion")
+  .form-actions
+    = f.submit class: 'btn btn-primary'
   
