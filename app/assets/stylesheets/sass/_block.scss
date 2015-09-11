@@ -45,6 +45,16 @@
       }
     }
   }
+  @media (max-width: 767px) {
+    height: 50px;
+    width: 88%;
+  }
+  @media (max-width: 560px) {
+    width: 85%;
+  }
+  @media (max-width: 480px) {
+    width: 75%;
+  }
 }
 
 /* Block: Login */

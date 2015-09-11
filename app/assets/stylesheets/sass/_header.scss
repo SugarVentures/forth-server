@@ -120,6 +120,9 @@ header {
     display: block;
     height: 42px;
     width: 105px;
+    @media (max-width: 767px) {
+      margin: 0 auto 10px;
+    }
   }
 
   .navbar .container {
