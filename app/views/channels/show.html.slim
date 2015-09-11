@@ -17,7 +17,7 @@
                       span aria-hidden="true" &times;
                     h4 class="modal-title" id="changeBannerLabel" Channel Banner
                   .modal-body
-                    = render 'channels/edit_channel_banner'
+                    = render 'channels/edit_channel_banner', channel: @channel
             = link_to 'Edit', edit_channel_path(@channel), class: 'btn btn-primary btn-no-radius btn-edit'
             = link_to 'Delete', @channel, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary btn-no-radius btn-edit'
       - else

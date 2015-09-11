@@ -1,0 +1,16 @@
+ul class="nav nav-tabs" role="tablist"
+  li role="user-tab" class="active"
+    a href="#about" aria-controls="about" role="tab" data-toggle="tab" About
+  li role="user-tab"
+    a href="#subscriptions" aria-controls="subscriptions" role="tab" data-toggle="tab" Subscriptions
+.tab-content
+  .tab-pane.active role="tabpanel" id="about"
+    p.channel-date
+      = "Joined #{user.created_at.strftime("%b %m, %Y")}"
+    p.channel-des
+      p
+        strong Description:
+      = user.name
+  .tab-pane role="tabpanel" id="subscriptions"
+    .page-header
+      h2 Subscriptions
