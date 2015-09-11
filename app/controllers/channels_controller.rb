@@ -4,6 +4,7 @@ class ChannelsController < ApplicationController
 
   def index
     @channels = Channel.all.includes(:user)
+    @channels = channels_scope
   end
 
   def new
@@ -45,6 +46,17 @@ class ChannelsController < ApplicationController
 
   def set_channel
     @channel = Channel.find(params[:id])
+  end
+
+  def channels_scope
+    case params[:scope]
+      when 'popular'
+        @channels.popular
+      when 'features'
+        @channels.features
+      else
+        @channels.popular
+    end
   end
 
   def check_channel_presence?
