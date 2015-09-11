@@ -1,0 +1,38 @@
+.stream-name {
+  @extend .font-bebaskai;
+  font-size: $font-size-large;
+  text-transform: capitalize;
+  padding: 0;
+  margin: 0 0 5px;
+}
+
+.stream-list {
+  .item {
+    margin: 0 0 25px;
+    .inner {
+      border: 1px solid $gray;
+      border-radius: 5px;
+      padding: 15px;
+      .col-md-9 {
+        border-right: 1px solid $gray;
+      }
+      p:last-child {
+        margin: 0;
+      }
+      .btn {
+        margin: 10px 0 0;
+      }
+      .btn-100 {
+        font-size: $font-size-base;
+        padding: 5px 0;
+      }
+    }
+  }
+  @media (max-width: 1023px) {
+    .item .inner {
+      .col-md-9 {
+        border-right: 0 none;
+      }
+    }
+  }
+}

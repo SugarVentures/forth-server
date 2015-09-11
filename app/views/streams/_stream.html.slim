@@ -1,0 +1,29 @@
+li.item
+  .inner
+    .row
+      .col-md-9
+        h2.stream-name
+          = link_to stream.title, [@channel, stream]
+        .stream-info
+          p= link_to stream.user.name, stream.user
+          p.stream-category.text-capitalize
+            strong="Game: "
+            = stream.game
+          p.stream-date
+            strong="Start at: "
+            = stream.start
+          p.stream-date
+            strong=" End at: "
+            = stream.end
+          - if current_user == @channel.user
+            p.stream-key
+              strong="Key: "
+              = stream.stream_key
+      .col-md-3
+        .stream-actions
+          = link_to 'Show', [@channel, stream], class: 'btn btn-primary btn-100'
+          - if stream.user == current_user
+            = link_to 'Edit', edit_channel_stream_path(@channel, stream), class: 'btn btn-primary btn-100'
+          - if stream.user == current_user
+            = link_to 'Delete', [@channel, stream], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary btn-100'
+
