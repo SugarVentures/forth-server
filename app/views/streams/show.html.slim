@@ -1,44 +1,14 @@
-div class='white-bg'
-  p Stream Title:
-  = @stream.title
-  hr
-  p Owner
-  = @stream.user.name
-  hr
-  p Game:
-  = @stream.game
-  hr
-  p Stream Key:
-  = @stream.stream_key
-  br
-  = button_to 'Reset key', channel_stream_reset_key_path(@channel, @stream)
-  hr
-  p Start:
-  = @stream.start
-  hr
-  p End:
-  = @stream.end
-  hr
-  p view_mode
-  = @stream.view_mode
-  hr
-  p age_restriction
-  = @stream.age_restriction
-  hr
-  p Group
-  = @stream.group
-  hr
-  p Discussion
-  = @stream.discussion
-  hr
-  = link_to '[Edit]', edit_channel_stream_path(@channel, @stream)
-  = link_to '[Back]', channel_streams_path
-  hr
-  p Videos
-  - @stream.videos.each do |video|
-    .video-player
-      video id="uploaded" class="video-js vjs-default-skin" controls="controls" preload="none" width="30%" height="250" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}"
-        source src=video.file.url.to_s type='video/mp4'
-  
-  = link_to '[Upload]', channel_stream_videos_upload_path(@channel, @stream)
-  br
+.row
+  .col-xs-12.col-sm-4.col-md-3
+    = render 'layouts/sidebar'
+  .col-xs-12.col-sm-8.col-md-9
+    .content-white
+      .page-header
+        h2= @stream.title
+        - if user_signed_in? && current_user == @channel.user
+          = link_to 'Upload Video', channel_stream_videos_upload_path(@channel, @stream), class: 'btn btn-primary pull-right'
+      .content
+        = render 'streams/stream', stream: @stream
+        h2.stream-name Videos
+        - @stream.videos.each do |video|
+          = render 'videos/video', video: video
