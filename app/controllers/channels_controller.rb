@@ -50,12 +50,12 @@ class ChannelsController < ApplicationController
 
   def channels_scope
     case params[:scope]
-      when 'popular'
-        @channels.popular
-      when 'features'
-        @channels.features
-      else
-        @channels.popular
+    when 'popular'
+      @channels.popular
+    when 'features'
+      @channels.features
+    else
+      @channels.popular
     end
   end
 
