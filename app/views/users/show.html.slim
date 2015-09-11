@@ -2,13 +2,32 @@
   .col-xs-12.col-sm-4.col-md-3
     = render 'layouts/sidebar'
   .col-xs-12.col-sm-8.col-md-9
+    .channel-banner
+      - if current_user.channel.banner?
+        = image_tag current_user.channel.banner.url, :alt => current_user.channel.title, class: "img-responsive channel-banner"
+      - else
+        = image_tag("no-banner.jpg", :alt => current_user.channel.title, class: "img-responsive channel-banner")
     .content-white
-      .page-header
-        h2 My profile
-      .row
-        .col-xs-12.col-sm-6.col-md-6.margin-bottom-15
-          h3.h4 Your Personal Details
-          = render 'users/form'
-        .col-xs-12.col-sm-6.col-md-6.margin-bottom-15
-          h3.h4 Change Password
-          = render 'users/change_password'
+      .channel-info
+        .row
+          .col-xs-12.col-sm-9.col-md-10
+            .channel-icon
+              - if @user.channel.icon?
+                = image_tag current_user.channel.icon.small.url
+              - else
+                | No image
+            .channel-des
+              h2.channel-name
+                = @user.name
+              ul.channel-actions
+                li.channel-subcribler
+                  span Subcribler
+                li.channel-view
+                  span 5833388
+          .col-xs-12.col-sm-3.col-md-2
+            .text-right
+              button.btn.btn-subcrible type="button"
+                i class="fa fa-caret-right"
+                | Subcribe
+      .channel-content
+        = render 'users/user_tab', user: @user
