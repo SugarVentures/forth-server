@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   resources :users
 
   resources :channels do
+    collection do
+      get '/:scope', to: 'channels#index', as: :scoped,
+          constraints: { scope: /popular|features/ }
+    end
     post '/streams/:id/reset_key', to: 'streams#reset_key', as: 'stream_reset_key'
     resources :streams do
       get '/videos/upload', to: 'videos#upload', as: 'videos_upload'

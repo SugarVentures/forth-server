@@ -10,13 +10,13 @@
       li
         = link_to 'What to watch', root_path
       li
-        = link_to 'My Channel', '#'
+        = link_to 'My Channel', channel_path(current_user.channel)
       li
-        = link_to 'My Subscriptions', '#'
+        = link_to 'My Subscriptions', user_path(current_user)
       li
-        = link_to 'Popular', root_path
+        = link_to 'Popular', scoped_channels_path(scope: 'popular')
       li
-        = link_to 'Features', root_path
+        = link_to 'Features', scoped_channels_path(scope: 'features')
     - else
       li
         = link_to 'What to watch', root_path
