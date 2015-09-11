@@ -49,15 +49,15 @@
 /* Footer */
 @import "sass/footer";
 
+/* Chanel */
+@import "sass/channel";
+
 /* Stream */
 @import "sass/stream";
 
 /* Video */
 @import "video-js";
-@import "video";
+@import "sass/video";
 
-/* Styles */
-@import "styles";
-
-/* Temporary */
-@import "temporary";
+/* Component */
+@import "sass/component";
