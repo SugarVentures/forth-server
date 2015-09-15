@@ -12,7 +12,7 @@ RSpec.describe VideosController, type: :controller do
 
   describe 'POST #create' do
     it 'returns http 302 when create video' do
-      params = { channel_id: channel.id, stream_id: stream.id, video: { file: [fixture_file_upload('images/smile.png', 'image/png')] } }
+      params = { channel_id: channel.id, stream_id: stream.id, video: { file: [fixture_file_upload('videos/video.webm', 'movie/webm')] } }
       post :create, params
       expect(assigns[:channel]).to eq(channel)
       expect(assigns[:stream]).to eq(stream)
@@ -23,7 +23,7 @@ RSpec.describe VideosController, type: :controller do
 
   describe 'GET #upload' do
     it 'returns http 302 when create video' do
-      stream.videos.create(file: fixture_file_upload('images/smile.png', 'image/png'))
+      stream.videos.create(file: fixture_file_upload('videos/video.webm', 'movie/webm'))
 
       params = { channel_id: channel.id, stream_id: stream.id }
       get :upload, params
