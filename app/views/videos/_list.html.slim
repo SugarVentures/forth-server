@@ -1,0 +1,19 @@
+.row
+  ul.grid-videos
+    - videos.each do |video|
+      li class="col-xs-6 col-sm-4 col-md-4 item"
+        .inner
+          .video-image
+            = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
+            .video-actions
+              .inner
+                = link_to "Play", channel_stream_video_path(@channel, stream, video), class: 'btn-video-play'
+          .video-description
+            .video-att-info
+              .video-date 15th July
+              ul.video-actions
+                li.video-like 27848
+                li.video-view 27848
+                li.video-comment 27848
+            h2.video-name
+              = video.title

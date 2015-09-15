@@ -10,5 +10,4 @@
       .content
         = render 'streams/stream', stream: @stream
         h2.stream-name Videos
-        - @stream.videos.each do |video|
-          = render 'videos/video', video: video
+        = render 'videos/list', videos: @stream.videos, stream: @stream
