@@ -2,7 +2,7 @@ class VideosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_stream
   before_action :set_channel
-  before_action :set_video, only: [:update, :destroy]
+  before_action :set_video, only: [:update, :destroy, :show]
 
   def create
     build_videos_into_stream
@@ -28,6 +28,10 @@ class VideosController < ApplicationController
   def destroy
     @video.destroy
     redirect_to [@channel, @stream], notice: 'Video was successfully deleted.'
+  end
+
+  def show
+
   end
 
   private

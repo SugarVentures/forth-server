@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     post '/streams/:id/reset_key', to: 'streams#reset_key', as: 'stream_reset_key'
     resources :streams do
       get '/videos/upload', to: 'videos#upload', as: 'videos_upload'
-      resources :videos, only: [:create, :update, :destroy]
+      resources :videos, only: [:create, :update, :destroy, :show]
     end
   end
 
