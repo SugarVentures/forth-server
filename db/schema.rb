@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904091138) do
+ActiveRecord::Schema.define(version: 20150913100325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150904091138) do
     t.datetime "updated_at",                            null: false
     t.string   "name",                     default: "", null: false
     t.datetime "birthday"
+    t.integer  "min_age"
     t.string   "fb_id"
     t.string   "fabric_id"
     t.string   "fabric_auth_token"
@@ -89,6 +90,7 @@ ActiveRecord::Schema.define(version: 20150904091138) do
     t.integer  "stream_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "thumb"
   end
 
 end
