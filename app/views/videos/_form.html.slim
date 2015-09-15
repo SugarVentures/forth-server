@@ -10,7 +10,7 @@
               = message
       - else
         .video-player
-          video id="uploaded" class="video-js vjs-default-skin" controls="controls" preload="none" width="30%" height="250" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}"
+          video id="uploaded" class="video-js vjs-default-skin" controls="controls" preload="none" width="30%" height="250" poster="#{video.file.thumb.url.to_s}" data-setup="{}"
             source src=video.file.url.to_s type='video/mp4'
       = f.label :file
       = f.file_field :file
