@@ -69,14 +69,11 @@ group :test do
 end
 
 group :development, :test do
-  gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails'
   gem 'factory_girl_rails', require: false
-  gem 'pry'
   gem 'pry-rails'
-  gem 'pry-doc'
   gem 'pry-byebug'
   gem 'rack-test', require: 'rack/test'
   gem 'simplecov', require: false
