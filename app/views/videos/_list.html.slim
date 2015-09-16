@@ -4,7 +4,7 @@
       li class="col-xs-6 col-sm-4 col-md-4 item"
         .inner
           .video-image
-            = image_tag "#{video.file.thumb.url.to_s}", alt: 'Featured', class: 'video-poster'
+            = image_tag video.file.thumb.url, alt: 'Featured', class: 'video-poster'
             .video-actions
               .inner
                 = link_to "Play", channel_stream_video_path(@channel, stream, video), class: 'btn-video-play'
