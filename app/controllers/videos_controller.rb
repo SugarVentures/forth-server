@@ -9,7 +9,7 @@ class VideosController < ApplicationController
     if @stream.save
       redirect_to [@channel, @stream], notice: 'Videos were successfully uploaded.'
     else
-      render :back
+      redirect_to :back
     end
   end
 
@@ -21,7 +21,7 @@ class VideosController < ApplicationController
     if @video.update(video_params_file)
       redirect_to [@channel, @stream], notice: 'Videos were successfully changed.'
     else
-      render :back
+      redirect_to :back
     end
   end
 
