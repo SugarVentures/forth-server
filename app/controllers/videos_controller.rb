@@ -37,12 +37,6 @@ class VideosController < ApplicationController
 
   def build_videos_into_stream
     params[:video][:file].each do |file|
-      logger.debug('>>>>>>>>>>>>>>UPLOAD VIDEO>>>>>>>>>>>>>>')
-      if file
-        logger.debug(file)
-        logger.debug(file.content_type)
-        logger.debug(file.tempfile)
-      end
       @stream.videos.new(video_params.merge(file: file))
     end
   end
