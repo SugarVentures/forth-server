@@ -9,5 +9,7 @@
             = @video.title
           - else
             =("Video")
+        - if user_signed_in? && current_user == @channel.user
+          = link_to 'Edit Video', channel_stream_videos_upload_path(@channel, @stream), class: 'btn btn-primary pull-right'
       .content
         = render 'videos/video', video: @video
