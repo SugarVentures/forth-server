@@ -11,7 +11,8 @@ ul class="nav nav-tabs" role="tablist"
   .tab-pane.active role="tabpanel" id="user-channel"
     .row
       .col-xs-12.col-sm-8.col-md-8
-        = render 'streams/stream_player'
+        - if @channel.streams.length > 0 && @channel.streams.first.videos.length > 0
+          = render 'videos/video', video: @channel.streams.first.videos.first
       .col-xs-12.col-sm-4.col-md-4
         = render 'channels/popular'
         = render 'channels/related'
