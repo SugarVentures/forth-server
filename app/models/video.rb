@@ -4,6 +4,7 @@ class Video < ActiveRecord::Base
   belongs_to :stream
 
   mount_uploader :file, VideoUploader
+  mount_uploader :thumb, ImageUploader
 
   MAX_UPLOAD = 5
 
