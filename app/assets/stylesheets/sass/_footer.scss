@@ -63,4 +63,14 @@
       }
     }
   }
+  @media (max-width: 767px) {
+    text-align: center;
+    .links li {
+     line-height: 1.5;
+    }
+    .social-links {
+      text-align: center;
+      margin: 0 0 20px;
+    }
+  }
 }
