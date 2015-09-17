@@ -9,7 +9,7 @@ class VideosController < ApplicationController
     if @stream.save
       redirect_to [@channel, @stream], notice: 'Videos were successfully uploaded.'
     else
-      render :back
+      redirect_to channel_stream_videos_upload_url(@channel, @stream), alert: 'Videos were not uploaded.'
     end
   end
 
@@ -19,9 +19,9 @@ class VideosController < ApplicationController
 
   def update
     if @video.update(video_params_file)
-      redirect_to [@channel, @stream], notice: 'Videos were successfully changed.'
+      redirect_to [@channel, @stream], notice: 'Video was successfully changed.'
     else
-      render :back
+      redirect_to channel_stream_videos_upload_url(@channel, @stream), alert: 'Video was not changed.'
     end
   end
 

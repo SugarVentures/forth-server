@@ -19,6 +19,15 @@ RSpec.describe VideosController, type: :controller do
       expect(assigns[:stream].videos.count).to eq(1)
       expect(response).to have_http_status(302)
     end
+
+    it 'redirect to upload page when fail to create video' do
+      params = { channel_id: channel.id, stream_id: stream.id, video: { file: ['abc'] } }
+      post :create, params
+      expect(assigns[:channel]).to eq(channel)
+      expect(assigns[:stream]).to eq(stream)
+      is_expected.to redirect_to("/channels/#{channel.id}/streams/#{stream.id}/videos/upload")
+      expect(response).to have_http_status(302)
+    end
   end
 
   describe 'GET #upload' do
