@@ -505,6 +505,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.2.0)
   bower-rails (~> 0.9.2)
   bullet
+  byebug
   cancancan
   capistrano (~> 3.2.1)
   capistrano-rails (~> 1.1.1)
@@ -533,6 +534,7 @@ DEPENDENCIES
   paranoia (~> 2.0)
   pg
   poltergeist
+  pry
   pry-byebug
   pry-rails
   rack-test
