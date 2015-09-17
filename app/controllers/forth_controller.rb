@@ -14,4 +14,8 @@ class ForthController < ApplicationController
 
   def term_condition
   end
+
+  def search
+    @results = SearchService.new(params[:q]).run
+  end
 end
