@@ -112,7 +112,7 @@
         display: block;
         padding: 0 0 0 40px;
       }
-      &:active,
+      &.active,
       &:focus,
       &:hover {
         background: $left-mnu-hover-link-bg;
@@ -124,7 +124,7 @@
       span {
         background-position: -679px -309px;
       }
-      &:active span
+      &.active span,
       &:focus span,
       &:hover span {
         background-position: -679px -342px;
@@ -134,7 +134,7 @@
       span {
         background-position: -679px -465px;
       }
-      &:active span
+      &.active span,
       &:focus span,
       &:hover span {
         background-position: -679px -506px;
@@ -144,7 +144,7 @@
       span {
         background-position: -679px -384px;
       }
-      &:active span
+      &.active span,
       &:focus span,
       &:hover span {
         background-position: -679px -421px;
@@ -154,7 +154,7 @@
       span {
         background-position: -679px -545px;
       }
-      &:active span
+      &.active span,
       &:focus span,
       &:hover span {
         background-position: -679px -577px;
@@ -164,7 +164,7 @@
       span {
         background-position: -679px -615px;
       }
-      &:active span
+      &.active span,
       &:focus span,
       &:hover span {
         background-position: -679px -654px;

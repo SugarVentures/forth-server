@@ -3,23 +3,48 @@ aside.sidebar
     .block-content
       ul
         li.link-home
-          a href="#{root_path()}"
+          a href="#{root_path()}" class=""
             span Home
         - if user_signed_in?
-          li.link-profile
-            a href="#{user_path(current_user)}"
-              span Profile
-          - if current_user.channel.present?
-            li.link-livestream
-              a href="#{channel_streams_path(current_user.channel)}"
-                span Live Stream
-            li.link-createstream
-              a href="#{new_channel_stream_path(current_user.channel)}"
-                span Create Live Stream
+          - if current_page?(user_path(current_user))
+            li.link-profile.active
+              a href="#{user_path(current_user)}" class="active"
+                span Profile
           - else
-            li.link-livestream
-              a href="#{new_channel_path}"
-                span Create My Channel
-        li.link-channels
-          a href="#{channels_path}"
-            span Channel List
+            li.link-profile
+              a href="#{user_path(current_user)}"
+                span Profile
+          - if current_user.channel.present?
+            - if current_page?(channel_streams_path(current_user.channel))
+              li.link-livestream.active
+                a href="#{channel_streams_path(current_user.channel)}" class="active"
+                  span Live Stream
+            - else
+              li.link-livestream
+                a href="#{channel_streams_path(current_user.channel)}"
+                  span Live Stream
+            - if current_page?(new_channel_stream_path(current_user.channel))
+              li.link-createstream.active
+                a href="#{new_channel_stream_path(current_user.channel)}" class="active"
+                  span Create Live Stream
+            - else
+              li.link-createstream
+                a href="#{new_channel_stream_path(current_user.channel)}"
+                  span Create Live Stream
+          - else
+            - if current_page?(new_channel_path)
+              li.link-livestream
+                a href="#{new_channel_path}" class="active"
+                  span Create My Channel
+            - else
+              li.link-livestream
+                a href="#{new_channel_path}"
+                  span Create My Channel
+        - if current_page?(channels_path)
+          li.link-channels.active
+            a href="#{channels_path}" class="active"
+              span Channel List
+        - else
+          li.link-channels
+            a href="#{channels_path}"
+              span Channel List
