@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'about' => 'forth#about'
   get 'privacy' => 'forth#privacy'
   get 'term_condition' => 'forth#term_condition'
+  get 'search' => 'forth#search'
 
   resources :contacts, only: [:new, :create]
 
