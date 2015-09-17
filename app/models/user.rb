@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
 
   before_save :ensure_authentication_token!
 
+  scope :search, -> (keyword) { where('LOWER(name) LIKE ? OR LOWER(email) LIKE ?', "%#{keyword.try(:downcase)}%", "%#{keyword.try(:downcase)}%") }
+
   def self.find_for_facebook_oauth(auth, _signed_in_resource = nil)
     data = AuthorizationService.check_facebook(auth.credentials.token)
     AuthorizationService.update_facebook(data)
