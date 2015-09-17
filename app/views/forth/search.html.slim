@@ -1,0 +1,9 @@
+- if @results.present?
+  - @results.each do |result|
+      - case result.class.to_s
+        - when 'Channel'
+          == render 'channel_search', channel: result
+        - when 'Stream'
+          == render 'stream_search', stream: result
+        - when 'User'
+          == render 'user_search', user: result
