@@ -13,6 +13,8 @@ class Stream < ActiveRecord::Base
 
   enum view_mode: [:Private, :Group, :Public]
 
+  scope :search, -> (keyword) { where('LOWER(title) LIKE ? OR LOWER(description) LIKE ?', "%#{keyword.try(:downcase)}%", "%#{keyword.try(:downcase)}%") }
+
   acts_as_paranoid
 
   private
