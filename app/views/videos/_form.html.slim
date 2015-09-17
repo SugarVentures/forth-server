@@ -4,10 +4,13 @@
   - @videos.each do |video|
     = form_for [@channel, @stream, video], method: :patch do |f|
       - if video.errors.any?
-        ul
-          - video.errors.full_messages.each do |message|
-            li
-              = message
+        .alert.alert-danger.alert-dismissable
+          button type="button" class="close" data-dismiss="alert" aria-label="Close"
+            span aria-hidden="true" &times
+          ul
+            - video.errors.full_messages.each do |message|
+              li
+                = message
       - else
         .video-player
           video id="uploaded" class="video-js vjs-default-skin" controls="controls" preload="none" width="30%" height="250" poster="#{video.file.thumb.url.to_s}" data-setup="{}"
