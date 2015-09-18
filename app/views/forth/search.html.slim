@@ -1,3 +1,5 @@
+= page_entries_info @results
+
 - if @results.present?
   - @results.each do |result|
       - case result.class.to_s
@@ -7,3 +9,5 @@
           == render 'stream_search', stream: result
         - when 'User'
           == render 'user_search', user: result
+
+= paginate @results
