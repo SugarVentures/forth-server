@@ -8,6 +8,6 @@
         - if user_signed_in? && current_user == @channel.user
           = link_to 'Upload Video', channel_stream_videos_upload_path(@channel, @stream), class: 'btn btn-primary pull-right'
       .content
-        = render 'streams/stream', stream: @stream
+        = render 'streams/stream', stream: @stream, channel: @channel
         h2.stream-name Videos
         = render 'videos/list', videos: @stream.videos, stream: @stream
