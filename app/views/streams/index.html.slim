@@ -11,4 +11,4 @@
         - if @streams.count > 0
           .stream-list
             - @streams.each do |stream|
-              = render 'streams/stream', stream: stream
+              = render 'streams/stream', stream: stream, channel: @channel
