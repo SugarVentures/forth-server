@@ -38,6 +38,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'therubyracer'
 gem 'mail_form'
 gem 'simple_form'
+gem 'kaminari'
 
 # font awesome
 gem 'font-awesome-rails'
