@@ -1,13 +1,25 @@
-= page_entries_info @results
+.row
+  .col-xs-12.col-sm-4.col-md-3
+    = render 'layouts/sidebar'
+  .col-xs-12.col-sm-8.col-md-9
+    .content-white
+      .page-header
+        h2 = ("Search results for '#{params[:q]}'")
+      - if @results.present?
+        = page_entries_info @results
+        .search-content
+          - @results.each do |result|
+            - case result.class.to_s
+              - when 'Channel'
+                ul.channels-list
+                  = render 'channels/channel', channel: result
+              - when 'Stream'
+                .stream-list
+                  = render 'streams/stream', stream: result, channel: result.channel
+              - when 'User'
+                = render 'users/user', user: result
+        = paginate @results
+      - else
+        p.alert.alert-note
+          = ("a")
 
-- if @results.present?
-  - @results.each do |result|
-      - case result.class.to_s
-        - when 'Channel'
-          == render 'channel_search', channel: result
-        - when 'Stream'
-          == render 'stream_search', stream: result
-        - when 'User'
-          == render 'user_search', user: result
-
-= paginate @results

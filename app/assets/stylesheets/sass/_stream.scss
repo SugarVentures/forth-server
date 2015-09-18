@@ -39,3 +39,17 @@
     }
   }
 }
+
+.search-content .stream-list {
+  border-bottom: 1px solid $gray;
+  margin: 0 0 15px;
+  padding: 0 0 15px;
+  .stream-item {
+    margin: 0;
+    .inner {
+      border: 0 none;
+      border-radius: 0;
+      padding: 0;
+    }
+  }
+}
