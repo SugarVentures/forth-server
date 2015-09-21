@@ -16,11 +16,11 @@
   .form-group
     = f.label :start
     br
-    = f.datetime_field :start, placeholder: "HH:MM, MM/DD/YYYY", :value => (@stream.start.blank? ? "" : @stream.start.strftime("%H:%M, %m/%d/%Y")), class: 'form-control'
+    = f.datetime_field :start, placeholder: "YYYY-MM-DD HH:MM", :value => (@stream.start.blank? ? "" : @stream.start.strftime("%Y-%m-%d %H:%M")), class: 'form-control'
   .form-group
     = f.label :end
     br
-    = f.datetime_field :end, placeholder: "HH:MM, MM/DD/YYYY", :value => (@stream.start.blank? ? "" : @stream.start.strftime("%H:%M, %m/%d/%Y")), class: 'form-control'
+    = f.datetime_field :end, placeholder: "YYYY-MM-DD HH:MM", :value => (@stream.start.blank? ? "" : @stream.start.strftime("%Y-%m-%d %H:%M")), class: 'form-control'
   .form-group
     = f.label :view_mode
     br
