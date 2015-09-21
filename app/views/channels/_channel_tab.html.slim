@@ -26,7 +26,7 @@ ul class="nav nav-tabs" role="tablist"
     = render 'streams/list'
   .tab-pane role="tabpanel" id="settings"
     p.channel-date
-      = "Joined #{@channel.created_at.strftime("%b %m, %Y")}"
+      = "Joined #{@channel.user.created_at.strftime("%d %m, %Y")}"
     p.channel-des
       p
         strong Description:
