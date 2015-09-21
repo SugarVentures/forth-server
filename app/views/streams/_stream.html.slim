@@ -12,10 +12,10 @@
               = stream.game
             p.stream-date
               strong="Start at: "
-              = stream.start
+              = stream.start.strftime("%H:%M on %d %m, %Y")
             p.stream-date
               strong=" End at: "
-              = stream.end
+              = stream.end.strftime("%H:%M on %d %m, %Y")
             - if current_user == channel.user
               p.stream-key
                 strong="Key: "
@@ -36,10 +36,10 @@
               = stream.game
             p.stream-date
               strong="Start at: "
-              = stream.start
+              = stream.start.strftime("%H:%M on %d %m, %Y")
             p.stream-date
               strong=" End at: "
-              = stream.end
+              = stream.end.strftime("%H:%M on %d %m, %Y")
             - if current_user == channel.user
               p.stream-key
                 strong="Key: "
