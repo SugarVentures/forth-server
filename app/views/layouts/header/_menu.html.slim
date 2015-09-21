@@ -10,7 +10,8 @@
       li
         = link_to 'What to watch', root_path
       li
-        = link_to 'My Channel', channel_path(current_user.channel)
+        - if current_user.channel.present?
+          = link_to 'My Channel', channel_path(current_user.channel)
       li
         = link_to 'My Subscriptions', user_path(current_user)
       li
