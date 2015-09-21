@@ -6,7 +6,11 @@
       .page-header
         h2= @stream.title
         - if user_signed_in? && current_user == @channel.user
-          = link_to 'Upload Video', channel_stream_videos_upload_path(@channel, @stream), class: 'btn btn-primary pull-right'
+          .stream-actions
+            = link_to 'Edit', edit_channel_stream_path(@channel, @stream), class: 'btn btn-primary'
+            = button_to 'Reset key', channel_stream_reset_key_path(@channel, @stream), class: 'btn btn-primary'
+            = link_to 'Upload Video', channel_stream_videos_upload_path(@channel, @stream), class: 'btn btn-primary'
+            = link_to 'Delete', [@channel, @stream], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary'
       .content
         = render 'streams/stream', stream: @stream, channel: @channel
         h2.stream-name Videos
