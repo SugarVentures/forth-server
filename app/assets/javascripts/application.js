@@ -11,9 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+//= require jquery-ui/autocomplete
 //= require bootstrap-sprockets
 //= require vendors
 
 //= require channels
+//= require autocomplete_game
 

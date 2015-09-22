@@ -35,6 +35,7 @@ gem 'bower-rails', '~> 0.9.2'
 
 # front-end
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'jquery-ui-rails'
 gem 'therubyracer'
 gem 'mail_form'
 gem 'simple_form'
