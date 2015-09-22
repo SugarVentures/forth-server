@@ -18,11 +18,11 @@ aside.sidebar
             - if current_page?(channel_streams_path(current_user.channel))
               li.link-livestream.active
                 a href="#{channel_streams_path(current_user.channel)}" class="active"
-                  span Live Stream
+                  span Live Streams
             - else
               li.link-livestream
                 a href="#{channel_streams_path(current_user.channel)}"
-                  span Live Stream
+                  span Live Streams
             - if current_page?(new_channel_stream_path(current_user.channel))
               li.link-createstream.active
                 a href="#{new_channel_stream_path(current_user.channel)}" class="active"
