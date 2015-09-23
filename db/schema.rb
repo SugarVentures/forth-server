@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150913100325) do
+ActiveRecord::Schema.define(version: 20150923070541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150913100325) do
   end
 
   add_index "streams", ["deleted_at"], name: "index_streams_on_deleted_at", using: :btree
+  add_index "streams", ["stream_key"], name: "index_streams_on_stream_key", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                    default: "", null: false
@@ -69,6 +70,7 @@ ActiveRecord::Schema.define(version: 20150913100325) do
     t.datetime "updated_at",                            null: false
     t.string   "name",                     default: "", null: false
     t.datetime "birthday"
+    t.integer  "min_age"
     t.string   "fb_id"
     t.string   "fabric_id"
     t.string   "fabric_auth_token"
