@@ -6,6 +6,7 @@ class StreamsController < ApplicationController
 
   def index
     @streams = @channel.streams.includes(:user)
+    @streams = streams_scope
   end
 
   def new
@@ -54,6 +55,16 @@ class StreamsController < ApplicationController
   end
 
   private
+  def streams_scope
+    case params[:scope]
+      when 'upcoming'
+        @streams.upcoming
+      when 'past'
+        @streams.past
+      else
+        @streams
+    end
+  end
 
   def set_channel
     @channel = Channel.find(params[:channel_id])

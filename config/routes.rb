@@ -23,6 +23,10 @@ Rails.application.routes.draw do
     end
     post '/streams/:id/reset_key', to: 'streams#reset_key', as: 'stream_reset_key'
     resources :streams do
+      collection do
+        get '/:scope', to: 'streams#index', as: :scoped,
+            constraints: { scope: /upcoming|past/ }
+      end
       get '/videos/upload', to: 'videos#upload', as: 'videos_upload'
       resources :videos, only: [:create, :update, :destroy, :show]
     end
