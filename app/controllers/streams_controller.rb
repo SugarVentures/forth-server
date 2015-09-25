@@ -56,14 +56,15 @@ class StreamsController < ApplicationController
   end
 
   private
+
   def streams_scope
     case params[:scope]
-      when 'upcoming'
-        @streams.upcoming
-      when 'past'
-        @streams.past
-      else
-        @streams
+    when 'upcoming'
+      @streams.upcoming
+    when 'past'
+      @streams.past
+    else
+      @streams
     end
   end
 
