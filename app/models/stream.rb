@@ -16,8 +16,9 @@ class Stream < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   scope :search, -> (keyword) { where('LOWER(title) LIKE ? OR LOWER(description) LIKE ?', "%#{keyword.try(:downcase)}%", "%#{keyword.try(:downcase)}%") }
+
   scope :upcoming, -> { where("start > ?", Date.today) }
-  scope :past, -> { where("start < ?", Date.today) }
+  scope :past, -> { where("end < ?", Date.today) }
 
   acts_as_paranoid
 

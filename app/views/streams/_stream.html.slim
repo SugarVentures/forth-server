@@ -10,7 +10,8 @@
           = stream.game
         p.stream-date
           strong="Start at: "
-          = stream.start.strftime("%Y-%m-%d %H:%M")
+          - if stream.start.present?
+            = stream.start.strftime("%Y-%m-%d %H:%M")
         p.stream-date
           strong=" End at: "
           - if stream.end.present?

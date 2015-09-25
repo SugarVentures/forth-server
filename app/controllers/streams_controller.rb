@@ -47,22 +47,24 @@ class StreamsController < ApplicationController
   end
 
   def check
+    stream = current_user.streams.find_by(stream_key: params[:stream_key])
     if current_user.streams.find_by(stream_key: params[:stream_key])
-      render json: {}, status: 200
+      render json: stream, serializer: StreamSerializer, status: 200
     else
       render json: {}, status: 403
     end
   end
 
   private
+
   def streams_scope
     case params[:scope]
-      when 'upcoming'
-        @streams.upcoming
-      when 'past'
-        @streams.past
-      else
-        @streams
+    when 'upcoming'
+      @streams.upcoming
+    when 'past'
+      @streams.past
+    else
+      @streams
     end
   end
 
