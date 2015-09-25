@@ -13,6 +13,8 @@ class Stream < ActiveRecord::Base
 
   enum view_mode: [:Private, :Group, :Public]
 
+  mount_uploader :image, ImageUploader
+
   scope :search, -> (keyword) { where('LOWER(title) LIKE ? OR LOWER(description) LIKE ?', "%#{keyword.try(:downcase)}%", "%#{keyword.try(:downcase)}%") }
   scope :upcoming, -> { where("start > ?", Date.today) }
   scope :past, -> { where("start < ?", Date.today) }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150923070541) do
+ActiveRecord::Schema.define(version: 20150925073046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150923070541) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.datetime "deleted_at"
+    t.string   "image"
   end
 
   add_index "streams", ["deleted_at"], name: "index_streams_on_deleted_at", using: :btree
