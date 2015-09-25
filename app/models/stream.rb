@@ -14,8 +14,8 @@ class Stream < ActiveRecord::Base
   enum view_mode: [:Private, :Group, :Public]
 
   scope :search, -> (keyword) { where('LOWER(title) LIKE ? OR LOWER(description) LIKE ?', "%#{keyword.try(:downcase)}%", "%#{keyword.try(:downcase)}%") }
-  scope :upcoming, -> { where('created_at.to_i' > Time.now.to_i) }
-  scope :past, -> { where(Time.at(:created_at).to_i < Time.now.to_i ) }
+  scope :upcoming, -> { where("start > ?", Date.today) }
+  scope :past, -> { where("start < ?", Date.today) }
 
   acts_as_paranoid
 
