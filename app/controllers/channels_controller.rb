@@ -7,23 +7,8 @@ class ChannelsController < ApplicationController
     @channels = channels_scope
   end
 
-  def new
-    return if check_channel_presence?
-    @channel = Channel.new
-  end
-
   def show
     @popular_channels = Channel.all
-  end
-
-  def create
-    return if check_channel_presence?
-    @channel = current_user.build_channel(channel_params)
-    if @channel.save
-      redirect_to @channel, notice: 'Channel was successfully created.'
-    else
-      render :new
-    end
   end
 
   def edit
