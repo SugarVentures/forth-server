@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :channels do
+  resources :channels, except: [:create, :new] do
     collection do
       get '/:scope', to: 'channels#index', as: :scoped,
           constraints: { scope: /popular|features/ }
