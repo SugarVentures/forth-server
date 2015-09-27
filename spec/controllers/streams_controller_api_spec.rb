@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe StreamsController, type: :api do
   let(:user) { create :user }
-  let!(:channel) { create :channel, user: user }
-  let!(:stream) { create :stream, user: user, channel: channel, stream_key: 'Key_is_ABC123', description: 'Game' }
+  let!(:stream) { create :stream, user: user, channel: user.channel, stream_key: 'Key_is_ABC123', description: 'Game' }
 
   describe 'CHECK - stream_key' do
     it 'return 200 when receive correct key' do
