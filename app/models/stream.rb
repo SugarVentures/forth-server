@@ -17,8 +17,8 @@ class Stream < ActiveRecord::Base
 
   scope :search, -> (keyword) { where('LOWER(title) LIKE ? OR LOWER(description) LIKE ?', "%#{keyword.try(:downcase)}%", "%#{keyword.try(:downcase)}%") }
 
-  scope :upcoming, -> { where("start > ?", Date.today) }
-  scope :past, -> { where("end < ?", Date.today) }
+  scope :upcoming, -> { where('start > ?', Time.zone.today) }
+  scope :past, -> { where('end < ?', Time.zone.today) }
 
   acts_as_paranoid
 
