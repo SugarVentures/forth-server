@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   acts_as_paranoid
 
   before_save :ensure_authentication_token!
+  after_save :set_default_channel
 
   scope :search, -> (keyword) { where('LOWER(name) LIKE ? OR LOWER(email) LIKE ?', "%#{keyword.try(:downcase)}%", "%#{keyword.try(:downcase)}%") }
 
@@ -41,6 +42,10 @@ class User < ActiveRecord::Base
 
   def ensure_authentication_token!
     self.auth_token = generate_authentication_token if auth_token.blank?
+  end
+
+  def set_default_channel
+    create_channel if channel.nil? && name.present?
   end
 
   def generate_authentication_token
