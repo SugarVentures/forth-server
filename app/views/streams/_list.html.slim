@@ -1,67 +1,24 @@
 .row
   ul.grid-videos
-    li class="col-xs-6 col-sm-4 col-md-4 item"
-      .inner
-        .video-image
-          = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
-          .video-actions
-            .inner
-              a.btn-video-play href="#" Play
-        .video-description
-          .video-att-info
-            .video-date 15th July
-            ul.video-actions
-              li.video-like 27848
-              li.video-view 27848
-              li.video-comment 27848
-          h2.video-name Motorland Aragon
-          p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-    li class="col-xs-6 col-sm-4 col-md-4 item"
-      .inner
+    - streams.each do |stream|
+      li class="col-xs-6 col-sm-4 col-md-4 item"
         .inner
           .video-image
-            = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
+            - if stream.image.present?
+              = image_tag stream.image.small.url, alt: "#{stream.title}", class: 'video-poster'
+            - else
+              = image_tag "video-covers/featured.jpg", alt: "#{stream.title}", class: 'video-poster'
             .video-actions
               .inner
-                a.btn-video-play href="#" Play
+                = link_to "Play", [stream.channel, stream], class: 'btn-video-play'
           .video-description
             .video-att-info
-              .video-date 15th July
+              .video-date
+                = stream.start.strftime("%Y-%m-%d %H:%M")
               ul.video-actions
-                li.video-like 27848
-                li.video-view 27848
-                li.video-comment 27848
-            h2.video-name Motorland Aragon
-            p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-    li class="col-xs-6 col-sm-4 col-md-4 item"
-      .inner
-        .video-image
-          = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
-          .video-actions
-            .inner
-              a.btn-video-play href="#" Play
-        .video-description
-          .video-att-info
-            .video-date 15th July
-            ul.video-actions
-              li.video-like 27848
-              li.video-view 27848
-              li.video-comment 27848
-          h2.video-name Motorland Aragon
-          p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-    li class="col-xs-6 col-sm-4 col-md-4 item"
-      .inner
-        .video-image
-          = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
-          .video-actions
-            .inner
-              a.btn-video-play href="#" Play
-        .video-description
-          .video-att-info
-            .video-date 15th July
-            ul.video-actions
-              li.video-like 27848
-              li.video-view 27848
-              li.video-comment 27848
-          h2.video-name Motorland Aragon
-          p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+                li.video-like 0
+                li.video-view 0
+                li.video-comment 0
+            h2.video-name = stream.title
+            p.video-shortdes
+              = truncate(stream.description, :length => 50)

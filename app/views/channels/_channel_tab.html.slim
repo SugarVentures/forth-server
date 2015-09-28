@@ -19,11 +19,11 @@ ul class="nav nav-tabs" role="tablist"
   .tab-pane role="tabpanel" id="upcomming"
     .page-header
       h2 Upcoming live streams
-    = render 'streams/list'
+    = render 'streams/list', streams: @channel.streams.upcoming
   .tab-pane role="tabpanel" id="past-broadcast"
     .page-header
       h2 Past Brodcast
-    = render 'streams/list'
+    = render 'streams/list', streams: @channel.streams.past
   .tab-pane role="tabpanel" id="settings"
     p.channel-date
       = "Joined #{@channel.user.created_at.strftime("%d %m, %Y")}"
