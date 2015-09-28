@@ -4,6 +4,7 @@ class ForthController < ApplicationController
   skip_authorization_check
 
   def index
+    @streams = Stream.all.upcoming
   end
 
   def about

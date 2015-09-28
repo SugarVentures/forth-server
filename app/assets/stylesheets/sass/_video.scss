@@ -4,6 +4,8 @@
   display: inline-block;
 }
 
+
+
 .video-shortdes {
   font-size: $font-size-small;
   margin: 0;
@@ -234,6 +236,9 @@
     background: $white;
     margin: 0 0 15px;
     position: relative;
+    .video-poster {
+      max-height: 114px;
+    }
     .video-image {
       position: relative;
       padding-right: 0;

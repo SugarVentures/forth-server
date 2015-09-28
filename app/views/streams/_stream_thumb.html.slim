@@ -1,0 +1,19 @@
+.inner-item
+  .row
+    .col-xs-12.col-sm-6.col-md-6.video-image
+      - if stream.image.present?
+        = image_tag stream.image.small.url, alt: "#{stream.title}", class: 'video-poster'
+      - else
+        = image_tag "video-covers/featured.jpg", alt: "#{stream.title}", class: 'video-poster'
+      .event-date
+        = stream.start.strftime("%Y-%m-%d %H:%M")
+    .col-xs-12.col-sm-6.col-md-6.video-description
+      .inner
+        h2.video-name
+          = link_to stream.title, [stream.channel, stream]
+        .video-shortdes
+          = truncate(stream.description, :length => 50)
+        ul.video-actions
+          li.video-view 0
+          li.link-more
+            = link_to "More Details", [stream.channel, stream]

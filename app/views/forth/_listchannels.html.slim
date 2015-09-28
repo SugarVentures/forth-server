@@ -4,30 +4,30 @@
     .video-actions
       .inner
         h2.channel-name Upcoming
-        .channel-view 58838
-        a.btn-video-play href="#" Play
+        .channel-view 0
+        = link_to 'Play', scoped_channels_path(scope: 'popular'), class: 'btn-video-play'
         p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
   .item
     = image_tag 'video-covers/recommended.jpg', alt: 'Recommended', class: 'video-poster'
     .video-actions
       .inner
         h2.channel-name Recommended
-        .channel-view 58838
-        a.btn-video-play href="#" Play
+        .channel-view 0
+        = link_to 'Play', scoped_channels_path(scope: 'popular'), class: 'btn-video-play'
         p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
   .item
     = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
     .video-actions
       .inner
         h2.channel-name Featured
-        .channel-view 58838
-        a.btn-video-play href="#" Play
+        .channel-view 0
+        = link_to 'Play', scoped_channels_path(scope: 'popular'), class: 'btn-video-play'
         p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
   .item
     = image_tag 'video-covers/popular.jpg', alt: 'popular', class: 'video-poster'
     .video-actions
       .inner
         h2.channel-name Popular
-        .channel-view 58838
-        a.btn-video-play href="#" Play
+        .channel-view 0
+        = link_to 'Play', scoped_channels_path(scope: 'popular'), class: 'btn-video-play'
         p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
