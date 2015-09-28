@@ -22,9 +22,9 @@
       li
         = link_to 'What to watch', root_path
       li
-        = link_to 'Popular', root_path
+        = link_to 'Popular', scoped_channels_path(scope: 'popular')
       li
-        = link_to 'Features', root_path
+        = link_to 'Features', scoped_channels_path(scope: 'features')
 
 
 
