@@ -30,6 +30,6 @@ RSpec.describe Stream, type: :model do
       stream.videos.create(file: fixture_file_upload('images/smile.png', 'image/png'))
     end
     expect(stream.valid?).to eq(false)
-    expect(stream.errors.full_messages.first).to include('Only 5 videos can be uploaded')
+    expect(stream.errors.full_messages.first).to include('videos can be uploaded')
   end
 end
