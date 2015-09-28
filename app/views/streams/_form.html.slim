@@ -11,6 +11,9 @@
     = f.label :title
     = f.text_field :title, class: 'form-control'
   .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control'
+  .form-group
     = f.label :game
     = f.text_field :game, class: 'form-control'
   .form-group
@@ -28,6 +31,12 @@
   .form-group
     = f.label :age_restriction
     = f.select :age_restriction, options_for_select([['no restriction', 0], ['u-17',17], ['u-21',21]]), {}, class: 'form-control'
+  .form-group
+    = f.label :image
+    - if @stream.image?
+      .form-group.channel-banner
+        = image_tag @stream.image.url
+    = f.file_field :image, accept: 'image/png,image/gif,image/jpeg'
   .checkbox
     = f.label :group
       = f.check_box :group

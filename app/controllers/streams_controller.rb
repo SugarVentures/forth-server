@@ -82,7 +82,7 @@ class StreamsController < ApplicationController
   end
 
   def stream_params
-    params.require(:stream).permit(:title, :game, :start, :end, :view_mode, :age_restriction, :group, :discussion, :description).merge(user: current_user).tap do |p|
+    params.require(:stream).permit(:title, :game, :start, :end, :view_mode, :age_restriction, :group, :discussion, :description, :image).merge(user: current_user).tap do |p|
       p[:view_mode] = p[:view_mode].to_i if p[:view_mode]
     end
   end
