@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150929050743) do
+ActiveRecord::Schema.define(version: 20150929103946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,28 +26,30 @@ ActiveRecord::Schema.define(version: 20150929050743) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.datetime "deleted_at"
+    t.integer  "view_count",  default: 0
   end
 
   add_index "channels", ["deleted_at"], name: "index_channels_on_deleted_at", using: :btree
 
   create_table "streams", force: :cascade do |t|
-    t.string   "title",           default: "", null: false
+    t.string   "title",           default: "",   null: false
     t.string   "game"
     t.datetime "start"
     t.datetime "end"
-    t.string   "stream_key",      default: "", null: false
+    t.string   "stream_key",      default: "",   null: false
     t.integer  "view_mode"
-    t.integer  "age_restriction", default: 0,  null: false
+    t.integer  "age_restriction", default: 0,    null: false
     t.boolean  "group"
     t.boolean  "discussion"
     t.text     "description"
     t.integer  "channel_id"
     t.integer  "user_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.datetime "deleted_at"
     t.string   "image"
-    t.boolean  "temp"
+    t.boolean  "temp",            default: true
+    t.integer  "view_count",      default: 0
   end
 
   add_index "streams", ["deleted_at"], name: "index_streams_on_deleted_at", using: :btree
@@ -72,6 +74,7 @@ ActiveRecord::Schema.define(version: 20150929050743) do
     t.datetime "updated_at",                            null: false
     t.string   "name",                     default: "", null: false
     t.datetime "birthday"
+    t.integer  "min_age"
     t.string   "fb_id"
     t.string   "fabric_id"
     t.string   "fabric_auth_token"

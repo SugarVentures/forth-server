@@ -3,6 +3,7 @@ class StreamsController < ApplicationController
   before_action :set_stream, except: [:index, :new, :check]
   before_action :set_channel, except: :check
   before_action :authenticate_user_from_token!, if: :format_json?
+  before_action :increment_counter, only: :show
 
   def index
     @streams = @channel.streams.where(temp: false).includes(:user)
@@ -16,7 +17,6 @@ class StreamsController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit
@@ -84,5 +84,11 @@ class StreamsController < ApplicationController
     params.require(:stream).permit(:title, :game, :start, :end, :stream_key, :view_mode, :age_restriction, :group, :discussion, :description, :image).merge(user: current_user).tap do |p|
       p[:view_mode] = p[:view_mode].to_i if p[:view_mode]
     end
+  end
+
+  def increment_counter
+    return if current_user == @stream.user
+    Stream.increment_counter(:view_count, @stream.id)
+    Channel.increment_counter(:view_count, @channel.id)
   end
 end
