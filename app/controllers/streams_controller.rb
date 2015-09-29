@@ -16,6 +16,7 @@ class StreamsController < ApplicationController
   end
 
   def show
+    
   end
 
   def edit

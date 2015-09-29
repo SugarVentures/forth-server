@@ -24,12 +24,11 @@
     = f.label :end
     br
     = f.datetime_field :end, placeholder: "YYYY-MM-DD HH:MM", :value => (@stream.start.blank? ? "" : @stream.start.strftime("%Y-%m-%d %H:%M")), class: 'form-control'
-  
-  .stream-info
-    p.stream-key
-      strong="Key: "
-      = @stream.stream_key
 
+  .form-group
+    = f.label :key
+    br
+    = f.text_field :key, class: 'form-control', value: "#{@stream.stream_key}", readonly: 'readonly'
   .form-group
     = f.label :view_mode
     br
@@ -37,12 +36,6 @@
   .form-group
     = f.label :age_restriction
     = f.select :age_restriction, options_for_select([['no restriction', 0], ['u-17',17], ['u-21',21]]), {}, class: 'form-control'
-  .form-group
-    = f.label :image
-    - if @stream.image?
-      .form-group.channel-banner
-        = image_tag @stream.image.url
-    = f.file_field :image, accept: 'image/png,image/gif,image/jpeg'
   .checkbox
     = f.label :group
       = f.check_box :group
@@ -51,6 +44,17 @@
     = f.label :discussion
       = f.check_box :discussion
       = ("Discussion")
+  .form-group
+    = f.label :image
+    - if @stream.image.present?
+      .form-group.channel-banner
+        = image_tag @stream.image.url
+    = f.file_field :image, accept: 'image/png,image/gif,image/jpeg'
+
+  .form-group.channel-banner.text-center
+    img src="#{@stream.image.url}" class="channel-banner" id="bannerPreview"
+    = link_to "Play", '#', class: 'btn-play-video'
+
   .form-actions
     = f.submit class: 'btn btn-primary'
   
