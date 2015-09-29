@@ -9,7 +9,7 @@ $(document).ready(function() {
         }
     }
 
-    $("#channel_banner").change(function(){
+    $("#channel_banner, #stream_image").change(function(){
         readURL(this);
     });
 });
