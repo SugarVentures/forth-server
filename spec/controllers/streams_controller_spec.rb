@@ -3,7 +3,7 @@ include Devise::TestHelpers
 
 RSpec.describe StreamsController, type: :controller do
   let!(:user) { create :user }
-  let!(:stream) { create :stream, user: user, channel: user.channel }
+  let!(:stream) { create :stream, user: user, channel: user.channel, temp: false }
 
   before do
     sign_in user
@@ -31,7 +31,9 @@ RSpec.describe StreamsController, type: :controller do
       get :new, channel_id: user.channel.id
       expect(assigns[:channel]).to eq(user.channel)
       expect(assigns[:stream]).to be_kind_of(Stream)
-      expect(assigns[:stream].id).to be_nil
+      expect(assigns[:stream].id).not_to be_nil
+      expect(assigns[:stream].temp).to eq(true)
+      expect(assigns[:stream].stream_key).not_to be_nil
       expect(response).to have_http_status(:success)
     end
   end
@@ -50,18 +52,6 @@ RSpec.describe StreamsController, type: :controller do
       expect(assigns[:channel]).to eq(user.channel)
       expect(assigns[:stream]).to eq(stream)
       expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe 'POST #create' do
-    it 'returns 302' do
-      params = { channel_id: user.channel.id, stream: { title: 'abc', game: 'game1' } }
-      post :create, params
-      expect(assigns[:channel]).to eq(user.channel)
-      expect(assigns[:stream].title).to eq('abc')
-      expect(assigns[:stream].stream_key.length).to eq(36)
-      expect(Stream.find(assigns[:stream].id).game).to eq('game1')
-      expect(response).to have_http_status(302)
     end
   end
 
