@@ -6,7 +6,9 @@
       - else
         = image_tag "video-covers/featured.jpg", alt: "#{stream.title}", class: 'video-poster'
       .event-date
-        = stream.start.strftime("%Y-%m-%d %H:%M")
+        = stream.start.strftime("%a")
+        span = stream.start.strftime("%d")
+        = stream.start.strftime("%B")
     .col-xs-12.col-sm-6.col-md-6.video-description
       .inner
         h2.video-name
