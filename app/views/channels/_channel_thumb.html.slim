@@ -1,7 +1,7 @@
 ul.channels-list
   - channels.each do |channel|
     li.item
-      .channel-image
+      .channel-image.channel-thumb
         - if channel.icon.present?
           = link_to image_tag(channel.icon.thumb.url, alt: channel.title), channel
         - else
