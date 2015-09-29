@@ -17,6 +17,7 @@ class StreamsController < ApplicationController
   end
 
   def show
+    redirect_to channel_streams_url, notice: 'Stream is not existing' if @stream.temp == true
   end
 
   def edit
