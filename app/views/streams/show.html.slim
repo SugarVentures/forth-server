@@ -5,6 +5,10 @@
     .content-white
       .page-header
         h2= @stream.title
+      -for header in request.env.select { |key, val| key.match("^HTTP.*")}
+        = header[0] +(": ")+ header[1]
+        br
+
         - if user_signed_in? && current_user == @channel.user
           .stream-actions
             = link_to 'Edit', edit_channel_stream_path(@channel, @stream), class: 'btn btn-primary'
