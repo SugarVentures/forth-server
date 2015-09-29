@@ -24,6 +24,12 @@
     = f.label :end
     br
     = f.datetime_field :end, placeholder: "YYYY-MM-DD HH:MM", :value => (@stream.start.blank? ? "" : @stream.start.strftime("%Y-%m-%d %H:%M")), class: 'form-control'
+  
+  .stream-info
+    p.stream-key
+      strong="Key: "
+      = @stream.stream_key
+
   .form-group
     = f.label :view_mode
     br
