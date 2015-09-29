@@ -2,22 +2,22 @@
   .col-xs-12.col-sm-4.col-md-3
     = render 'layouts/sidebar'
   .col-xs-12.col-sm-8.col-md-9
-    - if current_user.channel.present?
+    - if @user.channel.present?
       .channel-banner
-        - if current_user.channel.banner?
-          = image_tag current_user.channel.banner.url, :alt => current_user.channel.title, class: "img-responsive channel-banner"
+        - if @user.channel.banner?
+          = image_tag current_user.channel.banner.url, :alt => @user.channel.title, class: "img-responsive channel-banner"
         - else
-          = image_tag("no-banner.jpg", :alt => current_user.channel.title, class: "img-responsive channel-banner")
+          = image_tag("video-covers/no-banner.jpg", :alt => @user.channel.title, class: "img-responsive channel-banner")
     .content-white
       .channel-info
         .row
           .col-xs-12.col-sm-9.col-md-10
-            - if current_user.channel.present?
+            - if @user.channel.present?
               .channel-icon
                 - if @user.channel.icon?
                   = image_tag current_user.channel.icon.small.url
                 - else
-                  | No image
+                  = image_tag ("icons/icon-user.jpg"), :alt => @user.name
             .channel-des
               h2.channel-name
                 = @user.name
@@ -25,7 +25,7 @@
                 li.channel-subcribler
                   span Subscriber
                 li.channel-view
-                  span 5833388
+                  span 0
           .col-xs-12.col-sm-3.col-md-2
             .text-right
               button.btn.btn-subcrible type="button"
