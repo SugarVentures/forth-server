@@ -3,10 +3,10 @@
     = render 'layouts/sidebar'
   .col-xs-12.col-sm-8.col-md-9
     .channel-banner
-      - if @channel.banner?
+      - if @channel.banner.present?
         = image_tag @channel.banner.url, :alt => @channel.title, class: "img-responsive channel-banner"
       - else
-        = image_tag("no-banner.jpg", :alt => @channel.title, class: "img-responsive channel-banner")
+        = image_tag("video-covers/no-banner.jpg", :alt => @channel.title, class: "img-responsive channel-banner")
       - if current_user && current_user.id == @channel.user_id
         .channel-actions
           button type="button" class="btn btn-primary btn-no-radius btn-edit" data-toggle="modal" data-target="#changeBanner"
@@ -20,9 +20,7 @@
                   h4 class="modal-title" id="changeBannerLabel" Channel Banner
                 .modal-body
                   = render 'channels/edit_channel_banner', channel: @channel
-          = link_to 'Edit', edit_channel_path(@channel), class: 'btn btn-primary btn-no-radius btn-edit'
-          = link_to 'Delete', @channel, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary btn-no-radius btn-edit'
-
+          = link_to 'Edit Channel', edit_channel_path(@channel), class: 'btn btn-primary btn-no-radius btn-edit'
     .content-white
       .channel-info
         .row
@@ -31,7 +29,7 @@
               - if @channel.icon?
                 = image_tag @channel.icon.small.url
               - else
-                | No image
+                = image_tag ("icons/icon-user.jpg"), :alt => @channel.user.name
             .channel-des
               h2.channel-name
                 = @channel.title

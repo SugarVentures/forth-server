@@ -28,3 +28,12 @@ h1.logo {
   color: $brand-primary;
   border-bottom: 0 none;
 }
+
+.link-more {
+  text-decoration: underline;
+}
+
+.link-more:focus,
+.link-more:hover{
+  text-decoration: none;
+}
