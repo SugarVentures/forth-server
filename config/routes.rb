@@ -22,7 +22,7 @@ Rails.application.routes.draw do
           constraints: { scope: /popular|features/ }
     end
     post '/streams/:id/reset_key', to: 'streams#reset_key', as: 'stream_reset_key'
-    resources :streams do
+    resources :streams, except: :create do
       collection do
         get '/:scope', to: 'streams#index', as: :scoped,
             constraints: { scope: /upcoming|past/ }

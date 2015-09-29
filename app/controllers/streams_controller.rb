@@ -1,6 +1,6 @@
 class StreamsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :check]
-  before_action :set_stream, except: [:index, :new, :create, :check]
+  before_action :set_stream, except: [:index, :new, :check]
   before_action :set_channel, except: :check
   before_action :authenticate_user_from_token!, if: :format_json?
 
