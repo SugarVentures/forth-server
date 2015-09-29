@@ -5,8 +5,6 @@
     .content-white
       .page-header
         h2 Channels
-        - if user_signed_in?
-          = link_to 'New Channel', new_channel_path, class: 'btn btn-primary pull-right'
       .content
         - if @channels.count > 0
           ul.channels-list
