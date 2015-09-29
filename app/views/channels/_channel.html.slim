@@ -7,6 +7,8 @@ li.item
   .channel-des
     h2.channel-name
       = link_to channel.title, channel
+      span.user-name
+        = link_to channel.user.name, channel.user
     - if channel.description.present?
       p
         = truncate(channel.description, :length => 200)
