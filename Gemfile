@@ -20,6 +20,7 @@ gem 'carrierwave-video', git: 'git://github.com/rheaton/carrierwave-video.git'
 gem 'carrierwave-video-thumbnailer'
 gem 'paranoia', '~> 2.0'
 gem 'fog'
+gem 'acts_as_follower'
 
 # Authentication
 gem 'devise'

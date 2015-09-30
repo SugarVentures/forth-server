@@ -53,6 +53,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_follower (0.2.1)
     addressable (2.3.8)
     angular-rails-templates (0.2.0)
       railties (>= 3.1)
@@ -505,6 +506,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  acts_as_follower
   angular-rails-templates
   aws-sdk-v1
   bootstrap-sass (~> 3.2.0)
