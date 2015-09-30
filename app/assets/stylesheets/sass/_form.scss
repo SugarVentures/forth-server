@@ -20,6 +20,16 @@ label {
   }
 }
 
+/* Input ====================================================== */
+input:required:focus {
+  border: 1px solid red;
+  outline: none;
+}
+
+input:required:hover {
+  opacity: 1;
+}
+
 /* Button ====================================================== */
 .btn-no-radius {
   border-radius: 0;
