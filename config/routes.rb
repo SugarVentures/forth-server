@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'subscriptions/index'
+
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     confirmations: 'users/confirmations'
@@ -13,8 +15,8 @@ Rails.application.routes.draw do
   get 'search' => 'forth#search'
 
   resources :contacts, only: [:new, :create]
-
   resources :users
+  resources :subscriptions, only: [:index, :create, :destroy]
 
   resources :channels, except: [:create, :new] do
     collection do
