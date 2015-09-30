@@ -11,6 +11,7 @@ class Channel < ActiveRecord::Base
   mount_uploader :banner, ImageUploader
 
   acts_as_paranoid
+  acts_as_followable
 
   after_initialize :set_default, if: :new_record?
 

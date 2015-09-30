@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_one :channel, dependent: :destroy
   has_many :streams
   acts_as_paranoid
+  acts_as_follower
 
   before_save :ensure_authentication_token!
   after_save :set_default_channel
