@@ -29,6 +29,6 @@
             .text-right
               button.btn.btn-subcrible type="button"
                 i class="fa fa-caret-right"
-                | Subscribe
+                = link_to 'Subscribe', subscriptions_path(:channel_id => @user.channel.id), method: :post, remote: true
       .channel-content
         = render 'users/user_tab', user: @user

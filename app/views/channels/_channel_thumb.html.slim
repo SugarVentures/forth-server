@@ -11,4 +11,4 @@ ul.channels-list
           = link_to channel.title, channel
         button.btn.btn-sm.btn-subcrible type="button"
           i class="fa fa-caret-right"
-          | Subscribe
+          = link_to 'Subscribe', subscriptions_path(:channel_id => channel.id), method: :post, remote: true
