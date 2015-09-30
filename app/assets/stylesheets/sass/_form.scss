@@ -20,13 +20,17 @@ label {
   }
 }
 
+.form-actions {
+  margin-bottom: 15px;
+}
+
 /* Input ====================================================== */
-input:required:focus {
+input:invalid:focus {
   border: 1px solid red;
   outline: none;
 }
 
-input:required:hover {
+input:invalid:hover {
   opacity: 1;
 }
 
