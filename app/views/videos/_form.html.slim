@@ -33,5 +33,8 @@ h2
     .form-group
       = f.label :file
       = f.file_field :file, multiple: true
+    .form-group.channel-banner.text-center id="videoPreviewPlayer" style="display: none;"
+      video id="example_video_1" class="video-js vjs-default-skin vjs-playing" controls="controls" preload="none" width="100%" height="auto" poster="#" data-setup="{}"
+        source src="#" type='video/mp4' id="videoPreview"
     .form-actions
     = f.submit 'Upload', class: 'btn btn-primary'

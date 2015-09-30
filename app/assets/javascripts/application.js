@@ -17,5 +17,6 @@
 //= require vendors
 
 //= require channels
+//= require video
 //= require autocomplete_game
 
