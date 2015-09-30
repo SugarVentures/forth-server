@@ -11,5 +11,6 @@ $(document).ready(function() {
 
     $("#channel_banner, #stream_image").change(function(){
         readURL(this);
+        $('#stream-image').show();
     });
 });

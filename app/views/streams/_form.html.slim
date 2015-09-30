@@ -51,9 +51,12 @@
         = image_tag @stream.image.url
     = f.file_field :image, accept: 'image/png,image/gif,image/jpeg'
 
-  .form-group.channel-banner.text-center
-    img src="#{@stream.image.url}" class="channel-banner" id="bannerPreview"
-    = link_to "Play", '#', class: 'btn-play-video'
+  .form-group.channel-banner.text-center id="stream-image" style="display: none;"
+    .video-player
+      img src="#{@stream.image.url}" class="channel-banner" id="bannerPreview"
+      .video-actions
+        = link_to "Play", '#', class: 'btn-video-play', id: 'playVideo'
+
 
   .form-actions
     = f.submit "#{button_title}", class: 'btn btn-primary'
