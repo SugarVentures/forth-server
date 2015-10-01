@@ -21,7 +21,6 @@ gem 'carrierwave-video-thumbnailer'
 gem 'paranoia', '~> 2.0'
 gem 'fog'
 gem 'acts_as_follower'
-gem 'sidekiq'
 
 # Authentication
 gem 'devise'
