@@ -17,6 +17,13 @@ li.item
     .channel-actions
       - if (current_user && channel.user == current_user)
         = link_to 'Edit', edit_channel_path(channel), class: 'btn btn-link'
-      button.btn.btn-subcrible type="button"
-        i class="fa fa-caret-right"
-        = link_to 'Subscribe', user_subscriptions_path(current_user, :channel_id => channel.id), method: :post, remote: true
+      - if current_user
+        = link_to user_subscriptions_path(current_user, :channel_id => channel.id), method: :post, remote: true, class: 'btn btn-subcrible' do
+          i class="fa fa-caret-right"
+          |Subscribe
+        end
+      - else
+        span.btn.btn-subcrible
+          i class="fa fa-caret-right"
+          = channel.user.name;
+
