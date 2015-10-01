@@ -39,7 +39,7 @@ class AuthorizationService
 
   def self.update_twitter(data, params)
     user = User.find_by(fabric_id: params[:fabric_id])
-    user = User.new(fabric_id: params[:fabric_id], email: SecureRandom.uuid + '@example.com', password: Devise.friendly_token[0, 20]) if user.nil?
+    user = User.new(fabric_id: params[:fabric_id], password: Devise.friendly_token[0, 20]) if user.nil?
 
     attributes = { fabric_auth_token:         params[:fabric_auth_token],
                    fabric_auth_token_secret:  params[:fabric_auth_token_secret] } # ,
