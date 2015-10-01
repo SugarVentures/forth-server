@@ -19,4 +19,4 @@ li.item
         = link_to 'Edit', edit_channel_path(channel), class: 'btn btn-link'
       button.btn.btn-subcrible type="button"
         i class="fa fa-caret-right"
-        = link_to 'Subscribe', subscriptions_path(:channel_id => channel.id), method: :post, remote: true
+        = link_to 'Subscribe', user_subscriptions_path(current_user, :channel_id => channel.id), method: :post, remote: true

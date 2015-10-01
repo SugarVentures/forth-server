@@ -15,8 +15,9 @@ Rails.application.routes.draw do
   get 'search' => 'forth#search'
 
   resources :contacts, only: [:new, :create]
-  resources :users
-  resources :subscriptions, only: [:index, :create, :destroy]
+  resources :users do
+    resources :subscriptions, only: [:index, :create, :destroy]
+  end
 
   resources :channels, except: [:create, :new] do
     collection do
