@@ -12,4 +12,4 @@ ul class="nav nav-tabs" role="tablist"
         strong Description:
       = user.name
   .tab-pane role="tabpanel" id="subscriptions"
-      p Subscriptions
+    = link_to 'Subscriptions', user_subscriptions_path(user)
