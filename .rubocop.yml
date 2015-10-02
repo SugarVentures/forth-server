@@ -48,3 +48,5 @@ AllCops:
     - 'test/**/*'
     - 'tmp/**/*'
     - 'vendor/**/*'
+    - 'app/models/ability.rb'
+

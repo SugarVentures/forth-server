@@ -22,6 +22,6 @@ class Channel < ActiveRecord::Base
   private
 
   def set_default
-    self.title = user.name + "'s channel"
+    self.title = user.name + ' channel' if user
   end
 end
