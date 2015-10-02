@@ -1,29 +1,29 @@
 - if @videos.present?
-  h2
+  h2.h3
     | Change Video
-  - @videos.each do |video|
-    = form_for [@channel, @stream, video], method: :patch do |f|
-      - if video.errors.any?
-        .alert.alert-danger.alert-dismissable
-          button type="button" class="close" data-dismiss="alert" aria-label="Close"
-            span aria-hidden="true" &times
-          ul
-            - video.errors.full_messages.each do |message|
-              li
-                = message
-      - else
-        .video-player
-          video id="uploaded" class="video-js vjs-default-skin" controls="controls" preload="none" width="30%" height="250" poster="#{video.file.thumb.url.to_s}" data-setup="{}"
-            source src=video.file.url.to_s type='video/mp4'
-      .form-group
-        = f.label :file
-        = f.file_field :file
-      .form-actions
-        = f.submit 'Change', class: 'btn btn-primary'
-        = button_to 'Delete', channel_stream_video_path(@channel, @stream, video), :method => :delete, class: 'btn btn-danger'
-    hr
+  .row
+    - @videos.each do |video|
+      .col-xs-12.col-sm-6.col-md-6
+        = form_for [@channel, @stream, video], method: :patch do |f|
+          - if video.errors.any?
+            .alert.alert-danger.alert-dismissable
+              button type="button" class="close" data-dismiss="alert" aria-label="Close"
+                span aria-hidden="true" &times
+              ul
+                - video.errors.full_messages.each do |message|
+                  li
+                    = message
+          .video-player
+            video id="uploaded" class="video-js vjs-default-skin" controls="controls" preload="none" width="30%" height="250" poster="#{video.file.thumb.url.to_s}" data-setup="{}"
+              source src=video.file.url.to_s type='video/mp4'
+          .form-group
+            = f.label :file
+            = f.file_field :file
+          .form-actions
+            = f.submit 'Change', class: 'btn btn-primary margin-right-20'
+            = button_to 'Delete', channel_stream_video_path(@channel, @stream, video), :method => :delete, class: 'btn btn-danger'
 
-h2
+h2.h3
   | Add Videos
 - if @stream.videos.count < Video::MAX_UPLOAD
   = form_for([@channel, @stream, Video.new]) do |f|
