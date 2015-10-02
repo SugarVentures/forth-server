@@ -2,7 +2,7 @@
   .row
     .col-xs-12.col-sm-6.col-md-6.video-image
       - if stream.image.present?
-        = image_tag stream.image.small.url, alt: "#{stream.title}", class: 'video-poster'
+        = image_tag stream.image.stream_cover.url, alt: "#{stream.title}", class: 'video-poster'
       - else
         = image_tag "video-covers/featured.jpg", alt: "#{stream.title}", class: 'video-poster'
       .event-date
