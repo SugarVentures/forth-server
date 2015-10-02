@@ -13,6 +13,7 @@
             = link_to 'Delete', [@channel, @stream], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary'
       .content
         = render 'streams/stream', stream: @stream, channel: @channel
+        // render 'streams/stream_player', stream: @stream, channel: @channel
         - if @stream.videos.first.present?
           .page-header
             h2 Video

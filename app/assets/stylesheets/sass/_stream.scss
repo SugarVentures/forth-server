@@ -90,3 +90,32 @@
   border-color: $brand-primary;
   color: $white;
 }
+
+/* Stream player*/
+.stream-player {
+  background: $gray;
+  border: 10px solid $black;
+  margin: 0 0 15px;
+  position: relative;
+  overflow: hidden;
+  img {
+    @extend .img-responsive;
+    display: inline-block;
+    max-height: 500px;
+    opacity: 0.8;
+    width: 100%;
+  }
+  .stream-actions {
+    background: rgba(0,0,0,0.4);
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .btn-video-play {
+    top: 50%;
+    margin-top: -20px;
+  }
+}
+
