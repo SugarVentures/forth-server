@@ -4,6 +4,8 @@ include Devise::TestHelpers
 RSpec.describe StreamsController, type: :controller do
   let!(:user) { create :user }
   let!(:stream) { create :stream, user: user, channel: user.channel, temp: false }
+  let!(:stream2) { create :stream, user: user, channel: user.channel, temp: false }
+  let!(:stream3) { create :stream, user: user, channel: user.channel, temp: false }
 
   before do
     sign_in user
@@ -34,6 +36,30 @@ RSpec.describe StreamsController, type: :controller do
       expect(assigns[:stream].id).not_to be_nil
       expect(assigns[:stream].temp).to eq(true)
       expect(assigns[:stream].stream_key).not_to be_nil
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'returns http success when user has temp stream' do
+      stream2.update(temp: true)
+      get :new, channel_id: user.channel.id
+      expect(assigns[:channel]).to eq(user.channel)
+      expect(assigns[:stream]).to eq(stream2)
+      expect(assigns[:stream].stream_key).not_to be_nil
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'returns http success when user has some temp streams' do
+      stream2.update(temp: true)
+      stream3.update(temp: true)
+      get :new, channel_id: user.channel.id
+      expect(assigns[:channel]).to eq(user.channel)
+      expect(assigns[:stream]).to be_kind_of(Stream)
+      expect(assigns[:stream].id).not_to be_nil
+      expect(assigns[:stream].id).not_to eq(stream2.id)
+      expect(assigns[:stream].id).not_to eq(stream3.id)
+      expect(assigns[:stream].temp).to eq(true)
+      expect(assigns[:stream].stream_key).not_to be_nil
+      expect(Stream.where(id: [stream2.id, stream3.id]).count).to eq(0)
       expect(response).to have_http_status(:success)
     end
   end
