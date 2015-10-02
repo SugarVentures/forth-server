@@ -41,8 +41,10 @@
                     = @channel.view_count
           .col-xs-12.col-sm-3.col-md-2
             .text-right
-              button.btn.btn-subcrible type="button"
-                i class="fa fa-caret-right"
-                = link_to 'Subscribe', user_subscriptions_path(current_user, :channel_id => @channel.id), method: :post, remote: true
+              - if current_user
+                = link_to user_subscriptions_path(current_user, :channel_id => @channel.id), method: :post, remote: true, class: 'btn btn-subcrible' do
+                  i class="fa fa-caret-right"
+                  |Subscribe
+                end
       .channel-content
         = render 'channels/channel_tab'
