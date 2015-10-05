@@ -114,8 +114,8 @@ button.btn-search {
   }
 }
 
-/* Button: Subcrible */
-.btn-subcrible {
+/* Button: subscribe */
+.btn-subscribe {
   @extend .w-300;
   background: $red;
   border-radius: 0;
@@ -133,6 +133,16 @@ button.btn-search {
     padding: 1px 10px;
   }
 }
+
+span.btn-subscribe {
+  cursor: default;
+  &:focus,
+  &:hover {
+    color: $white;
+    background: $red;
+  }
+}
+
 
 // Alert
 .alert {
