@@ -18,5 +18,6 @@
 
 //= require channels
 //= require video
+//= require subscrible
 //= require autocomplete_game
 
