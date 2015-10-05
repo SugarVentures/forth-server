@@ -31,7 +31,6 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'rails_admin'
-gem 'cancancan'
 
 # Bower
 gem 'bower-rails', '~> 0.9.2'
