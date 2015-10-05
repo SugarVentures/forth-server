@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get 'subscriptions/index'
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
@@ -17,7 +16,11 @@ Rails.application.routes.draw do
 
   resources :contacts, only: [:new, :create]
   resources :users do
-    resources :subscriptions, only: [:index, :create, :destroy]
+    resources :subscriptions, only: [:index, :create] do
+      collection do
+        delete '', to: 'subscriptions#destroy'
+      end
+    end
   end
 
   resources :channels, except: [:create, :new] do

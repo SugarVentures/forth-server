@@ -27,8 +27,6 @@ class SubscriptionsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
-  private
-
   def following_status
     current_user.following?(@channel) ? 'following' : 'not_following'
   end
