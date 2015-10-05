@@ -9,8 +9,4 @@ ul.channels-list
       .channel-des
         h3.channel-name
           = link_to channel.title, channel
-          - if current_user
-            = link_to user_subscriptions_path(current_user, :channel_id => channel.id), method: :post, remote: true, class: 'btn btn-subcrible' do
-              i class="fa fa-caret-right"
-              |Subscribe
-            end
+        = render 'subscriptions/subscribe', channel: channel

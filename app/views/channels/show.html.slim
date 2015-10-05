@@ -35,16 +35,12 @@
                 = @channel.title
               ul.channel-actions
                 li.channel-subcribler
-                  span Subscriber
+                  span= "#{@channel.user.all_following.length} Subscriber"
                 li.channel-view
                   span
                     = @channel.view_count
           .col-xs-12.col-sm-3.col-md-2
             .text-right
-              - if current_user
-                = link_to user_subscriptions_path(current_user, :channel_id => @channel.id), method: :post, remote: true, class: 'btn btn-subcrible' do
-                  i class="fa fa-caret-right"
-                  |Subscribe
-                end
+              = render 'subscriptions/subscribe', channel: @channel
       .channel-content
         = render 'channels/channel_tab'

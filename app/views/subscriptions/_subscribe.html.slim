@@ -1,0 +1,17 @@
+- if current_user && current_user.id != channel.user.id
+  - if current_user.following? channel
+    = link_to user_subscribe_path(current_user, :channel_id => channel.id,  ajax: true), title: '', remote: true, method: :delete, class: "btn btn-subscribe btn-subscribed subscribed"+channel.id.to_s, data: {:'id' => channel.id }, id: "subscribe"+channel.id.to_s do
+      i class="fa fa-caret-right"
+      span id="subscribed-count-#{channel.id}" class="subscribed-count" data-id="#{channel.id}"
+        | Subscribed
+    end
+  - else
+    = link_to user_subscribe_path(current_user, :channel_id => channel.id,  ajax: true), title: '', remote: true, method: :post, class: "btn btn-subscribe", data: {:'id' => channel.id }, id: "subscribe"+channel.id.to_s do
+      i class="fa fa-caret-right"
+      span id="subscribed-count-#{channel.id}" class="subscribed-count" data-id="#{channel.id}"
+        |Subscribe
+    end
+- else
+  span.btn.btn-subscribe
+    i class="fa fa-caret-right"
+    = "#{channel.user.all_following.length} Subscribers"
