@@ -9,10 +9,12 @@ class SubscriptionsController < ApplicationController
 
   def create
     current_user.follow(@channel)
+    render json: { status: following_status }, status: 201
   end
 
   def destroy
     current_user.stop_following(@channel)
+    render json: { status: following_status }, status: 200
   end
 
   private
@@ -23,5 +25,11 @@ class SubscriptionsController < ApplicationController
 
   def set_user
     @user = User.find(params[:user_id])
+  end
+
+  private
+
+  def following_status
+    current_user.following?(@channel) ? 'following' : 'not_following'
   end
 end
