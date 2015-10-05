@@ -16,11 +16,9 @@ Rails.application.routes.draw do
 
   resources :contacts, only: [:new, :create]
   resources :users do
-    resources :subscriptions, only: [:index, :create] do
-      collection do
-        delete '', to: 'subscriptions#destroy'
-      end
-    end
+    delete 'subscribe' => 'subscriptions#destroy'
+    post 'subscribe' => 'subscriptions#create'
+    get 'subscriptions' => 'subscriptions#index'
   end
 
   resources :channels, except: [:create, :new] do
