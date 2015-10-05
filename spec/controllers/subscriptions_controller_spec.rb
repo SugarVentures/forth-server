@@ -17,4 +17,25 @@ RSpec.describe SubscriptionsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe 'POST #create' do
+    it 'follows channel' do
+      post :create, user_id: user.id, channel_id: user.channel
+      expect(assigns[:channel]).to eq(user.channel)
+      expect(response.body).to include('following')
+      expect(response).to have_http_status(:success)
+      expect(user.all_following).to include(user.channel)
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    it 'unfollows channel' do
+      user.follow(user.channel)
+      delete :destroy, user_id: user.id, channel_id: user.channel
+      expect(assigns[:channel]).to eq(user.channel)
+      expect(response.body).to include('not_following')
+      expect(response).to have_http_status(:success)
+      expect(user.all_following).not_to include(user.channel)
+    end
+  end
 end
