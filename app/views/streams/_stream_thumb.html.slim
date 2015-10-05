@@ -16,6 +16,6 @@
         .video-shortdes
           = truncate(stream.description, :length => 50)
         ul.video-actions
-          li.video-view 0
+          li.video-view = stream.view_count
           li.link-more
             = link_to "More Details", [stream.channel, stream]

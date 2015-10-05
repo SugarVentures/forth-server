@@ -17,7 +17,7 @@
                 = stream.start.strftime("%Y-%m-%d %H:%M")
               ul.video-actions
                 li.video-like 0
-                li.video-view 0
+                li.video-view = stream.view_count
                 li.video-comment 0
             h2.video-name = stream.title
             p.video-shortdes
