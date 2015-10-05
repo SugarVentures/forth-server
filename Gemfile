@@ -66,7 +66,7 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers', '~> 2.8', require: false
   gem 'faker'
   gem 'capybara'
   gem 'poltergeist'
