@@ -16,8 +16,8 @@ class Channel < ActiveRecord::Base
   after_initialize :set_default, if: :new_record?
 
   scope :search, -> (keyword) { where('LOWER(title) LIKE ? OR LOWER(description) LIKE ?', "%#{keyword.try(:downcase)}%", "%#{keyword.try(:downcase)}%") }
-  scope :popular, -> { order('created_at DESC').limit(10) }
-  scope :features, -> { order('created_at DESC').limit(1) }
+  scope :popular, -> { order('view_count DESC') }
+  scope :features, -> { order('created_at DESC')}
 
   private
 
