@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005092650) do
+ActiveRecord::Schema.define(version: 20151006092116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "ancestry"
+    t.string   "names_depth_cache"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "channels", force: :cascade do |t|
     t.string   "title",       default: "", null: false
@@ -62,9 +70,11 @@ ActiveRecord::Schema.define(version: 20151005092650) do
     t.string   "image"
     t.boolean  "temp"
     t.integer  "view_count",      default: 0
-    t.integer  "game"
+    t.string   "game"
+    t.integer  "category_id"
   end
 
+  add_index "streams", ["category_id"], name: "index_streams_on_category_id", using: :btree
   add_index "streams", ["deleted_at"], name: "index_streams_on_deleted_at", using: :btree
   add_index "streams", ["stream_key"], name: "index_streams_on_stream_key", using: :btree
 
@@ -87,6 +97,7 @@ ActiveRecord::Schema.define(version: 20151005092650) do
     t.datetime "updated_at",                               null: false
     t.string   "name",                     default: "",    null: false
     t.datetime "birthday"
+    t.integer  "min_age"
     t.string   "fb_id"
     t.string   "fabric_id"
     t.string   "fabric_auth_token"

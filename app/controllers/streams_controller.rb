@@ -14,6 +14,7 @@ class StreamsController < ApplicationController
     delete_temps if @channel.streams.where(temp: true).count > 1
     @stream = @channel.streams.find_by(temp: true)
     @stream = @channel.streams.create(new_stream) if @stream.nil?
+    @categories = Category.order(:id).map { |c| ['-' * c.depth + c.name, c.id] }
   end
 
   def show
@@ -21,6 +22,7 @@ class StreamsController < ApplicationController
   end
 
   def edit
+    @categories = Category.order(:names_depth_cache).map { |c| ['-' * c.depth + c.name, c.id] }
   end
 
   def update
@@ -82,7 +84,7 @@ class StreamsController < ApplicationController
   end
 
   def stream_params
-    params.require(:stream).permit(:title, :game, :start, :end, :stream_key, :view_mode, :age_restriction, :group, :discussion, :description, :image).merge(user: current_user).tap do |p|
+    params.require(:stream).permit(:title, :game, :start, :end, :stream_key, :view_mode, :age_restriction, :group, :discussion, :description, :image, :category_id).merge(user: current_user).tap do |p|
       p[:view_mode] = p[:view_mode].to_i if p[:view_mode]
     end
   end
