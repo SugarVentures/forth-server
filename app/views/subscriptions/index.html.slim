@@ -10,6 +10,7 @@
           ul.channels-list
             - @subscriptions.each do |channel|
               = render 'channels/channel', channel: channel
-              h3.h3=("Streams:")
-              = render 'streams/list', streams: channel.streams
+              - if channel.streams.length > 0
+                h3.h3=("Streams:")
+                = render 'streams/list', streams: channel.streams
               hr
