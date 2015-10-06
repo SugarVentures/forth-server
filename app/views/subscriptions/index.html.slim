@@ -1,8 +1,15 @@
-h2 Subscriptions
-
-- if @subscriptions.count > 0
-  .panel.block-chanels
-    .panel-heading
-      | Subscriprtions
-    .panel-body
-      = render 'channels/channel_thumb', channels: @subscriptions
+.row
+  .col-xs-12.col-sm-4.col-md-3
+    = render 'layouts/sidebar'
+  .col-xs-12.col-sm-8.col-md-9
+    .content-white
+      .page-header
+        h2 Subscriprtions
+      .content
+        - if @subscriptions.count > 0
+          ul.channels-list
+            - @subscriptions.each do |channel|
+              = render 'channels/channel', channel: channel
+              h3.h3=("Streams:")
+              = render 'streams/list', streams: channel.streams
+              hr

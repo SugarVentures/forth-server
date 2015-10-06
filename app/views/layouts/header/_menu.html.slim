@@ -13,7 +13,7 @@
         - if current_user.channel.present?
           = link_to 'My Channel', channel_path(current_user.channel)
       li
-        = link_to 'My Subscriptions', user_path(current_user)
+        = link_to 'My Subscriptions', user_subscriptions_path(current_user)
       li
         = link_to 'Popular', scoped_channels_path(scope: 'popular')
       li
