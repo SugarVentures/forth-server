@@ -17,7 +17,7 @@ class Channel < ActiveRecord::Base
 
   scope :search, -> (keyword) { where('LOWER(title) LIKE ? OR LOWER(description) LIKE ?', "%#{keyword.try(:downcase)}%", "%#{keyword.try(:downcase)}%") }
   scope :popular, -> { order('view_count DESC') }
-  scope :features, -> { order('created_at DESC')}
+  scope :features, -> { order('created_at DESC') }
 
   private
 
