@@ -11,6 +11,7 @@ class Stream < ActiveRecord::Base
   belongs_to :user
   has_many :videos
 
+  enum game: { Action: 1, Shooter: 2, Adventure: 4, RPG: 5, Simulation: 6, Strategy: 7, Sports: 8, Others: 99 }
   enum view_mode: [:Private, :Group, :Public]
 
   mount_uploader :image, ImageUploader

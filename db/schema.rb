@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151002065256) do
+ActiveRecord::Schema.define(version: 20151005092650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20151002065256) do
 
   create_table "streams", force: :cascade do |t|
     t.string   "title",           default: "", null: false
-    t.string   "game"
     t.datetime "start"
     t.datetime "end"
     t.string   "stream_key",      default: "", null: false
@@ -63,6 +62,7 @@ ActiveRecord::Schema.define(version: 20151002065256) do
     t.string   "image"
     t.boolean  "temp"
     t.integer  "view_count",      default: 0
+    t.integer  "game"
   end
 
   add_index "streams", ["deleted_at"], name: "index_streams_on_deleted_at", using: :btree
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20151002065256) do
     t.datetime "updated_at",                               null: false
     t.string   "name",                     default: "",    null: false
     t.datetime "birthday"
+    t.integer  "min_age"
     t.string   "fb_id"
     t.string   "fabric_id"
     t.string   "fabric_auth_token"

@@ -92,12 +92,12 @@ RSpec.describe StreamsController, type: :controller do
 
   describe 'PATCH #update' do
     it 'returns http 302' do
-      params = { id: stream.id, channel_id: user.channel.id, stream: { title: 'abc', game: 'game2' } }
+      params = { id: stream.id, channel_id: user.channel.id, stream: { title: 'abc', game: :Action } }
       patch :update, params
       expect(assigns[:channel].id).to eq(user.channel.id)
       stream.reload
       expect(stream.title).to eq('abc')
-      expect(stream.game).to eq('game2')
+      expect(stream.game).to eq('Action')
       expect(response).to have_http_status(302)
     end
   end
