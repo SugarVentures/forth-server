@@ -2,6 +2,7 @@ class StreamsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :check]
   before_action :set_stream, except: [:index, :new, :check]
   before_action :set_channel, except: :check
+  before_action :set_categories, only: [:new, :edit]
   before_action :authenticate_user_from_token!, if: :format_json?
   before_action :increment_counter, only: :show
 
@@ -14,7 +15,6 @@ class StreamsController < ApplicationController
     delete_temps if @channel.streams.where(temp: true).count > 1
     @stream = @channel.streams.find_by(temp: true)
     @stream = @channel.streams.create(new_stream) if @stream.nil?
-    @categories = Category.order(:id).map { |c| ['-' * c.depth + c.name, c.id] }
   end
 
   def show
@@ -22,7 +22,6 @@ class StreamsController < ApplicationController
   end
 
   def edit
-    @categories = Category.order(:names_depth_cache).map { |c| ['-' * c.depth + c.name, c.id] }
   end
 
   def update
@@ -71,6 +70,10 @@ class StreamsController < ApplicationController
 
   def set_stream
     @stream = Stream.find(params[:id])
+  end
+
+  def set_categories
+    @categories = Category.order(:id).map { |c| ['-' * c.depth + c.name, c.id] }
   end
 
   def delete_temps
