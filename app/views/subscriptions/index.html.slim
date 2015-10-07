@@ -7,10 +7,17 @@
         h2 Subscriprtions
       .content
         - if @subscriptions.count > 0
-          ul.channels-list
+          .channels-list
             - @subscriptions.each do |channel|
-              = render 'channels/channel', channel: channel
-              - if channel.streams.length > 0
-                h3.h3=("Streams:")
-                = render 'streams/list', streams: channel.streams
-              hr
+                - if channel.streams.length > 0
+                  - channel.streams.each do |stream|
+                    .item
+                      .channel-image.channel-thumb.margin-bottom-5
+                        - if channel.icon.present?
+                          = link_to image_tag(channel.icon.thumb.url, alt: channel.title), channel
+                        - else
+                          = link_to image_tag("icons/icon-user.jpg", alt: channel.title), channel
+                      .channel-des
+                        h3.channel-name
+                          = link_to channel.title, channel
+                      = render 'streams/stream', stream: stream, channel: channel
