@@ -36,6 +36,7 @@ RSpec.describe StreamsController, type: :controller do
       expect(assigns[:stream].id).not_to be_nil
       expect(assigns[:stream].temp).to eq(true)
       expect(assigns[:stream].stream_key).not_to be_nil
+      expect(assigns[:categories]).to be_kind_of(Array)
       expect(response).to have_http_status(:success)
     end
 
@@ -86,6 +87,7 @@ RSpec.describe StreamsController, type: :controller do
       get :edit, id: stream.id, channel_id: user.channel.id
       expect(assigns[:channel]).to eq(user.channel)
       expect(assigns[:stream]).to eq(stream)
+      expect(assigns[:categories]).to be_kind_of(Array)
       expect(response).to have_http_status(:success)
     end
   end
