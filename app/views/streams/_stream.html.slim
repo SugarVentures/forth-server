@@ -1,40 +1,32 @@
 .stream-item
   .inner
-    - if stream.user == current_user
-      h2.stream-name
-        = link_to stream.title, [channel, stream]
-      .stream-info
-        p= link_to stream.user.name, stream.user
-        p.stream-category.text-capitalize
-          strong="Game: "
-          = stream.game
-        p.stream-date
-          strong="Start at: "
-          - if stream.start.present?
-            = stream.start.strftime("%Y-%m-%d %H:%M")
-        p.stream-date
-          strong=" End at: "
-          - if stream.end.present?
-            = stream.end.strftime("%Y-%m-%d %H:%M")
-        - if current_user == channel.user
-          p.stream-key
-            strong="Key: "
-            = stream.stream_key
-    - else
-      h2.stream-name
-        = link_to stream.title, [channel, stream]
-      .stream-info
-        p= link_to stream.user.name, stream.user
-        p.stream-category.text-capitalize
-          strong="Game: "
-          = stream.game
-        p.stream-date
-          strong="Start at: "
-          = stream.start.strftime("%Y-%m-%d %H:%M")
-        p.stream-date
-          strong=" End at: "
-          = stream.end.strftime("%Y-%m-%d %H:%M")
-        - if current_user == channel.user
-          p.stream-key
-            strong="Key: "
-            = stream.stream_key
+    .row
+      .col-xs-12.col-sm-4.col-md-3
+        .stream-image
+          - if stream.image.present?
+            = link_to image_tag(stream.image.stream_cover.url, alt: "#{stream.title}"), [channel, stream]
+          - else
+            = link_to image_tag(stream.image.stream_cover.url, alt: "#{stream.title}"), [channel, stream]
+      .col-xs-12.col-sm-8.col-md-9
+        .stream-info
+          h2.stream-name
+            = link_to stream.title, [channel, stream]
+          .stream-info
+            p
+              strong="By: "
+              = link_to stream.user.name, stream.user
+            p.stream-category.text-capitalize
+              strong="Game: "
+              = stream.game
+            p.stream-date
+              strong="Start at: "
+              - if stream.start.present?
+                = stream.start.strftime("%Y-%m-%d %H:%M")
+              strong=" End at: "
+              - if stream.end.present?
+                = stream.end.strftime("%Y-%m-%d %H:%M")
+            - if current_user == channel.user
+              p.stream-key
+                strong="Key: "
+                = stream.stream_key
+

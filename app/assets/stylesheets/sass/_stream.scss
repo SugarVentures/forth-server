@@ -6,8 +6,17 @@
   margin: 0 0 5px;
 }
 
+img.stream-image,
+.stream-image img {
+  @extend .img-responsive;
+  display: inline-block;
+}
+
 .stream-item {
-  margin: 0 0 25px;
+  border-bottom: 1px solid $gray;
+  clear: both;
+  margin: 0 0 15px;
+  padding: 0 0 15px;
   .inner {
     padding: 0;
     .btn {
@@ -20,39 +29,6 @@
   }
 }
 
-.stream-list {
-  .stream-item {
-    .inner {
-      border: 1px solid $gray;
-      border-radius: 5px;
-      padding: 15px;
-      .col-md-9 {
-        border-right: 1px solid $gray;
-      }
-    }
-  }
-  @media (max-width: 1023px) {
-    .stream-item .inner {
-      .col-md-9 {
-        border-right: 0 none;
-      }
-    }
-  }
-}
-
-.search-content .stream-list {
-  border-bottom: 1px solid $gray;
-  margin: 0 0 15px;
-  padding: 0 0 15px;
-  .stream-item {
-    margin: 0;
-    .inner {
-      border: 0 none;
-      border-radius: 0;
-      padding: 0;
-    }
-  }
-}
 
 .page-header .stream-actions {
   float: right;
