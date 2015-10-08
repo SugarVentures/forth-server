@@ -19,6 +19,8 @@ class Stream < ActiveRecord::Base
   scope :search, -> (keyword) { where('LOWER(title) LIKE ? OR LOWER(description) LIKE ?', "%#{keyword.try(:downcase)}%", "%#{keyword.try(:downcase)}%") }
   scope :upcoming, -> { where('start > ?', Time.zone.today) }
   scope :past, -> { where('start < ?', Time.zone.today) }
+  scope :popular, -> { order('view_count DESC') }
+  scope :featured, -> { order('created_at DESC') }
 
   acts_as_paranoid
 

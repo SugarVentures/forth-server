@@ -1,0 +1,12 @@
+.row
+  .col-xs-12.col-sm-4.col-md-3
+    = render 'layouts/sidebar'
+  .col-xs-12.col-sm-8.col-md-9
+    .content-white
+      .page-header
+        h2 Live Streams
+      .content
+        - if @streams.count > 0
+          .stream-list
+            - @streams.each do |stream|
+              = render 'streams/stream', stream: stream, channel: stream.channel
