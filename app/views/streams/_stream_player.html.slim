@@ -1,10 +1,1 @@
-div id="streamPlayer"
-  .stream-player
-    img src="#{stream.image.url}" class="channel-banner" alt="#{stream.title}"
-    .stream-actions
-      = form_tag({}, {:method => :post}) do
-        -for header in request.env.select { |key, val| key.match("^HTTP.*") }
-          = hidden_field_tag "#{header[0]}", "#{header[1]}"
-
-        = submit_tag "Play", class: 'btn-video-play', id: 'playStream'
-      end
+video id="streamPlayer" class="video-js" controls="controls" preload="none" width="100%" height="100%" poster="#{stream.image.url}" data-setup='{"src": "https://www.youtube.com/watch?v=DrZfYbOr6sE"}'
