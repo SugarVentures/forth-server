@@ -15,14 +15,6 @@ aside.sidebar
               a href="#{user_path(current_user)}"
                 span Profile
           - if current_user.channel.present?
-            - if current_page?(channel_streams_path(current_user.channel))
-              li.link-livestream.active
-                a href="#{channel_streams_path(current_user.channel)}" class="active"
-                  span Live Streams
-            - else
-              li.link-livestream
-                a href="#{channel_streams_path(current_user.channel)}"
-                  span Live Streams
             - if current_page?(new_channel_stream_path(current_user.channel))
               li.link-createstream.active
                 a href="#{new_channel_stream_path(current_user.channel)}" class="active"
@@ -45,6 +37,14 @@ aside.sidebar
             a href="#{channels_path}" class="active"
               span Channel List
         - else
+          - if current_page?(live_streams_path)
+            li.link-livestream.active
+              a href="#{live_streams_path}" class="active"
+                span Live Streams
+          - else
+            li.link-livestream
+              a href="#{live_streams_path}"
+                span Live Streams
           li.link-channels
             a href="#{channels_path}"
               span Channel List
