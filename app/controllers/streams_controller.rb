@@ -1,13 +1,18 @@
 class StreamsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :check]
-  before_action :set_stream, except: [:index, :new, :check]
-  before_action :set_channel, except: :check
+  before_action :set_stream, except: [:index, :new, :check, :live]
+  before_action :set_channel, except: [:check, :live]
   before_action :set_categories, only: [:new, :edit]
   before_action :authenticate_user_from_token!, if: :format_json?
   before_action :increment_counter, only: :show
 
   def index
     @streams = @channel.streams.where(temp: false).includes(:user)
+    @streams = streams_scope
+  end
+
+  def live
+    @streams = Stream.all.where(temp: false)
     @streams = streams_scope
   end
 
@@ -58,7 +63,11 @@ class StreamsController < ApplicationController
     when 'upcoming'
       @streams.upcoming
     when 'past'
-      @streams.past
+      @streams.pas
+    when 'popular'
+      @streams.popular
+    when 'featured'
+      @streams.featured
     else
       @streams
     end
