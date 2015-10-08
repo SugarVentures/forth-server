@@ -1,33 +1,5 @@
 .col-xs-12.col-sm-4.col-md-3.video-channels
-  .item
-    = image_tag 'video-covers/upcoming.jpg', alt: 'Upcoming', class: 'video-poster'
-    .video-actions
-      .inner
-        h2.channel-name Upcoming
-        .channel-view 0
-        = link_to 'Play', scoped_channels_path(scope: 'popular'), class: 'btn-video-play'
-        p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-  .item
-    = image_tag 'video-covers/recommended.jpg', alt: 'Recommended', class: 'video-poster'
-    .video-actions
-      .inner
-        h2.channel-name Recommended
-        .channel-view 0
-        = link_to 'Play', scoped_channels_path(scope: 'popular'), class: 'btn-video-play'
-        p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-  .item
-    = image_tag 'video-covers/featured.jpg', alt: 'Featured', class: 'video-poster'
-    .video-actions
-      .inner
-        h2.channel-name Featured
-        .channel-view 0
-        = link_to 'Play', scoped_channels_path(scope: 'popular'), class: 'btn-video-play'
-        p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-  .item
-    = image_tag 'video-covers/popular.jpg', alt: 'popular', class: 'video-poster'
-    .video-actions
-      .inner
-        h2.channel-name Popular
-        .channel-view 0
-        = link_to 'Play', scoped_channels_path(scope: 'popular'), class: 'btn-video-play'
-        p.video-shortdes Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+  = render 'streams/stream_description', stream: @upcoming_stream, type: 'upcoming', title: 'Upcoming'
+  = render 'streams/stream_description', stream: @recommended_stream, type: 'recommended', title: 'Recommended'
+  = render 'streams/stream_description', stream: @featured_stream, type: 'featured', title: 'Featured'
+  = render 'streams/stream_description', stream: @popular_stream, type: 'popular', title: 'Popular'

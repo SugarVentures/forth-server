@@ -1,0 +1,12 @@
+.item
+  - if stream.image.present?
+    = image_tag stream.image.url, alt: "#{stream.title}", class: 'video-poster'
+  - else
+    = image_tag 'video-covers/upcoming.jpg', alt: "#{stream.title}", class: 'video-poster'
+  .video-actions
+    .inner
+      h2.channel-name
+        = link_to "#{title}", scoped_path(scope: "#{type}")
+      .channel-view = @upcoming_stream.view_count
+      = link_to "Play", [stream.channel, stream], class: 'btn-video-play'
+      p.video-shortdes = stream.description
