@@ -5,10 +5,10 @@ class ForthController < ApplicationController
 
   def index
     @streams = Stream.all.upcoming
-    @upcoming_stream = @streams.order("view_count DESC").first
-    @recommended_stream = Stream.all.order("view_count DESC").first
-    @featured_stream = Stream.all.order("view_count DESC").first
-    @popular_stream = Stream.all.order("view_count DESC").first
+    @upcoming_stream = @streams.order('view_count DESC').first
+    @recommended_stream = Stream.all.order('view_count DESC').first
+    @featured_stream = Stream.all.order('view_count DESC').first
+    @popular_stream = Stream.all.order('view_count DESC').first
   end
 
   def about
