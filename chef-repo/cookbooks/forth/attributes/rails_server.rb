@@ -1,5 +1,5 @@
 # rvm
-normal['rvm']['rubies'] = ['2.2.2']
+normal['rvm']['rubies'] = ['2.2.3']
 normal['rvm']['default_ruby'] = node['rvm']['rubies'].first
 normal['rvm']['user_default_ruby'] = node['rvm']['default_ruby']
 normal['rvm']['gems'][node['rvm']['default_ruby']] = [{name: "bundler"}, {name: "rake"}]
