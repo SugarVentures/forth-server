@@ -86,7 +86,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rack-test', require: 'rack/test'
   gem 'simplecov', require: false
-  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano', '~> 3.4'
   gem 'capistrano-rails', '~> 1.1.1'
   gem 'capistrano-rvm'
   gem 'rubocop'
