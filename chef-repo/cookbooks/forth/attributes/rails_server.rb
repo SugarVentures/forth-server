@@ -10,7 +10,7 @@ normal['rvm']['install_rubies'] = true
 
 
 # nginx
-normal['nginx']['version'] = '1.9.5'
+normal['nginx']['version'] = '1.8.0'
 normal['nginx']['dir'] = '/etc/nginx'
 normal['nginx']['log_dir'] = '/var/log/nginx'
 normal['nginx']['binary'] = "/opt/nginx-#{node['nginx']['version']}/sbin"
