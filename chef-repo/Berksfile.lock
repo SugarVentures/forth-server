@@ -3,6 +3,8 @@ DEPENDENCIES
   logrotate
   magic_shell
   nginx
+    git: https://github.com/krukgit/nginx.git
+    revision: 7949af23502800389503b6e861e074db4085f78f
   ntp
   rvm
     git: https://github.com/martinisoft/chef-rvm.git

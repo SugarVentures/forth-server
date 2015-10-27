@@ -29,12 +29,12 @@ normal['nginx']['source']['default_configure_flags'] = ["--prefix=#{node['nginx'
 normal['nginx']['source']['url'] = "http://nginx.org/download/nginx-#{node['nginx']['source']['version']}.tar.gz"
 
 # passenger
-normal['nginx']['passenger']['version'] = '5.0.16'
+normal['nginx']['passenger']['version'] = '5.0.21'
 normal['nginx']['passenger']['install_method'] = 'source'
 normal['nginx']['passenger']['ruby'] = "#{node['rvm']['root_path']}/wrappers/ruby-#{node['rvm']['default_ruby']}/ruby"
 normal['nginx']['passenger']['gem_binary'] = "#{node['rvm']['root_path']}/wrappers/ruby-#{node['rvm']['default_ruby']}/gem"
 normal['nginx']['passenger']['root'] = "#{node['rvm']['root_path']}/gems/ruby-#{node['rvm']['default_ruby']}/gems/passenger-#{node['nginx']['passenger']['version']}"
-normal['nginx']['configure_flags'] = ["--add-module=#{node['rvm']['root_path']}/gems/ruby-#{node['rvm']['default_ruby']}/gems/passenger-#{node['nginx']['passenger']['version']}/ext/nginx"]
+normal['nginx']['configure_flags'] = ["--add-module=#{node['rvm']['root_path']}/gems/ruby-#{node['rvm']['default_ruby']}/gems/passenger-#{node['nginx']['passenger']['version']}/src/nginx_module"]
 normal['nginx']['passenger']['packages']['debian'] = ["libcurl4-gnutls-dev"]
 
 # project
