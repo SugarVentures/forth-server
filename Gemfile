@@ -55,9 +55,6 @@ gem 'angular-rails-templates'
 # API
 gem 'active_model_serializers'
 
-# Monitoring
-gem 'newrelic_rpm'
-
 # C++ library extension
 # gem 'rbgccxml', '~> 1.0.4'
 # gem 'rbplusplus', '~> 1.2.1', path: './vendor/bundle/gems/rbplusplus'
